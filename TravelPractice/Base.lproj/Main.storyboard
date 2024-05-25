@@ -65,9 +65,8 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YY년 mm월 dd일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaH-zd-TdS">
-                                            <rect key="frame" x="234" y="355" width="123" height="18"/>
+                                            <rect key="frame" x="218" y="355" width="139" height="20.333333333333314"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="18" id="Cns-cQ-xuy"/>
                                                 <constraint firstAttribute="width" secondItem="CaH-zd-TdS" secondAttribute="height" multiplier="41:6" id="PTT-NR-sVr"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -87,10 +86,10 @@
                                         <constraint firstAttribute="trailing" secondItem="JAc-2U-Nhw" secondAttribute="trailing" constant="36" id="6FK-Pk-UN4"/>
                                         <constraint firstAttribute="trailing" secondItem="3jk-Yg-NMn" secondAttribute="trailing" constant="36" id="KTl-TG-lAy"/>
                                         <constraint firstItem="V8k-w6-9mM" firstAttribute="width" secondItem="3jk-Yg-NMn" secondAttribute="width" id="Src-Su-R1Y"/>
-                                        <constraint firstItem="CaH-zd-TdS" firstAttribute="top" secondItem="JAc-2U-Nhw" secondAttribute="bottom" id="Z8e-FJ-Aos"/>
                                         <constraint firstItem="V8k-w6-9mM" firstAttribute="leading" secondItem="10d-35-J7E" secondAttribute="leading" constant="36" id="c2T-ax-JEE"/>
                                         <constraint firstItem="V8k-w6-9mM" firstAttribute="top" secondItem="3jk-Yg-NMn" secondAttribute="bottom" constant="8" id="cLR-Fg-Zsq"/>
                                         <constraint firstItem="3jk-Yg-NMn" firstAttribute="top" secondItem="10d-35-J7E" secondAttribute="top" constant="12" id="cUg-TR-ajm"/>
+                                        <constraint firstItem="CaH-zd-TdS" firstAttribute="top" secondItem="JAc-2U-Nhw" secondAttribute="bottom" id="cqi-kE-aOr"/>
                                         <constraint firstAttribute="trailing" secondItem="CaH-zd-TdS" secondAttribute="trailing" constant="36" id="lvc-Un-cZG"/>
                                         <constraint firstItem="JAc-2U-Nhw" firstAttribute="top" secondItem="V8k-w6-9mM" secondAttribute="bottom" id="mA4-aE-Jw0"/>
                                         <constraint firstItem="JAc-2U-Nhw" firstAttribute="leading" secondItem="10d-35-J7E" secondAttribute="leading" constant="36" id="vKa-5S-y8a"/>
@@ -110,7 +109,8 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="MagaineTableViewTitle" destination="cE1-oB-PyQ" id="nAy-b1-pSw"/>
+                        <outlet property="MagazineTableViewTitle" destination="cE1-oB-PyQ" id="nAy-b1-pSw"/>
+                        <outlet property="titleView" destination="AK3-g7-jMq" id="OIF-Np-USG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4t-yA-P3I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

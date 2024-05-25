@@ -12,18 +12,21 @@ import Kingfisher
 class MagazineTableViewController: UITableViewController {
     
     
-    @IBOutlet weak var MagaineTableViewTitle: UILabel!
+    @IBOutlet weak var MagazineTableViewTitle: UILabel!
+    
+    @IBOutlet weak var titleView: UIView!
     
     var magazineList = MagazineList()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = 0
         
-        MagaineTableViewTitle.text = "SeSAC TRAVEL"
-        MagaineTableViewTitle.font = .boldSystemFont(ofSize: 20)
-        MagaineTableViewTitle.textAlignment = .center
+        MagazineTableViewTitle.text = "SeSAC TRAVEL"
+        MagazineTableViewTitle.font = .boldSystemFont(ofSize: 20)
+        MagazineTableViewTitle.textAlignment = .center
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,7 +53,7 @@ class MagazineTableViewController: UITableViewController {
             tableView.rowHeight = cell.frame.height
         }
         
-        cell.selectionStyle = .default
+        cell.selectionStyle = .none
         
         cell = setCellTitle(cell, text: row.title)
         cell = setCellSubTitle(cell, text: row.subtitle)
@@ -77,6 +80,8 @@ class MagazineTableViewController: UITableViewController {
     }
     
     func setCellDateLabel(_ cell: MagazineTableViewCell, date: String, before: String, after: String) -> MagazineTableViewCell {
+        
+        
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: Locale.current.identifier)
         dateFormatter.dateStyle = .long
@@ -87,6 +92,8 @@ class MagazineTableViewController: UITableViewController {
         }
         
         dateFormatter.dateFormat = after
+        
+        cell.dateLabel.font = .systemFont(ofSize: 12)
         cell.dateLabel.text = dateFormatter.string(from: newDate)
         
         return cell
@@ -97,19 +104,10 @@ class MagazineTableViewController: UITableViewController {
             return cell
         }
         print(url)
+        cell.travelImageView.contentMode = .scaleAspectFill
+        cell.travelImageView.layer.cornerRadius = cell.travelImageView.frame.height * 0.05
         cell.travelImageView.kf.setImage(with: url)
         
-//        cell.travelImageView.kf.indicatorType = .activity
-//        cell.travelImageView.kf.setImage(
-//            with: url,  // 이미지 불러올 url
-//            placeholder: UIImage(systemName: "photo"),  // 이미지 없을 때의 이미지 설정
-//            options: [
-//                .processor(processor),
-//                .scaleFactor(UIScreen.main.scale),
-//                //.transition(.fade(1)),  // 애니메이션 효과
-//                .cacheOriginalImage // 이미 캐시에 다운로드한 이미지가 있으면 가져오도록
-//            ])
-//        
         return cell
     }
 

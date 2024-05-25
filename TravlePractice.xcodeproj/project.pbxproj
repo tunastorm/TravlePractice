@@ -14,6 +14,8 @@
 		BCC523592C01B1E500DF080D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC523582C01B1E500DF080D /* Assets.xcassets */; };
 		BCC5235C2C01B1E500DF080D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BCC5235B2C01B1E500DF080D /* Base */; };
 		BCC523652C01B2AD00DF080D /* MagazineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC523642C01B2AD00DF080D /* MagazineInfo.swift */; };
+		BCC523682C01B35600DF080D /* MagazineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC523672C01B35600DF080D /* MagazineTableViewController.swift */; };
+		BCC5236A2C01B3C600DF080D /* MagazineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC523692C01B3C600DF080D /* MagazineTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		BCC5235B2C01B1E500DF080D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCC5235D2C01B1E500DF080D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCC523642C01B2AD00DF080D /* MagazineInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagazineInfo.swift; sourceTree = "<group>"; };
+		BCC523672C01B35600DF080D /* MagazineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineTableViewController.swift; sourceTree = "<group>"; };
+		BCC523692C01B3C600DF080D /* MagazineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 		BCC5234E2C01B1E400DF080D /* TravlePractice */ = {
 			isa = PBXGroup;
 			children = (
+				BCC523662C01B33D00DF080D /* Controller */,
 				BCC5234F2C01B1E400DF080D /* AppDelegate.swift */,
 				BCC523512C01B1E400DF080D /* SceneDelegate.swift */,
 				BCC523532C01B1E400DF080D /* ViewController.swift */,
@@ -76,6 +81,15 @@
 				BCC523642C01B2AD00DF080D /* MagazineInfo.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		BCC523662C01B33D00DF080D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BCC523672C01B35600DF080D /* MagazineTableViewController.swift */,
+				BCC523692C01B3C600DF080D /* MagazineTableViewCell.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,8 +163,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC523682C01B35600DF080D /* MagazineTableViewController.swift in Sources */,
 				BCC523542C01B1E400DF080D /* ViewController.swift in Sources */,
 				BCC523652C01B2AD00DF080D /* MagazineInfo.swift in Sources */,
+				BCC5236A2C01B3C600DF080D /* MagazineTableViewCell.swift in Sources */,
 				BCC523502C01B1E400DF080D /* AppDelegate.swift in Sources */,
 				BCC523522C01B1E400DF080D /* SceneDelegate.swift in Sources */,
 			);

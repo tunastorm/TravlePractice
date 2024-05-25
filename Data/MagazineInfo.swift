@@ -4,7 +4,16 @@
 //  Created by Den on 2024/01/08.
 //
 
-import Foundation
+import UIKit
+
+
+struct Magazine {
+    var title: String
+    var subtitle: String
+    var photo_image: String
+    var date: String
+    var link: String
+}
 
 struct MagazineInfo {
     let magazine: [Magazine] = [

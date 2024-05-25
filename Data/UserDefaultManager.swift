@@ -20,6 +20,7 @@ struct UserDefaultsManager {
     static var sectionList: [Section]?
 }
 
+
 @propertyWrapper
 struct UserDefaultWrapper<T: Codable> {
     private let key: String
@@ -47,5 +48,4 @@ struct UserDefaultWrapper<T: Codable> {
             }
         }
     }
-    
 }

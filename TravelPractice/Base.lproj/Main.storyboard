@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YCU-Qh-6Fk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ESe-cn-ifZ">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,7 +8,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Magazine Table View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="pyx-M9-Dhp">
+            <objects>
+                <tabBarController id="ESe-cn-ifZ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BrX-m8-ED5">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="YCU-Qh-6Fk" kind="relationship" relationship="viewControllers" id="8Gu-g1-FhP"/>
+                        <segue destination="fMj-Og-dkJ" kind="relationship" relationship="viewControllers" id="JWP-NH-e7R"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UD5-i5-pTO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1589" y="193"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="1jD-hy-Y8t">
             <objects>
                 <tableViewController id="YCU-Qh-6Fk" customClass="MagazineTableViewController" customModule="TravlePractice" customModuleProvider="target" sceneMemberID="viewController">
@@ -109,6 +127,7 @@
                             <outlet property="delegate" destination="YCU-Qh-6Fk" id="XMx-xn-2hT"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="S8w-n2-y83"/>
                     <connections>
                         <outlet property="MagazineTableViewTitle" destination="cE1-oB-PyQ" id="nAy-b1-pSw"/>
                         <outlet property="titleView" destination="AK3-g7-jMq" id="OIF-Np-USG"/>
@@ -118,19 +137,59 @@
             </objects>
             <point key="canvasLocation" x="-109.16030534351144" y="-82.394366197183103"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Item-->
         <scene sceneID="wmE-TV-0PO">
             <objects>
-                <tableViewController id="fMj-Og-dkJ" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="cgn-Im-KiK">
+                <tableViewController id="fMj-Og-dkJ" customClass="RestaurantsTableViewController" customModule="TravlePractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="cgn-Im-KiK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gh1-SP-3pl">
-                                <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchRestaurantTableViewCell" rowHeight="62" id="gh1-SP-3pl" customClass="SearchRestaurantTableViewCell" customModule="TravlePractice" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gh1-SP-3pl" id="OD3-UN-KEo">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="62"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ars-33-T1W">
+                                            <rect key="frame" x="20" y="12" width="307" height="38"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="aRd-XY-DqI"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEN-Nj-VfS">
+                                            <rect key="frame" x="335" y="12" width="38" height="38"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="wEN-Nj-VfS" secondAttribute="height" id="HaY-RC-62M"/>
+                                                <constraint firstAttribute="height" constant="35" id="eX0-Tm-dhN"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="wEN-Nj-VfS" firstAttribute="top" secondItem="OD3-UN-KEo" secondAttribute="top" constant="12" id="5AQ-fH-dnc"/>
+                                        <constraint firstItem="ars-33-T1W" firstAttribute="leading" secondItem="OD3-UN-KEo" secondAttribute="leading" constant="20" id="6dS-6l-Z51"/>
+                                        <constraint firstAttribute="trailing" secondItem="wEN-Nj-VfS" secondAttribute="trailing" constant="20" id="AaE-Cg-iE9"/>
+                                        <constraint firstAttribute="bottom" secondItem="wEN-Nj-VfS" secondAttribute="bottom" constant="12" id="Iv3-xU-yzc"/>
+                                        <constraint firstItem="wEN-Nj-VfS" firstAttribute="leading" secondItem="ars-33-T1W" secondAttribute="trailing" constant="8" id="Qvy-bs-JZw"/>
+                                        <constraint firstAttribute="bottom" secondItem="ars-33-T1W" secondAttribute="bottom" constant="12" id="oWn-Yq-Kb1"/>
+                                        <constraint firstItem="ars-33-T1W" firstAttribute="top" secondItem="OD3-UN-KEo" secondAttribute="top" constant="12" id="rGK-rN-Dmq"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="searchButton" destination="wEN-Nj-VfS" id="jfX-J0-X7Y"/>
+                                    <outlet property="searchTextfield" destination="ars-33-T1W" id="lYp-gb-2S3"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantTableViewCell" id="NfG-Fn-Tld" customClass="RestaurantTableViewCell" customModule="TravlePractice" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="117.33333206176758" width="393" height="44.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NfG-Fn-Tld" id="dn0-lg-ftq">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
@@ -141,10 +200,11 @@
                             <outlet property="delegate" destination="fMj-Og-dkJ" id="leq-9Q-Ohe"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="N2j-AH-6Zj"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEV-sA-2Qs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-109" y="594"/>
+            <point key="canvasLocation" x="-109.16030534351144" y="593.66197183098598"/>
         </scene>
     </scenes>
     <resources>

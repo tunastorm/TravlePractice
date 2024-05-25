@@ -8,13 +8,13 @@
 import Foundation
 
 
-struct Section {
+struct Section: Codable {
     let header: String
     let footer: String
     var rowSize: Int
 }
 
-struct restaurantSectionList {
+struct SectionList {
     private var sectionList: [Section]
     
     init() {
@@ -23,7 +23,7 @@ struct restaurantSectionList {
         } else {
             sectionList = [
                Section(header: " ", footer: " ", rowSize: 1),
-               Section(header: " ", footer: " ", rowSize: 4)
+               Section(header: " ", footer: " ", rowSize: 10)
             ]
             UserDefaultsManager.sectionList = self.sectionList
         }

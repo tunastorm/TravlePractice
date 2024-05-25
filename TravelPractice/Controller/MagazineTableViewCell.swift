@@ -14,6 +14,5 @@ class MagazineTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var travelImageView: UIImageView!
-    
-    
+
 }

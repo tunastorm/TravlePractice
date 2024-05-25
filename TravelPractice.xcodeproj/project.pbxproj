@@ -16,6 +16,9 @@
 		BCC523652C01B2AD00DF080D /* MagazineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC523642C01B2AD00DF080D /* MagazineInfo.swift */; };
 		BCC523682C01B35600DF080D /* MagazineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC523672C01B35600DF080D /* MagazineTableViewController.swift */; };
 		BCC5236A2C01B3C600DF080D /* MagazineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC523692C01B3C600DF080D /* MagazineTableViewCell.swift */; };
+		BCC5236C2C01B99900DF080D /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5236B2C01B99900DF080D /* UserDefaultManager.swift */; };
+		BCC5236E2C01BA6B00DF080D /* MagazineList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5236D2C01BA6B00DF080D /* MagazineList.swift */; };
+		BCC523712C01CCDD00DF080D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BCC523702C01CCDD00DF080D /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,8 @@
 		BCC523642C01B2AD00DF080D /* MagazineInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagazineInfo.swift; sourceTree = "<group>"; };
 		BCC523672C01B35600DF080D /* MagazineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineTableViewController.swift; sourceTree = "<group>"; };
 		BCC523692C01B3C600DF080D /* MagazineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineTableViewCell.swift; sourceTree = "<group>"; };
+		BCC5236B2C01B99900DF080D /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		BCC5236D2C01BA6B00DF080D /* MagazineList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC523712C01CCDD00DF080D /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,7 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				BCC523632C01B27600DF080D /* Data */,
-				BCC5234E2C01B1E400DF080D /* TravlePractice */,
+				BCC5234E2C01B1E400DF080D /* TravelPractice */,
 				BCC5234D2C01B1E400DF080D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,7 +66,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BCC5234E2C01B1E400DF080D /* TravlePractice */ = {
+		BCC5234E2C01B1E400DF080D /* TravelPractice */ = {
 			isa = PBXGroup;
 			children = (
 				BCC523662C01B33D00DF080D /* Controller */,
@@ -72,13 +78,15 @@
 				BCC5235A2C01B1E500DF080D /* LaunchScreen.storyboard */,
 				BCC5235D2C01B1E500DF080D /* Info.plist */,
 			);
-			path = TravlePractice;
+			path = TravelPractice;
 			sourceTree = "<group>";
 		};
 		BCC523632C01B27600DF080D /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				BCC523642C01B2AD00DF080D /* MagazineInfo.swift */,
+				BCC5236B2C01B99900DF080D /* UserDefaultManager.swift */,
+				BCC5236D2C01BA6B00DF080D /* MagazineList.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -108,6 +116,9 @@
 			dependencies = (
 			);
 			name = TravlePractice;
+			packageProductDependencies = (
+				BCC523702C01CCDD00DF080D /* Kingfisher */,
+			);
 			productName = TravlePractice;
 			productReference = BCC5234C2C01B1E400DF080D /* TravlePractice.app */;
 			productType = "com.apple.product-type.application";
@@ -127,7 +138,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BCC523472C01B1E400DF080D /* Build configuration list for PBXProject "TravlePractice" */;
+			buildConfigurationList = BCC523472C01B1E400DF080D /* Build configuration list for PBXProject "TravelPractice" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -136,6 +147,9 @@
 				Base,
 			);
 			mainGroup = BCC523432C01B1E400DF080D;
+			packageReferences = (
+				BCC5236F2C01CCDD00DF080D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = BCC5234D2C01B1E400DF080D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -168,7 +182,9 @@
 				BCC523652C01B2AD00DF080D /* MagazineInfo.swift in Sources */,
 				BCC5236A2C01B3C600DF080D /* MagazineTableViewCell.swift in Sources */,
 				BCC523502C01B1E400DF080D /* AppDelegate.swift in Sources */,
+				BCC5236E2C01BA6B00DF080D /* MagazineList.swift in Sources */,
 				BCC523522C01B1E400DF080D /* SceneDelegate.swift in Sources */,
+				BCC5236C2C01B99900DF080D /* UserDefaultManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +245,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				"DSTROOT[sdk=*]" = "/tmp/$(PROJECT_NAME).dst";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -321,7 +338,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TravlePractice/Info.plist;
+				INFOPLIST_FILE = TravelPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -332,11 +349,15 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tunastorm.TravlePractice;
+				PRODUCT_BUNDLE_IDENTIFIER = tunastorm.TravelPractice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -348,7 +369,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TravlePractice/Info.plist;
+				INFOPLIST_FILE = TravelPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -359,18 +380,22 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tunastorm.TravlePractice;
+				PRODUCT_BUNDLE_IDENTIFIER = tunastorm.TravelPractice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BCC523472C01B1E400DF080D /* Build configuration list for PBXProject "TravlePractice" */ = {
+		BCC523472C01B1E400DF080D /* Build configuration list for PBXProject "TravelPractice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BCC5235E2C01B1E500DF080D /* Debug */,
@@ -389,6 +414,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BCC5236F2C01CCDD00DF080D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BCC523702C01CCDD00DF080D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCC5236F2C01CCDD00DF080D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BCC523442C01B1E400DF080D /* Project object */;
 }

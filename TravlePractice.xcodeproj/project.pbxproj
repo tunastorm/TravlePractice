@@ -13,6 +13,7 @@
 		BCC523572C01B1E400DF080D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BCC523562C01B1E400DF080D /* Base */; };
 		BCC523592C01B1E500DF080D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC523582C01B1E500DF080D /* Assets.xcassets */; };
 		BCC5235C2C01B1E500DF080D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BCC5235B2C01B1E500DF080D /* Base */; };
+		BCC523652C01B2AD00DF080D /* MagazineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC523642C01B2AD00DF080D /* MagazineInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		BCC523582C01B1E500DF080D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCC5235B2C01B1E500DF080D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCC5235D2C01B1E500DF080D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCC523642C01B2AD00DF080D /* MagazineInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagazineInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		BCC523432C01B1E400DF080D = {
 			isa = PBXGroup;
 			children = (
+				BCC523632C01B27600DF080D /* Data */,
 				BCC5234E2C01B1E400DF080D /* TravlePractice */,
 				BCC5234D2C01B1E400DF080D /* Products */,
 			);
@@ -65,6 +68,14 @@
 				BCC5235D2C01B1E500DF080D /* Info.plist */,
 			);
 			path = TravlePractice;
+			sourceTree = "<group>";
+		};
+		BCC523632C01B27600DF080D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BCC523642C01B2AD00DF080D /* MagazineInfo.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCC523542C01B1E400DF080D /* ViewController.swift in Sources */,
+				BCC523652C01B2AD00DF080D /* MagazineInfo.swift in Sources */,
 				BCC523502C01B1E400DF080D /* AppDelegate.swift in Sources */,
 				BCC523522C01B1E400DF080D /* SceneDelegate.swift in Sources */,
 			);

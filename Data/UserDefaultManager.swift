@@ -12,6 +12,12 @@ import UIKit
 struct UserDefaultsManager {
     @UserDefaultWrapper(key: "magazineList", defaultValue: nil)
     static var magazineList: [Magazine]?
+    
+    @UserDefaultWrapper(key: "retaurantList", defaultValue: nil)
+    static var restaurantList: [Restaurant]?
+    
+    @UserDefaultWrapper(key: "sectionList", defaultValue: nil)
+    static var sectionList: [Section]?
 }
 
 @propertyWrapper

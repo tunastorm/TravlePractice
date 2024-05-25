@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC574FDD2C01EBDF0072E10F /* RestaurantCRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC574FDC2C01EBDF0072E10F /* RestaurantCRUD.swift */; };
+		BC574FDF2C01EBE40072E10F /* RestaurantsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC574FDE2C01EBE40072E10F /* RestaurantsList.swift */; };
+		BC574FE32C01ED090072E10F /* RestaurantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC574FE22C01ED090072E10F /* RestaurantsTableViewController.swift */; };
+		BC574FE52C01EDFA0072E10F /* sectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC574FE42C01EDFA0072E10F /* sectionList.swift */; };
 		BCC523502C01B1E400DF080D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5234F2C01B1E400DF080D /* AppDelegate.swift */; };
 		BCC523522C01B1E400DF080D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC523512C01B1E400DF080D /* SceneDelegate.swift */; };
 		BCC523542C01B1E400DF080D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC523532C01B1E400DF080D /* ViewController.swift */; };
@@ -22,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC574FDC2C01EBDF0072E10F /* RestaurantCRUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantCRUD.swift; sourceTree = "<group>"; };
+		BC574FDE2C01EBE40072E10F /* RestaurantsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsList.swift; sourceTree = "<group>"; };
+		BC574FE22C01ED090072E10F /* RestaurantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsTableViewController.swift; sourceTree = "<group>"; };
+		BC574FE42C01EDFA0072E10F /* sectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sectionList.swift; sourceTree = "<group>"; };
 		BCC5234C2C01B1E400DF080D /* TravlePractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravlePractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC5234F2C01B1E400DF080D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC523512C01B1E400DF080D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,9 +92,12 @@
 		BCC523632C01B27600DF080D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				BC574FDE2C01EBE40072E10F /* RestaurantsList.swift */,
+				BC574FDC2C01EBDF0072E10F /* RestaurantCRUD.swift */,
 				BCC523642C01B2AD00DF080D /* MagazineInfo.swift */,
 				BCC5236B2C01B99900DF080D /* UserDefaultManager.swift */,
 				BCC5236D2C01BA6B00DF080D /* MagazineList.swift */,
+				BC574FE42C01EDFA0072E10F /* sectionList.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -96,6 +107,7 @@
 			children = (
 				BCC523672C01B35600DF080D /* MagazineTableViewController.swift */,
 				BCC523692C01B3C600DF080D /* MagazineTableViewCell.swift */,
+				BC574FE22C01ED090072E10F /* RestaurantsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -177,11 +189,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC574FE52C01EDFA0072E10F /* sectionList.swift in Sources */,
 				BCC523682C01B35600DF080D /* MagazineTableViewController.swift in Sources */,
+				BC574FE32C01ED090072E10F /* RestaurantsTableViewController.swift in Sources */,
+				BC574FDD2C01EBDF0072E10F /* RestaurantCRUD.swift in Sources */,
 				BCC523542C01B1E400DF080D /* ViewController.swift in Sources */,
 				BCC523652C01B2AD00DF080D /* MagazineInfo.swift in Sources */,
 				BCC5236A2C01B3C600DF080D /* MagazineTableViewCell.swift in Sources */,
 				BCC523502C01B1E400DF080D /* AppDelegate.swift in Sources */,
+				BC574FDF2C01EBE40072E10F /* RestaurantsList.swift in Sources */,
 				BCC5236E2C01BA6B00DF080D /* MagazineList.swift in Sources */,
 				BCC523522C01B1E400DF080D /* SceneDelegate.swift in Sources */,
 				BCC5236C2C01B99900DF080D /* UserDefaultManager.swift in Sources */,

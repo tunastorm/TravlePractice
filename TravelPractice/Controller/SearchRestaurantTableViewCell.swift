@@ -9,9 +9,5 @@ import UIKit
 
 class SearchRestaurantTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var searchTextfield: UITextField!
-    
-    @IBOutlet weak var searchButton: UIButton!
-    
 
 }

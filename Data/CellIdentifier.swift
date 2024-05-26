@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CellIdentifiers: String, CaseIterable {
+enum CellIdentifier: String, CaseIterable {
     case MagazineTableViewCell
     case RestaurantTableViewCell
     case SearchRestaurantTableViewCell

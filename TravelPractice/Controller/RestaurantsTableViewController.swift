@@ -9,18 +9,47 @@ import UIKit
 
 class RestaurantsTableViewController: UITableViewController {
     
-    var retaurantCRUD = RestaurantCRUD()
     
+    @IBOutlet weak var searchNavigationBar: UINavigationItem!
+    
+    @IBOutlet weak var barButtonItem: UIBarButtonItem!
+    
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var likeListButton: UIButton!
+    
+    var retaurantCRUD = RestaurantCRUD()
     var sectionList = SectionList()
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        changeStatusBarBgColor(bgColor: UIColor.white)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.backgroundColor = .white
+            navigationBar.barTintColor = .white
+            navigationBar.tintColor = .black
+        }
         
-        navigationItem.title = "맛집 리스트"
-        tableView.rowHeight = 60
+   
+        
+    
+        if let tabBar = tabBarController?.tabBar {
+            tabBar.backgroundColor = .white
+            tabBar.barTintColor = .white
+        }
+        
+        // tableView.rowHeight = 70
         tableView.separatorStyle = .none
         tableView.separatorColor = .gray
         tableView.backgroundColor = .systemGray6
+        tableView.sectionHeaderTopPadding = 5
+        tableView.sectionHeaderHeight = 5
+        tableView.sectionFooterHeight = 5
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -38,18 +67,18 @@ class RestaurantsTableViewController: UITableViewController {
         
         var cell = UITableViewCell()
         if section == 0 {
-            let identifier = CellIdentifiers.SearchRestaurantTableViewCell.describe
+            let identifier = CellIdentifier.SearchRestaurantTableViewCell.describe
             cell = tableView.dequeueReusableCell(withIdentifier:
                                                  identifier,for: indexPath) as! SearchRestaurantTableViewCell
             cell = setSerchViewCell(cell as! SearchRestaurantTableViewCell, row: row)
         } else if section == 1 {
-            let identifier = CellIdentifiers.RestaurantTableViewCell.describe
+            let identifier = CellIdentifier.RestaurantTableViewCell.describe
             cell = tableView.dequeueReusableCell(withIdentifier: identifier,
                                                     for: indexPath) as! RestaurantTableViewCell
             cell = setShoppingTableViewCells(cell as! RestaurantTableViewCell, section: section, row: row)
         }
         
-        cell.selectionStyle = .default
+        cell.selectionStyle = .none
         cell.backgroundColor = .white
         cell.tintColor = .black
         cell.textLabel?.font = .systemFont(ofSize: 12)
@@ -57,21 +86,55 @@ class RestaurantsTableViewController: UITableViewController {
         return cell
     }
     
+    
+    func changeStatusBarBgColor(bgColor: UIColor?) {
+        /* 출처
+         * https://growup-lee.tistory.com/entry/Swift-Status-Bar-Background-Color-%EB%B3%80%EA%B2%BD
+         */
+   
+        if #available(iOS 13.0, *) {
+            let window = UIApplication.shared.windows.first
+            let statusBarManager = window?.windowScene?.statusBarManager
+            
+            let statusBarView = UIView(frame: statusBarManager?.statusBarFrame ?? .zero)
+            statusBarView.backgroundColor = bgColor
+            
+            window?.addSubview(statusBarView)
+        } else {
+            let statusBarView = UIApplication.shared.value(forKey: "statusBar") as? UIView
+            statusBarView?.backgroundColor = bgColor
+        }
+    }
+    
+    
+    func setSearchBar() {
+        searchTextField.placeholder = Placeholder.restuarantSearch.get()
+        searchTextField.backgroundColor = .systemGray6
+        searchTextField.borderStyle = .none
+        
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: searchTextField.frame.height))
+        searchTextField.leftView = paddingView
+        searchTextField.leftViewMode = UITextField.ViewMode.always
+        searchTextField.layer.cornerRadius = searchTextField.frame.height * 0.1
+
+        likeListButton.tag = 0
+        likeListButton.layer.cornerRadius = likeListButton.frame.height * 0.1
+        likeListButton.setTitle("", for: .normal)
+        likeListButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        likeListButton.backgroundColor = .white
+        likeListButton.addTarget(self, action: #selector(likeListButtonClicked), for: .touchUpInside)
+    }
+    
+    
     func setSerchViewCell(_ cell: SearchRestaurantTableViewCell, row: Int) -> SearchRestaurantTableViewCell{
-        cell.searchTextField.placeholder = searchBarTitles[0]
-        cell.searchTextField.backgroundColor = .systemGray6
-        cell.searchTextField.borderStyle = .none
-//        
-//        cell.searchButton.tag = row
-//        cell.searchButton.layer.cornerRadius = cell.searchButton.frame.height * 0.1
-//        cell.searchButton.setTitle(searchBarTitles[1], for: .normal)
-//        cell.searchButton.backgroundColor = .systemGray5
-//        cell.searchButton.addTarget(self, action: #selector(searchButtonClicked), for: .touchUpInside)
         
         return cell
     }
     
     func setShoppingTableViewCells(_ cell : RestaurantTableViewCell, section: Int, row index: Int) -> RestaurantTableViewCell{
+        
+          
+        
 //        let row = restaurantCRUD.getTodo(at: index)
 //        
 //        cell.todoLabel.text = row.action
@@ -94,16 +157,22 @@ class RestaurantsTableViewController: UITableViewController {
         return cell
     }
     
-//    @objc func searchButtonClicked(_ sender: UIButton) {
-//        
+    
+    
+       
+    @objc func likeListButtonClicked(_ sender: UIButton) {
+        
 //        let indexPath = IndexPath(row: sender.tag, section:0)
-//        
-//        let cell = tableView.cellForRow(at: indexPath) as! SearchTableViewCell
-//
-//        
-//        
-//            tableView.reloadData()
-//        }
+        
+//        let cell = tableView.cellForRow(at: indexPath) as! SearchRestaurantTableViewCell
+        
+        let searchText = searchTextField.text
+        
+        
+        tableView.reloadData()
+    }
+    
+    
 //    }
     
 //    // Event: Push Up Inside

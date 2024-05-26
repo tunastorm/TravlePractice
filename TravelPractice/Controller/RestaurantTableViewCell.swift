@@ -9,6 +9,13 @@ import UIKit
 
 class RestaurantTableViewCell: UITableViewCell {
 
- 
-
+    @IBOutlet weak var restaurantImage: UIImageView!
+    
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    
+    @IBOutlet weak var likeButton: UIButton!
+    
 }

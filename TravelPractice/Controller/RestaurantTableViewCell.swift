@@ -14,6 +14,7 @@ class RestaurantTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
     @IBOutlet weak var likeButton: UIButton!

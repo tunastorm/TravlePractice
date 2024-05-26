@@ -16,6 +16,12 @@ struct UserDefaultsManager {
     @UserDefaultWrapper(key: "retaurantList", defaultValue: nil)
     static var restaurantList: [Restaurant]?
     
+    @UserDefaultWrapper(key: "searchedRetaurantList", defaultValue: nil)
+    static var searchedRestaurantList: [Restaurant]?
+    
+    @UserDefaultWrapper(key: "likedRetaurantList", defaultValue: nil)
+    static var likedRestaurantList: [Restaurant]?
+    
     @UserDefaultWrapper(key: "sectionList", defaultValue: nil)
     static var sectionList: [Section]?
 }

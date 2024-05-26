@@ -9,5 +9,6 @@ import UIKit
 
 class SearchRestaurantTableViewCell: UITableViewCell {
 
-
+    @IBOutlet weak var currentKeywordLabel: UILabel!
+    
 }

@@ -45,9 +45,10 @@ class MagazineTableViewController: UITableViewController {
         
         let row = magazineList.getmagazine(at: rowIndex)
         
-        print("[cell_\(rowIndex)]\n\(row)")
+//        print("[cell_\(rowIndex)]\n\(row)")
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "MagazineTableViewCell", for: indexPath) as! MagazineTableViewCell
+        let identifier = CellIdentifier.MagazineTableViewCell.describe
+        var cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MagazineTableViewCell
         
         if tableView.rowHeight == 0 {
             tableView.rowHeight = cell.frame.height
@@ -103,10 +104,10 @@ class MagazineTableViewController: UITableViewController {
         guard let url = URL(string: imageURL) else {
             return cell
         }
-        print(url)
         cell.travelImageView.contentMode = .scaleAspectFill
         cell.travelImageView.layer.cornerRadius = cell.travelImageView.frame.height * 0.05
-        cell.travelImageView.kf.setImage(with: url)
+        cell.travelImageView.kf.setImage(with: url,
+                                         placeholder: UIImage(systemName: "camera"))
         
         return cell
     }

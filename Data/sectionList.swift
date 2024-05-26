@@ -21,13 +21,14 @@ struct SectionList {
         if let list = UserDefaultsManager.sectionList {
             self.sectionList = list
         } else {
+            let restaurantSize = RestaurantCRUD().getCount()
             sectionList = [
                Section(header: " ", footer: " ", rowSize: 1),
-               Section(header: " ", footer: " ", rowSize: 10)
+               Section(header: " ", footer: " ", rowSize: restaurantSize)
             ]
             UserDefaultsManager.sectionList = self.sectionList
         }
-        print(sectionList.count)
+        print("sectionList: \(sectionList.count)")
         print(sectionList)
     }
     

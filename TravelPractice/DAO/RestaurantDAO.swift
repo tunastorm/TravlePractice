@@ -55,6 +55,7 @@ struct RestaurantDAO {
         isSearchResult = UserDefaults.standard.bool(forKey: "isSearchResult")
         print("loaded_isSearchResult: \(isSearchResult)")
         isLikeResult = UserDefaults.standard.bool(forKey: "isLikedResult")
+        //clearUserDefaults()
         
         print("searchedWordList: \(searchedWordList)")
         print("searchedArray: \(searchedArray.count)")
@@ -62,11 +63,10 @@ struct RestaurantDAO {
     }
     
     func clearUserDefaults() {
-        UserDefaultsManager.restaurantList = nil
-        UserDefaultsManager.likedRestaurantList = nil
-        UserDefaultsManager.searchedRestaurantList = nil
-        UserDefaultsManager.sectionList = nil
-        
+        UserDefaultsManager.restaurantList = []
+        UserDefaultsManager.likedRestaurantList = []
+        UserDefaultsManager.searchedRestaurantList = []
+        UserDefaultsManager.sectionList = []
     }
     
     func getCount() -> Int{

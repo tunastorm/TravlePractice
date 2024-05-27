@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RestaurantCRUD {
+struct RestaurantDAO {
     
     private var restaurantArray: [Restaurant]
     private var searchedArray: [Restaurant]
@@ -55,11 +55,17 @@ struct RestaurantCRUD {
         isSearchResult = UserDefaults.standard.bool(forKey: "isSearchResult")
         print("loaded_isSearchResult: \(isSearchResult)")
         isLikeResult = UserDefaults.standard.bool(forKey: "isLikedResult")
-    
+        
         print("searchedWordList: \(searchedWordList)")
         print("searchedArray: \(searchedArray.count)")
         print("restaurantArray: \(restaurantArray.count)")
-        
+    }
+    
+    func clearUserDefaults() {
+        UserDefaultsManager.restaurantList = nil
+        UserDefaultsManager.likedRestaurantList = nil
+        UserDefaultsManager.searchedRestaurantList = nil
+        UserDefaultsManager.sectionList = nil
         
     }
     
@@ -122,10 +128,10 @@ struct RestaurantCRUD {
                 appendSearchArray(restaurant)
                 continue
             }
-//            if String(restaurant.price).contains(word) {
-//                appendSearchArray(restaurant)
-//                continue
-//            }
+            if String(restaurant.price).contains(word) {
+                appendSearchArray(restaurant)
+                continue
+            }
         }
             
         if let oldList = UserDefaults.standard.array(forKey: "searchedWordList") as! [String]?,

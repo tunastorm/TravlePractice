@@ -16,7 +16,7 @@ class MagazineTableViewController: UITableViewController {
     
     @IBOutlet weak var titleView: UIView!
     
-    var magazineList = MagazineList()
+    var magazineList = MagazineDAO()
     
     
     override func viewDidLoad() {
@@ -53,9 +53,7 @@ class MagazineTableViewController: UITableViewController {
         if tableView.rowHeight == 0 {
             tableView.rowHeight = cell.frame.height
         }
-        
-        cell.selectionStyle = .none
-        
+
         cell = setCellTitle(cell, text: row.title)
         cell = setCellSubTitle(cell, text: row.subtitle)
         cell = setCellDateLabel(cell, date: row.date, before: "yyMMdd", after: "yy년 MM월 d일")
@@ -81,7 +79,6 @@ class MagazineTableViewController: UITableViewController {
     }
     
     func setCellDateLabel(_ cell: MagazineTableViewCell, date: String, before: String, after: String) -> MagazineTableViewCell {
-        
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: Locale.current.identifier)

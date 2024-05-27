@@ -11,4 +11,14 @@ class SearchRestaurantTableViewCell: UITableViewCell {
 
     @IBOutlet weak var currentKeywordLabel: UILabel!
     
+    func configLayout() {
+        currentKeywordLabel.font = .boldSystemFont(ofSize: 15)
+        currentKeywordLabel.textAlignment = .left
+    }
+    
+    func configCell() {
+        currentKeywordLabel.text = "최근 검색어"
+        
+    }
+    
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct MagazineList {
+struct MagazineDAO {
     
     private var magazineList: [Magazine]
     

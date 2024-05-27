@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Placeholder{
+enum Placeholder {
     case restuarantSearch
     
     func get() -> String {

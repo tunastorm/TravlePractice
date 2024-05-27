@@ -14,14 +14,14 @@ struct Section: Codable {
     var rowSize: Int
 }
 
-struct SectionList {
+struct SectionDAO {
     private var sectionList: [Section]
     
     init() {
         if let list = UserDefaultsManager.sectionList {
             self.sectionList = list
         } else {
-            let restaurantSize = RestaurantCRUD().getCount()
+            let restaurantSize = RestaurantDAO().getCount()
             sectionList = [
                Section(header: " ", footer: " ", rowSize: 1),
                Section(header: " ", footer: " ", rowSize: restaurantSize)

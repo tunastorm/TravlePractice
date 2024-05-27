@@ -63,7 +63,7 @@
         <scene sceneID="izR-L6-slY">
             <objects>
                 <navigationController id="8TH-FL-dHe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Restaurant" id="sqp-ns-S5b"/>
+                    <tabBarItem key="tabBarItem" title="Restaurant" image="fork.knife.circle" catalog="system" id="sqp-ns-S5b"/>
                     <value key="contentSizeForViewInPopover" type="size" width="0.0" height="70"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b0C-el-XLZ">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
@@ -206,10 +206,20 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchRestaurantTableViewCell" rowHeight="80" id="gh1-SP-3pl" customClass="SearchRestaurantTableViewCell" customModule="TravlePractice" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="56.333332061767578" width="390" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gh1-SP-3pl" id="OD3-UN-KEo" customClass="SearchRestaurantTableViewCell" customModule="TravlePractice" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gh1-SP-3pl" id="OD3-UN-KEo">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="currentKeyword" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWc-Op-sx4">
+                                            <rect key="frame" x="20" y="12" width="122" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="oWc-Op-sx4" secondAttribute="height" multiplier="61:10" id="fqJ-zE-q5x"/>
+                                                <constraint firstAttribute="height" constant="20" id="rwZ-W5-HzV"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8P-rU-4nL">
                                             <rect key="frame" x="20" y="33" width="350" height="35"/>
                                             <subviews>
@@ -224,16 +234,6 @@
                                                 <constraint firstAttribute="width" secondItem="M8P-rU-4nL" secondAttribute="height" multiplier="353:35" id="jPM-cL-LlP"/>
                                             </constraints>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="currentKeyword" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWc-Op-sx4">
-                                            <rect key="frame" x="20" y="12" width="122" height="20"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="oWc-Op-sx4" secondAttribute="height" multiplier="61:10" id="fqJ-zE-q5x"/>
-                                                <constraint firstAttribute="height" constant="20" id="rwZ-W5-HzV"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="oWc-Op-sx4" firstAttribute="top" secondItem="OD3-UN-KEo" secondAttribute="top" constant="12" id="Gxo-Os-hBy"/>
@@ -354,7 +354,7 @@
                                 <connections>
                                     <outlet property="addressLabel" destination="hmm-aQ-p2l" id="Oc1-Mb-EqI"/>
                                     <outlet property="categoryLabel" destination="Lb7-rw-TY2" id="uFW-2h-g0v"/>
-                                    <outlet property="likeButton" destination="fvf-ry-sxF" id="XgG-rD-XS7"/>
+                                    <outlet property="likeButton" destination="fvf-ry-sxF" id="m6n-Vu-VLb"/>
                                     <outlet property="nameLabel" destination="PD1-eg-QC3" id="rWF-L9-e0j"/>
                                     <outlet property="phoneNumberLabel" destination="uhe-pP-rL9" id="Oqh-jB-TAI"/>
                                     <outlet property="priceLabel" destination="Qco-26-DPY" id="iOH-we-JPC"/>
@@ -378,7 +378,7 @@
                                 <buttonConfiguration key="configuration" style="plain"/>
                             </button>
                         </barButtonItem>
-                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="ars-33-T1W">
+                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="ars-33-T1W">
                             <rect key="frame" x="109.00000000000001" y="5" width="208.33333333333337" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -403,13 +403,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEV-sA-2Qs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-109" y="1327"/>
+            <point key="canvasLocation" x="-109.23076923076923" y="1326.5402843601896"/>
         </scene>
         <!--HotCity-->
         <scene sceneID="b7h-v1-0dr">
             <objects>
                 <navigationController id="j0K-7n-Lvy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="HotCity" id="7oN-Bf-0ck"/>
+                    <tabBarItem key="tabBarItem" title="HotCity" image="star" catalog="system" id="7oN-Bf-0ck"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GTO-wC-9i8">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -426,7 +426,7 @@
         <scene sceneID="ZYK-LR-UDN">
             <objects>
                 <navigationController id="VtR-3g-Cp1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Travel" id="1b7-Z8-9sl"/>
+                    <tabBarItem key="tabBarItem" title="Travel" image="bag" catalog="system" id="1b7-Z8-9sl"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VFI-5c-jOf">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -441,7 +441,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bag" catalog="system" width="128" height="128"/>
+        <image name="fork.knife.circle" catalog="system" width="128" height="123"/>
         <image name="heart.square" catalog="system" width="128" height="114"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

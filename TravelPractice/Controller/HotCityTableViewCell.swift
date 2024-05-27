@@ -67,6 +67,7 @@ class HotCityTableViewCell: UITableViewCell {
         guard let image = data.travel_image else {
             return
         }
+        
         let url = URL(string: image)
         mainImageView.kf.setImage(with: url,
                                   placeholder: UIImage(systemName: "camera"))

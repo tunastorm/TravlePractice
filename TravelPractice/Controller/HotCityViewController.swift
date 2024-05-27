@@ -17,22 +17,12 @@ class HotCityViewController: UIViewController ,UITableViewDelegate,UITableViewDa
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = UITableView.automaticDimension
         
         let hotCityXIB = UINib(nibName: "HotCityTableViewCell", bundle: nil)
         let adXIB = UINib(nibName: "AdTableViewCell", bundle: nil)
         tableView.register(hotCityXIB, forCellReuseIdentifier: "HotCityTableViewCell")
         tableView.register(adXIB, forCellReuseIdentifier: "AdTableViewCell")
-        let topTitle = UILabel(frame:CGRect(x: 0, y: 0, width: 362, height: 40))
-        topTitle.text = "도시 상세 정보"
-        topTitle.textColor = .black
-        topTitle.textAlignment = .center
-        topTitle.font = .boldSystemFont(ofSize: 20)
-        let titleView = UIView(frame:CGRect(x: 0, y: 0, width: 362, height: 40))
-        titleView.addSubview(topTitle)
-        titleView.bringSubviewToFront(topTitle)
-        navigationItem.titleView = titleView
-        
+        navigationItem.setLayoutFortopTitle(title: "도시 상세 정보", width: 362, height: 40)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

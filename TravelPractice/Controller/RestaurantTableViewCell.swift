@@ -49,7 +49,6 @@ class RestaurantTableViewCell: UITableViewCell {
         priceLabel.textAlignment = .left
         priceLabel.font = .systemFont(ofSize: 10)
         priceLabel.textColor = .gray
-        
     }
     
     func configCell(_ row: Restaurant, rowIndex: Int) {
@@ -70,12 +69,13 @@ class RestaurantTableViewCell: UITableViewCell {
         phoneNumberLabel.text = row.phoneNumber
         
         priceLabel.text = "평균 " + row.price.formatted() + "원"
-        //
+        
         likeButton.tag = rowIndex
         let image = row.like ? "heart.fill" : "heart"
         if row.like {
             likeButton.tintColor = .systemRed
         }
         likeButton.setImage(UIImage(systemName: image), for: .normal)
+        
     }
 }

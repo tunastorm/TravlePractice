@@ -42,6 +42,7 @@
 		BCE3B4B52C04A77400333310 /* AdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE3B4B32C04A77400333310 /* AdTableViewCell.xib */; };
 		BCE3B4B82C04A7C000333310 /* HotCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3B4B62C04A7C000333310 /* HotCityTableViewCell.swift */; };
 		BCE3B4B92C04A7C000333310 /* HotCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE3B4B72C04A7C000333310 /* HotCityTableViewCell.xib */; };
+		BCE3B4BB2C04DE9900333310 /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3B4BA2C04DE9900333310 /* UINavigationItem+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		BCE3B4B32C04A77400333310 /* AdTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdTableViewCell.xib; sourceTree = "<group>"; };
 		BCE3B4B62C04A7C000333310 /* HotCityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotCityTableViewCell.swift; sourceTree = "<group>"; };
 		BCE3B4B72C04A7C000333310 /* HotCityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotCityTableViewCell.xib; sourceTree = "<group>"; };
+		BCE3B4BA2C04DE9900333310 /* UINavigationItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				BC5750192C0467E70072E10F /* UIButton+Extension.swift */,
 				BCE3B4AA2C0488A200333310 /* UILabel+Extension.swift */,
 				BCE3B4AC2C0489C300333310 /* UIImageView+Extension.swift */,
+				BCE3B4BA2C04DE9900333310 /* UINavigationItem+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			files = (
 				BC574FE52C01EDFA0072E10F /* sectionDAO.swift in Sources */,
 				BCE3B4A32C04745700333310 /* HotCityViewController.swift in Sources */,
+				BCE3B4BB2C04DE9900333310 /* UINavigationItem+Extension.swift in Sources */,
 				BC57500A2C0461250072E10F /* UITableView+Extension.swift in Sources */,
 				BCC523682C01B35600DF080D /* MagazineTableViewController.swift in Sources */,
 				BC57500E2C0462980072E10F /* UITabBarController+Extension.swift in Sources */,

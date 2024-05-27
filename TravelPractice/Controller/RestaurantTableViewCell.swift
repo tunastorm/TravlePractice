@@ -72,9 +72,8 @@ class RestaurantTableViewCell: UITableViewCell {
         
         likeButton.tag = rowIndex
         let image = row.like ? "heart.fill" : "heart"
-        if row.like {
-            likeButton.tintColor = .systemRed
-        }
+        let color = row.like ? UIColor.systemRed : UIColor.black
+        likeButton.tintColor = color
         likeButton.setImage(UIImage(systemName: image), for: .normal)
         
     }

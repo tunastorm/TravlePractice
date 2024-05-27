@@ -52,20 +52,19 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
 //        }
 //        
 //        return sectionDao.getSection(at: section).rowSize
-        if searchIdxList.count > 0{
-            for idx in searchIdxList {
-                searchList.append(list[idx])
-            }
-        }
-        
         var rowSize = 0
         
         if section == 0 {
             rowSize = 1
         } else if section == 1 {
+            if searchIdxList.count > 0 {
+                for idx in searchIdxList {
+                    searchList.append(list[idx])
+                }
+            }
             rowSize = searchList.count
         }
-        
+        print("rowSize: \(rowSize)")
         return rowSize
     }
     
@@ -196,11 +195,14 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
 //        dao.updateLike(at: sender.tag)
         
         print("좋아요 누른 버튼 row: \(sender.tag)")
+        print("searchIdxList: \(searchIdxList)")
+        print("searchList: \(searchList)")
         
         let idx = searchList[sender.tag].idx
         
         list[idx].like.toggle()
-    
+        
+        searchList.removeAll()
         let indexPaths = [IndexPath(row: sender.tag, section:1)]
         tableView.reloadRows(at:indexPaths, with: .none)
     }

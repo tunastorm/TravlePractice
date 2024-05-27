@@ -11,6 +11,15 @@ class SearchRestaurantTableViewCell: UITableViewCell {
 
     @IBOutlet weak var currentKeywordLabel: UILabel!
     
+    @IBOutlet weak var scrollViewBase: UIView!
+    
+    lazy var horizontalScrollView: HorizontalScrollView = {
+        let view = HorizontalScrollView()
+        
+        return view
+    }()
+    
+    
     override func awakeFromNib() {
         configLayout()
     }
@@ -20,8 +29,21 @@ class SearchRestaurantTableViewCell: UITableViewCell {
         currentKeywordLabel.textAlignment = .left
     }
     
-    func configCell() {
+    func configCell(_ data: [String]) {
         currentKeywordLabel.text = "최근 검색어"
+        configureHorizontalScrollView()
+        insertDataSource(data)
     }
     
+    func configureHorizontalScrollView() {
+        scrollViewBase.addSubview(horizontalScrollView)
+        horizontalScrollView.snp.makeConstraints{ make in
+            make.center.width.equalToSuperview()
+            make.height.equalTo(30)
+        }
+    }
+    
+    func insertDataSource(_ data: [String]) {
+        horizontalScrollView.dataSource = data
+    }
 }

@@ -22,11 +22,12 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
 //    var sectionDao: SectionDAO!
     
     var list = RestaurantList().restaurantArray
+    var searchedWords: [String] = []
     var searchIdxList: [Int] = []
     var searchList: [Restaurant] = []
     var likeList: [Restaurant] = []
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        dao = RestaurantDAO()
@@ -105,7 +106,7 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
             let identifier = CellIdentifier.SearchRestaurantTableViewCell.describe
             let searchCell = tableView.dequeueReusableCell(withIdentifier:
                                                  identifier,for: indexPath) as! SearchRestaurantTableViewCell
-            searchCell.configCell()
+            searchCell.configCell(searchedWords)
             cell = searchCell
         }
         
@@ -175,6 +176,10 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
                 searchIdxList.append(restaurant.idx)
                 continue
             }
+        }
+        if searchIdxList.count > 0 {
+            searchedWords.append((word))
+            print("searchedWoreds: \(searchedWords)")
         }
         print("searchIdxList: \(searchIdxList)")
         tableView.reloadData()

@@ -22,4 +22,11 @@ extension UIButton {
         self.setImage(image, for: .normal)
         self.tintColor = .white
     }
+    
+    func setLayoutForSearchedWord() {
+        self.layer.cornerRadius = 15
+        self.backgroundColor = .systemGray6
+        self.setTitleColor(.systemGray, for: .normal)
+        self.titleLabel?.font = .systemFont(ofSize: 10)
+    }
 }

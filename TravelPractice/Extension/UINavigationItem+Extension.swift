@@ -17,6 +17,10 @@ extension UINavigationItem {
         
         let titleView = UIView(frame:CGRect(x: 0, y: 0, width: width, height: height)) ?? UIView()
         titleView.addSubview(topTitle)
+        titleView.snp.makeConstraints { make in
+            make.centerX
+        }
+        
         titleView.bringSubviewToFront(topTitle)
         self.titleView = titleView
     }

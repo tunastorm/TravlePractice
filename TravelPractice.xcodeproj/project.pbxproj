@@ -43,6 +43,11 @@
 		BCE3B4B82C04A7C000333310 /* HotCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3B4B62C04A7C000333310 /* HotCityTableViewCell.swift */; };
 		BCE3B4B92C04A7C000333310 /* HotCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE3B4B72C04A7C000333310 /* HotCityTableViewCell.xib */; };
 		BCE3B4BB2C04DE9900333310 /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3B4BA2C04DE9900333310 /* UINavigationItem+Extension.swift */; };
+		BCE3B4BD2C0500C000333310 /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3B4BC2C0500C000333310 /* BaseScrollView.swift */; };
+		BCE3B4BF2C0500E500333310 /* HorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3B4BE2C0500E500333310 /* HorizontalScrollView.swift */; };
+		BCE3B4C12C0500FB00333310 /* SomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3B4C02C0500FB00333310 /* SomeDataModel.swift */; };
+		BCE3B4C92C0503AA00333310 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BCE3B4C82C0503AA00333310 /* SnapKit */; };
+		BCE3B4CB2C05140C00333310 /* TravelTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3B4CA2C05140C00333310 /* TravelTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +88,10 @@
 		BCE3B4B62C04A7C000333310 /* HotCityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotCityTableViewCell.swift; sourceTree = "<group>"; };
 		BCE3B4B72C04A7C000333310 /* HotCityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotCityTableViewCell.xib; sourceTree = "<group>"; };
 		BCE3B4BA2C04DE9900333310 /* UINavigationItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extension.swift"; sourceTree = "<group>"; };
+		BCE3B4BC2C0500C000333310 /* BaseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
+		BCE3B4BE2C0500E500333310 /* HorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollView.swift; sourceTree = "<group>"; };
+		BCE3B4C02C0500FB00333310 /* SomeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeDataModel.swift; sourceTree = "<group>"; };
+		BCE3B4CA2C05140C00333310 /* TravelTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCC523712C01CCDD00DF080D /* Kingfisher in Frameworks */,
+				BCE3B4C92C0503AA00333310 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +199,10 @@
 				BCE3B4A22C04745700333310 /* HotCityViewController.swift */,
 				BCE3B4B22C04A77400333310 /* AdTableViewCell.swift */,
 				BCE3B4B62C04A7C000333310 /* HotCityTableViewCell.swift */,
+				BCE3B4BC2C0500C000333310 /* BaseScrollView.swift */,
+				BCE3B4BE2C0500E500333310 /* HorizontalScrollView.swift */,
+				BCE3B4C02C0500FB00333310 /* SomeDataModel.swift */,
+				BCE3B4CA2C05140C00333310 /* TravelTabBarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -222,6 +236,7 @@
 			name = TravlePractice;
 			packageProductDependencies = (
 				BCC523702C01CCDD00DF080D /* Kingfisher */,
+				BCE3B4C82C0503AA00333310 /* SnapKit */,
 			);
 			productName = TravlePractice;
 			productReference = BCC5234C2C01B1E400DF080D /* TravlePractice.app */;
@@ -253,6 +268,7 @@
 			mainGroup = BCC523432C01B1E400DF080D;
 			packageReferences = (
 				BCC5236F2C01CCDD00DF080D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				BCE3B4C72C0503AA00333310 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = BCC5234D2C01B1E400DF080D /* Products */;
 			projectDirPath = "";
@@ -285,12 +301,15 @@
 			files = (
 				BC574FE52C01EDFA0072E10F /* sectionDAO.swift in Sources */,
 				BCE3B4A32C04745700333310 /* HotCityViewController.swift in Sources */,
+				BCE3B4BD2C0500C000333310 /* BaseScrollView.swift in Sources */,
 				BCE3B4BB2C04DE9900333310 /* UINavigationItem+Extension.swift in Sources */,
 				BC57500A2C0461250072E10F /* UITableView+Extension.swift in Sources */,
 				BCC523682C01B35600DF080D /* MagazineTableViewController.swift in Sources */,
 				BC57500E2C0462980072E10F /* UITabBarController+Extension.swift in Sources */,
 				BCE3B4B42C04A77400333310 /* AdTableViewCell.swift in Sources */,
 				BC574FEB2C01F60F0072E10F /* SearchRestaurantTableViewCell.swift in Sources */,
+				BCE3B4BF2C0500E500333310 /* HorizontalScrollView.swift in Sources */,
+				BCE3B4C12C0500FB00333310 /* SomeDataModel.swift in Sources */,
 				BC574FED2C01FBAA0072E10F /* placeholder.swift in Sources */,
 				BC574FE32C01ED090072E10F /* RestaurantsTableViewController.swift in Sources */,
 				BC5750082C045F430072E10F /* UITableViewCell+Extension.swift in Sources */,
@@ -301,6 +320,7 @@
 				BCC523652C01B2AD00DF080D /* MagazineInfo.swift in Sources */,
 				BCE3B4AD2C0489C300333310 /* UIImageView+Extension.swift in Sources */,
 				BCC5236A2C01B3C600DF080D /* MagazineTableViewCell.swift in Sources */,
+				BCE3B4CB2C05140C00333310 /* TravelTabBarController.swift in Sources */,
 				BCC523502C01B1E400DF080D /* AppDelegate.swift in Sources */,
 				BC574FDF2C01EBE40072E10F /* RestaurantsList.swift in Sources */,
 				BC574FE92C01F2D80072E10F /* CellIdentifier.swift in Sources */,
@@ -465,6 +485,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F8FT97JYZT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravelPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -496,6 +517,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F8FT97JYZT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravelPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -552,6 +574,14 @@
 				minimumVersion = 7.11.0;
 			};
 		};
+		BCE3B4C72C0503AA00333310 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -559,6 +589,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BCC5236F2C01CCDD00DF080D /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		BCE3B4C82C0503AA00333310 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCE3B4C72C0503AA00333310 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

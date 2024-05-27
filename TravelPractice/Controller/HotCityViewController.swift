@@ -22,7 +22,7 @@ class HotCityViewController: UIViewController ,UITableViewDelegate,UITableViewDa
         let adXIB = UINib(nibName: "AdTableViewCell", bundle: nil)
         tableView.register(hotCityXIB, forCellReuseIdentifier: "HotCityTableViewCell")
         tableView.register(adXIB, forCellReuseIdentifier: "AdTableViewCell")
-        navigationItem.setLayoutFortopTitle(title: "도시 상세 정보", width: 362, height: 40)
+        navigationItem.setLayoutFortopTitle(title: "도시 상세 정보", width: view.frame.width, height: 40)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

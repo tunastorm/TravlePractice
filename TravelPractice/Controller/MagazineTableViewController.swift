@@ -23,10 +23,8 @@ class MagazineTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = 0
+        navigationItem.setLayoutFortopTitle(title: "SeSAC TRAVEL", width: tableView.frame.width, height: 40)
         
-        MagazineTableViewTitle.text = "SeSAC TRAVEL"
-        MagazineTableViewTitle.font = .boldSystemFont(ofSize: 20)
-        MagazineTableViewTitle.textAlignment = .center
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -16,4 +16,10 @@ extension UIButton {
         self.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         self.backgroundColor = .white
     }
+    
+    func setLayoutForLikeButton() {
+        let image = UIImage(systemName: "heart")
+        self.setImage(image, for: .normal)
+        self.tintColor = .white
+    }
 }

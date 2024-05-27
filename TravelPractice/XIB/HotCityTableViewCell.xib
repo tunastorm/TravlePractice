@@ -96,6 +96,15 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BlO-S0-LQd">
+                        <rect key="frame" x="302" y="12" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="FOR-uX-Ls1"/>
+                            <constraint firstAttribute="width" secondItem="BlO-S0-LQd" secondAttribute="height" id="PJi-QF-cAY"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Dd9-FG-gd5" firstAttribute="leading" secondItem="XIN-Qn-OMf" secondAttribute="trailing" constant="4" id="1Kd-Tt-lb3"/>
@@ -106,7 +115,9 @@
                     <constraint firstItem="1J2-mQ-3a7" firstAttribute="leading" secondItem="EiM-Ur-fdz" secondAttribute="trailing" constant="8" id="GUo-la-EsR"/>
                     <constraint firstItem="orq-zQ-c33" firstAttribute="top" secondItem="EiM-Ur-fdz" secondAttribute="bottom" id="KY9-Cj-Dey"/>
                     <constraint firstAttribute="trailing" secondItem="1J2-mQ-3a7" secondAttribute="trailing" constant="20" id="M6k-xp-It9"/>
+                    <constraint firstAttribute="trailing" secondItem="BlO-S0-LQd" secondAttribute="trailing" constant="20" id="Ngn-uZ-177"/>
                     <constraint firstItem="EiM-Ur-fdz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Q8d-wf-IWm"/>
+                    <constraint firstItem="BlO-S0-LQd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Twp-Qw-ZjR"/>
                     <constraint firstItem="1J2-mQ-3a7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Vs7-0d-Baq"/>
                     <constraint firstItem="XIN-Qn-OMf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ho8-RW-rOj"/>
                     <constraint firstItem="1J2-mQ-3a7" firstAttribute="leading" secondItem="orq-zQ-c33" secondAttribute="trailing" constant="8" id="tN9-nN-0fR"/>
@@ -117,6 +128,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="descriptionLabel" destination="orq-zQ-c33" id="J7b-t6-rW6"/>
+                <outlet property="likeButton" destination="BlO-S0-LQd" id="pyp-kF-4aR"/>
                 <outlet property="mainImageView" destination="1J2-mQ-3a7" id="jGh-IF-a8O"/>
                 <outlet property="starAndSavedLabel" destination="Dd9-FG-gd5" id="FWE-hh-nLE"/>
                 <outlet property="starStackView" destination="XIN-Qn-OMf" id="Ytf-8m-zPF"/>

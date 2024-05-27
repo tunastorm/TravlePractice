@@ -17,6 +17,7 @@ class HotCityTableViewCell: UITableViewCell {
     
     @IBOutlet var mainImageView: UIImageView!
     
+    @IBOutlet weak var likeButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +29,7 @@ class HotCityTableViewCell: UITableViewCell {
         descriptionLabel.setLayoutForCellDescription()
         mainImageView.setLayoutForCellMainImage()
         starAndSavedLabel.setLayoutForCellStarAndSaved()
+        likeButton.setLayoutForLikeButton()
         
         for star in starStackView.arrangedSubviews {
             let imageView = star as! UIImageView

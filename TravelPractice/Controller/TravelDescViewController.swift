@@ -13,11 +13,19 @@ class TravelDescViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setNavigationBar()
     }
     
-    @IBAction
-    func popButtonClicked(_ sender: UIButton) {
+    func setNavigationBar() {
+        navigationItem.setLayoutFortopTitle(title: "관광지 확인", width: view.frame.width, height: 40)
+        
+        let backWordButton = UIBarButtonItem(title: "←", style: .done, target: self, action: #selector(popButtonClicked))
+        backWordButton.tintColor = .black
+        navigationItem.leftBarButtonItems = [backWordButton]
+    }
+    
+    
+    @objc func popButtonClicked(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
 

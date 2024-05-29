@@ -21,12 +21,13 @@
                     <connections>
                         <segue destination="VtR-3g-Cp1" kind="relationship" relationship="viewControllers" id="qVx-QF-Jyo"/>
                         <segue destination="j0K-7n-Lvy" kind="relationship" relationship="viewControllers" id="o7R-BM-eIz"/>
-                        <segue destination="8TH-FL-dHe" kind="relationship" relationship="viewControllers" id="mVy-kO-NIF"/>
+                        <segue destination="Kzg-Ol-imS" kind="relationship" relationship="viewControllers" id="C4z-Sp-XgL"/>
+                        <segue destination="8TH-FL-dHe" kind="relationship" relationship="viewControllers" id="d0L-Cs-Y5n"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UD5-i5-pTO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2532" y="570"/>
+            <point key="canvasLocation" x="-2533" y="396"/>
         </scene>
         <!--Hot City View Controller-->
         <scene sceneID="Dy9-4b-I5H">
@@ -57,7 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YUy-Rz-c67" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-109.23076923076923" y="569.43127962085305"/>
+            <point key="canvasLocation" x="-110" y="-45"/>
         </scene>
         <!--Restaurant-->
         <scene sceneID="izR-L6-slY">
@@ -75,7 +76,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7B-4M-4Yp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-999" y="1327"/>
+            <point key="canvasLocation" x="-999" y="1575"/>
         </scene>
         <!--Item-->
         <scene sceneID="1jD-hy-Y8t">
@@ -163,7 +164,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4t-yA-P3I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-109" y="-171"/>
+            <point key="canvasLocation" x="-110" y="-878"/>
         </scene>
         <!--Item-->
         <scene sceneID="wmE-TV-0PO">
@@ -364,7 +365,34 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEV-sA-2Qs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-109.23076923076923" y="1326.5402843601896"/>
+            <point key="canvasLocation" x="-110" y="1575"/>
+        </scene>
+        <!--Hot Contry-->
+        <scene sceneID="E8i-1I-gRa">
+            <objects>
+                <navigationController id="Kzg-Ol-imS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Hot Contry" image="flame" catalog="system" id="PIp-h3-zIX"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0ik-TX-dMf">
+                        <rect key="frame" x="0.0" y="59" width="430" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hYE-YH-ysV" kind="relationship" relationship="rootViewController" id="db6-Bx-vN3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ydp-rc-cxD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-999" y="778"/>
+        </scene>
+        <!--HotCountry-->
+        <scene sceneID="Bdy-Y5-lri">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HotCountry" id="hYE-YH-ysV" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="d7f-VQ-trr"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dg3-nX-ICc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-120" y="778"/>
         </scene>
         <!--Travel Desc View Controller-->
         <scene sceneID="Z82-ZS-7RE">
@@ -374,46 +402,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="여행지 정보에요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riz-Ih-lWH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="관광지 화면" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riz-Ih-lWH">
                                 <rect key="frame" x="20" y="278" width="390" height="376"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXq-WU-Qff">
-                                <rect key="frame" x="173" y="574" width="84" height="35"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="WOF-5D-zhN"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="뒤로가기"/>
-                                <connections>
-                                    <action selector="popButtonClicked:" destination="Jy5-Lr-WCb" eventType="touchUpInside" id="BZY-ba-x7u"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="21A-vQ-7vG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="yXq-WU-Qff" firstAttribute="leading" secondItem="21A-vQ-7vG" secondAttribute="leading" constant="173" id="0at-OB-jHD"/>
-                            <constraint firstItem="yXq-WU-Qff" firstAttribute="top" secondItem="21A-vQ-7vG" secondAttribute="top" constant="515" id="kIO-XL-Dus"/>
-                            <constraint firstItem="21A-vQ-7vG" firstAttribute="trailing" secondItem="yXq-WU-Qff" secondAttribute="trailing" constant="173" id="mvG-OV-mUu"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XP-bA-gmb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="824.65116279069764" y="568.45493562231763"/>
+            <point key="canvasLocation" x="816" y="-45"/>
         </scene>
-        <!--HotCity-->
+        <!--Hot City-->
         <scene sceneID="b7h-v1-0dr">
             <objects>
                 <navigationController id="j0K-7n-Lvy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="HotCity" image="star" catalog="system" id="7oN-Bf-0ck"/>
+                    <tabBarItem key="tabBarItem" title="Hot City" image="star" catalog="system" id="7oN-Bf-0ck"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GTO-wC-9i8">
                         <rect key="frame" x="0.0" y="59" width="430" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -424,7 +433,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3x-SX-ytJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-999" y="570"/>
+            <point key="canvasLocation" x="-999" y="-45"/>
         </scene>
         <!--Travel-->
         <scene sceneID="ZYK-LR-UDN">
@@ -441,19 +450,17 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubP-Lt-opf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-999" y="-171"/>
+            <point key="canvasLocation" x="-999" y="-878"/>
         </scene>
     </scenes>
     <resources>
         <image name="bag" catalog="system" width="128" height="128"/>
+        <image name="flame" catalog="system" width="106" height="128"/>
         <image name="fork.knife.circle" catalog="system" width="128" height="123"/>
         <image name="heart.square" catalog="system" width="128" height="114"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

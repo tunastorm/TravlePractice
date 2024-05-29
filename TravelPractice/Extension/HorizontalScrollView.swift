@@ -42,11 +42,6 @@ class HorizontalScrollView: BaseScrollView {
             return
         }
         let view = UIView()
-        view.snp.makeConstraints{
-            $0.height.equalTo(30)
-            $0.width.greaterThanOrEqualTo(40)
-        }
-        
         // 최근 검색어로 등록되지 않은 검색어만 추가, 등록된 것은 리턴
         if !words.contains(word){
             stackView.addArrangedSubview(view)
@@ -55,12 +50,23 @@ class HorizontalScrollView: BaseScrollView {
             return
         }
         
+        view.snp.makeConstraints{
+            $0.height.equalTo(30)
+            $0.width.greaterThanOrEqualTo(40)
+        }
+        
+        
+        
         let button = UIButton()
         button.setTitle(word, for: .normal)
         button.setLayoutForSearchedWord()
         button.addTarget(self, action: #selector(searchedButtonClicked), for: .touchUpInside)
+        
 //          button.setImage(data.iamge, for: .normal)
 //          button.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: -4.0, bottom: 0.0, right: 0.0)
+        
+        view.addSubview(button)
+        view.bringSubviewToFront(button)
                     
         button.snp.makeConstraints {
             $0.height.equalTo(30)
@@ -71,10 +77,7 @@ class HorizontalScrollView: BaseScrollView {
 //            $0.trailing.equalToSuperview().offset(0)
 //            $0.bottom.equalToSuperview().offset(0)
         }
-            
-        view.addSubview(button)
-        view.bringSubviewToFront(button)
-
+    
 //        // 삭제버튼 추가
 //        let deleteButton = UIButton()
 //        deleteButton.setLayoutForDeleteSearchWord()
@@ -102,6 +105,7 @@ class HorizontalScrollView: BaseScrollView {
         guard let searchWord = sender.titleLabel?.text else {
             return
         }
+        // 구현 쉽다고 버릇 들이면 안 됨...
         NotificationCenter.default.post(name: .SearchFieldText, object: searchWord)
     }
 

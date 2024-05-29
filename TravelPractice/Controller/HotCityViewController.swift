@@ -53,7 +53,6 @@ extension HotCityViewController: UITableViewDelegate,UITableViewDataSource {
             let hotCityCell = tableView.dequeueReusableCell(withIdentifier: hotCityIdentifier,
                                                        for: indexPath) as!  HotCityTableViewCell
             hotCityCell.configCell(data)
-            
             cell = hotCityCell
         }
         
@@ -66,11 +65,12 @@ extension HotCityViewController: UITableViewDelegate,UITableViewDataSource {
         if let isAD = data.ad, isAD {
             let sb = UIStoryboard(name: "Advertisement", bundle: nil)
             let identifier = AdViewController.identifier
-            print(identifier)
+            
             let vc = sb.instantiateViewController(withIdentifier: identifier) as! AdViewController
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
             present(nav, animated: true)
+            
         } else {
             let sb = UIStoryboard(name: "Main", bundle: nil)
             let identifier = TravelDescViewController.identifier

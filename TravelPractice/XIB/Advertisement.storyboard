@@ -17,9 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="광고에요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjm-Bz-4KK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="광고 화면" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjm-Bz-4KK">
                                 <rect key="frame" x="16" y="286" width="361" height="350"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jjm-Bz-4KK" secondAttribute="height" multiplier="361:350" id="7NK-Dh-gLG"/>
                                     <constraint firstAttribute="height" constant="350" id="XE7-6i-o7W"/>
@@ -28,28 +27,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjp-Ka-3qB">
-                                <rect key="frame" x="155" y="566" width="83" height="35"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="mjp-Ka-3qB" secondAttribute="height" multiplier="83:35" id="4sd-PR-zTZ"/>
-                                    <constraint firstAttribute="height" constant="35" id="HIW-Zs-N41"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="뒤로가기"/>
-                                <connections>
-                                    <action selector="dismissButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="H2k-0M-fNK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="mjp-Ka-3qB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="507" id="K2d-xN-AEe"/>
                             <constraint firstItem="jjm-Bz-4KK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Pwb-ci-s1d"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mjp-Ka-3qB" secondAttribute="trailing" constant="155" id="Sje-fC-C7l"/>
-                            <constraint firstItem="mjp-Ka-3qB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="155" id="WAW-Yi-04B"/>
                             <constraint firstItem="jjm-Bz-4KK" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="tk4-G4-OWj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jjm-Bz-4KK" secondAttribute="trailing" constant="16" id="zVk-YI-i6P"/>
                         </constraints>
@@ -63,9 +45,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

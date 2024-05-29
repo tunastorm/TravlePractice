@@ -14,12 +14,20 @@ class AdViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setNavigationBar()
+    }
+    
+    func setNavigationBar() {
+        navigationItem.setLayoutFortopTitle(title: "광고", width: view.frame.width, height: 40)
         
+        let backWordButton = UIBarButtonItem(title: "←", style: .done, target: self, action: #selector(dismissButtonClicked))
+        backWordButton.tintColor = .black
+        
+        navigationItem.leftBarButtonItems = [backWordButton]
     }
 
-    @IBAction
-    func dismissButtonClicked(_ sender: UIButton) {
+  
+    @objc func dismissButtonClicked(_ sender: UIButton) {
         dismiss(animated: true)
     }
     

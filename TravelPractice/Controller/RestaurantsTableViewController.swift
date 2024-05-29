@@ -39,6 +39,8 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
         setSearchNavigationBar()
         tableView.setLayoutforRestaurant()
         changeStatusBarBgColor(bgColor: UIColor.white)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(searchButtonTapped(notification:)), name: .SearchFieldText, object: nil)
     }
         
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -111,13 +113,19 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
             guard let currentWord = searchedWords.last else {
                 return searchCell
             }
-            
             searchCell.configCell(currentWord)
-        
+            
             cell = searchCell
         }
         
       return cell
+    }
+    
+    @objc func searchButtonTapped(notification: Notification) {
+        if let searchText = notification.object as? String {
+            print(searchText)
+            searchRestaurants(word: searchText)
+        }
     }
     
     func setSearchNavigationBar() {

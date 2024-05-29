@@ -56,7 +56,7 @@ class HorizontalScrollView: BaseScrollView {
         }
         
         let button = UIButton()
-        button.setTitle(" \(word) X ", for: .normal)
+        button.setTitle(word, for: .normal)
         button.setLayoutForSearchedWord()
         button.addTarget(self, action: #selector(searchedButtonClicked), for: .touchUpInside)
 //          button.setImage(data.iamge, for: .normal)
@@ -91,7 +91,6 @@ class HorizontalScrollView: BaseScrollView {
 //        
 //        view.addSubview(deleteButton)
 //        view.bringSubviewToFront(deleteButton)
-        
     }
     
     
@@ -99,15 +98,11 @@ class HorizontalScrollView: BaseScrollView {
         print("삭제클릭됨")
     }
     
-    
     @objc func searchedButtonClicked(_ sender: UIButton) {
         guard let searchWord = sender.titleLabel?.text else {
             return
         }
-        
-        
-//        let test =  RestaurantsTableViewController()
-//        test.searchRestaurants(word: searchWord)
+        NotificationCenter.default.post(name: .SearchFieldText, object: searchWord)
     }
 
 }

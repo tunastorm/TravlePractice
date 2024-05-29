@@ -15,5 +15,6 @@ extension UITableViewCell {
         self.backgroundColor = .white
         self.tintColor = .black
         self.textLabel?.font = .systemFont(ofSize: 12)
+        
     }
 }

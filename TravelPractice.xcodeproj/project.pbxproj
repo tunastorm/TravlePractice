@@ -22,6 +22,7 @@
 		BC5750102C04638C0072E10F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC57500F2C04638C0072E10F /* UIViewController+Extension.swift */; };
 		BC5750182C0467530072E10F /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5750172C0467530072E10F /* UITextField+Extension.swift */; };
 		BC57501A2C0467E70072E10F /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5750192C0467E70072E10F /* UIButton+Extension.swift */; };
+		BC8B795B2C06F265006E0F6A /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B795A2C06F265006E0F6A /* Notification.Name+Extension.swift */; };
 		BCC523502C01B1E400DF080D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5234F2C01B1E400DF080D /* AppDelegate.swift */; };
 		BCC523522C01B1E400DF080D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC523512C01B1E400DF080D /* SceneDelegate.swift */; };
 		BCC523542C01B1E400DF080D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC523532C01B1E400DF080D /* ViewController.swift */; };
@@ -65,6 +66,7 @@
 		BC57500F2C04638C0072E10F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		BC5750172C0467530072E10F /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		BC5750192C0467E70072E10F /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		BC8B795A2C06F265006E0F6A /* Notification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extension.swift"; sourceTree = "<group>"; };
 		BCC5234C2C01B1E400DF080D /* TravlePractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravlePractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC5234F2C01B1E400DF080D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC523512C01B1E400DF080D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				BCE3B4AA2C0488A200333310 /* UILabel+Extension.swift */,
 				BCE3B4AC2C0489C300333310 /* UIImageView+Extension.swift */,
 				BCE3B4BA2C04DE9900333310 /* UINavigationItem+Extension.swift */,
+				BC8B795A2C06F265006E0F6A /* Notification.Name+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC8B795B2C06F265006E0F6A /* Notification.Name+Extension.swift in Sources */,
 				BC574FE52C01EDFA0072E10F /* sectionDAO.swift in Sources */,
 				BCE3B4A32C04745700333310 /* HotCityViewController.swift in Sources */,
 				BCE3B4BD2C0500C000333310 /* BaseScrollView.swift in Sources */,

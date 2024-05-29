@@ -43,6 +43,7 @@ class RestaurantTableViewCell: UITableViewCell {
         addressLabel.textAlignment = .left
         addressLabel.font = .systemFont(ofSize: 10)
         addressLabel.textColor = .gray
+        addressLabel.numberOfLines = 0
         
         phoneNumberLabel.textAlignment = .left
         phoneNumberLabel.font = .systemFont(ofSize: 10)

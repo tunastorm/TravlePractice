@@ -13,7 +13,7 @@ class HotCountryTableViewCell: UITableViewCell {
 
     @IBOutlet var mainImageCoverView: UIView!
     @IBOutlet var mainImageView: UIImageView!
-    @IBOutlet var countryLavel: UILabel!
+    @IBOutlet var countryLabel: UILabel!
     @IBOutlet var citiesLabel: UILabel!
     
     
@@ -28,9 +28,9 @@ class HotCountryTableViewCell: UITableViewCell {
         mainImageCoverView.backgroundColor = .black
         mainImageCoverView.layer.opacity = 0.5
         
-        countryLavel.font = .boldSystemFont(ofSize: 20)
-        countryLavel.textAlignment = .right
-        countryLavel.textColor = .white
+        countryLabel.font = .boldSystemFont(ofSize: 20)
+        countryLabel.textAlignment = .right
+        countryLabel.textColor = .white
         
         citiesLabel.font = .systemFont(ofSize: 12)
         citiesLabel.textAlignment = .left
@@ -43,12 +43,23 @@ class HotCountryTableViewCell: UITableViewCell {
         let url = URL(string: data.city_image)
         mainImageView.kf.setImage(with: url,
                                        placeholder: UIImage(systemName: "exclamationmark.triangle"))
-        countryLavel.text = "\(data.city_name) | \(data.city_english_name)"
+        countryLabel.text = "\(data.city_name) | \(data.city_english_name)"
         citiesLabel.text = "  " + data.city_explain
     }
     
     func configfilterredCell(_ data: City, filter: String) {
         configCell(data)
+        
+        if let country = countryLabel.text, country.contains(filter) {
+            var attributedStr = NSMutableAttributedString(string: country)
+            attributedStr.addAttribute(.foregroundColor, value: UIColor.orange, range: (country as NSString).range(of: filter))
+            countryLabel.attributedText = attributedStr
+        }
+        
+        if let cities = citiesLabel.text, cities.contains(filter) {
+            var attributedStr = NSMutableAttributedString(string: cities)
+            attributedStr.addAttribute(.foregroundColor, value: UIColor.orange, range: (cities as NSString).range(of: filter))
+            citiesLabel.attributedText = attributedStr
+        }
     }
-    
 }

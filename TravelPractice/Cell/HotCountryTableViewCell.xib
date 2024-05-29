@@ -77,7 +77,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="citiesLabel" destination="w64-9L-oTS" id="odH-1R-jLF"/>
-                <outlet property="countryLavel" destination="n3D-qa-2Q7" id="hCA-IF-dBU"/>
+                <outlet property="countryLabel" destination="n3D-qa-2Q7" id="FQ8-0m-tKq"/>
                 <outlet property="mainImageCoverView" destination="7Lo-I7-rdg" id="kZC-Xa-jL8"/>
                 <outlet property="mainImageView" destination="fnA-ng-1bG" id="jcD-4x-DLD"/>
             </connections>

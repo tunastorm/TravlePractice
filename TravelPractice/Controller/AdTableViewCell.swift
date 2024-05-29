@@ -22,9 +22,7 @@ class AdTableViewCell: UITableViewCell {
     func configLayout() {
         contentView.backgroundColor = colors.randomElement()!
         contentView.layer.cornerRadius = contentView.frame.height * 0.1
-        contentView.frame.size = CGSize(width: contentView.frame.width,
-                                        height: 90)
-
+        
         adLabel.text = "AD"
         adLabel.textColor = .black
         adLabel.textAlignment = .center
@@ -35,10 +33,11 @@ class AdTableViewCell: UITableViewCell {
         
         copyLabel.textColor = .black
         copyLabel.textAlignment = .center
-        copyLabel.font = .boldSystemFont(ofSize: 12)
+        copyLabel.font = .boldSystemFont(ofSize: 15)
+        copyLabel.numberOfLines = 0
     }
     
     func configCell(_ data: Travel) {
-        copyLabel.text = data.title
+        copyLabel.text = "\(data.title)"
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 
 extension UITableViewCell {
+    
     func configCellForRestaurant() {
         self.selectionStyle = .none
         self.backgroundColor = .white

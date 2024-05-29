@@ -33,7 +33,6 @@
 		BCC5236A2C01B3C600DF080D /* MagazineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC523692C01B3C600DF080D /* MagazineTableViewCell.swift */; };
 		BCC5236C2C01B99900DF080D /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5236B2C01B99900DF080D /* UserDefaultManager.swift */; };
 		BCC5236E2C01BA6B00DF080D /* MagazineDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5236D2C01BA6B00DF080D /* MagazineDAO.swift */; };
-		BCC523712C01CCDD00DF080D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BCC523702C01CCDD00DF080D /* Kingfisher */; };
 		BCE3B4A32C04745700333310 /* HotCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3B4A22C04745700333310 /* HotCityViewController.swift */; };
 		BCE3B4A92C0478C600333310 /* TravelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3B4A82C0478C600333310 /* TravelModel.swift */; };
 		BCE3B4AB2C0488A200333310 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3B4AA2C0488A200333310 /* UILabel+Extension.swift */; };
@@ -45,9 +44,9 @@
 		BCE3B4BB2C04DE9900333310 /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3B4BA2C04DE9900333310 /* UINavigationItem+Extension.swift */; };
 		BCE3B4BD2C0500C000333310 /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3B4BC2C0500C000333310 /* BaseScrollView.swift */; };
 		BCE3B4BF2C0500E500333310 /* HorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3B4BE2C0500E500333310 /* HorizontalScrollView.swift */; };
-		BCE3B4C12C0500FB00333310 /* SomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3B4C02C0500FB00333310 /* SomeDataModel.swift */; };
-		BCE3B4C92C0503AA00333310 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BCE3B4C82C0503AA00333310 /* SnapKit */; };
 		BCE3B4CB2C05140C00333310 /* TravelTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3B4CA2C05140C00333310 /* TravelTabBarController.swift */; };
+		BCFDE8DF2C06C7D300CDDA49 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BCFDE8DE2C06C7D300CDDA49 /* Kingfisher */; };
+		BCFDE8E22C06C7DF00CDDA49 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BCFDE8E12C06C7DF00CDDA49 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,7 +89,6 @@
 		BCE3B4BA2C04DE9900333310 /* UINavigationItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extension.swift"; sourceTree = "<group>"; };
 		BCE3B4BC2C0500C000333310 /* BaseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
 		BCE3B4BE2C0500E500333310 /* HorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollView.swift; sourceTree = "<group>"; };
-		BCE3B4C02C0500FB00333310 /* SomeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeDataModel.swift; sourceTree = "<group>"; };
 		BCE3B4CA2C05140C00333310 /* TravelTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,8 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCC523712C01CCDD00DF080D /* Kingfisher in Frameworks */,
-				BCE3B4C92C0503AA00333310 /* SnapKit in Frameworks */,
+				BCFDE8DF2C06C7D300CDDA49 /* Kingfisher in Frameworks */,
+				BCFDE8E22C06C7DF00CDDA49 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				BC5750072C045F430072E10F /* UITableViewCell+Extension.swift */,
+				BCE3B4BE2C0500E500333310 /* HorizontalScrollView.swift */,
 				BC5750092C0461250072E10F /* UITableView+Extension.swift */,
 				BC57500B2C0461F20072E10F /* UINavigationController+Extension.swift */,
 				BC57500D2C0462980072E10F /* UITabBarController+Extension.swift */,
@@ -200,8 +199,6 @@
 				BCE3B4B22C04A77400333310 /* AdTableViewCell.swift */,
 				BCE3B4B62C04A7C000333310 /* HotCityTableViewCell.swift */,
 				BCE3B4BC2C0500C000333310 /* BaseScrollView.swift */,
-				BCE3B4BE2C0500E500333310 /* HorizontalScrollView.swift */,
-				BCE3B4C02C0500FB00333310 /* SomeDataModel.swift */,
 				BCE3B4CA2C05140C00333310 /* TravelTabBarController.swift */,
 			);
 			path = Controller;
@@ -235,8 +232,8 @@
 			);
 			name = TravlePractice;
 			packageProductDependencies = (
-				BCC523702C01CCDD00DF080D /* Kingfisher */,
-				BCE3B4C82C0503AA00333310 /* SnapKit */,
+				BCFDE8DE2C06C7D300CDDA49 /* Kingfisher */,
+				BCFDE8E12C06C7DF00CDDA49 /* SnapKit */,
 			);
 			productName = TravlePractice;
 			productReference = BCC5234C2C01B1E400DF080D /* TravlePractice.app */;
@@ -267,8 +264,8 @@
 			);
 			mainGroup = BCC523432C01B1E400DF080D;
 			packageReferences = (
-				BCC5236F2C01CCDD00DF080D /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				BCE3B4C72C0503AA00333310 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				BCFDE8DD2C06C7D300CDDA49 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				BCFDE8E02C06C7DE00CDDA49 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = BCC5234D2C01B1E400DF080D /* Products */;
 			projectDirPath = "";
@@ -309,7 +306,6 @@
 				BCE3B4B42C04A77400333310 /* AdTableViewCell.swift in Sources */,
 				BC574FEB2C01F60F0072E10F /* SearchRestaurantTableViewCell.swift in Sources */,
 				BCE3B4BF2C0500E500333310 /* HorizontalScrollView.swift in Sources */,
-				BCE3B4C12C0500FB00333310 /* SomeDataModel.swift in Sources */,
 				BC574FED2C01FBAA0072E10F /* placeholder.swift in Sources */,
 				BC574FE32C01ED090072E10F /* RestaurantsTableViewController.swift in Sources */,
 				BC5750082C045F430072E10F /* UITableViewCell+Extension.swift in Sources */,
@@ -566,7 +562,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BCC5236F2C01CCDD00DF080D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		BCFDE8DD2C06C7D300CDDA49 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -574,7 +570,7 @@
 				minimumVersion = 7.11.0;
 			};
 		};
-		BCE3B4C72C0503AA00333310 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		BCFDE8E02C06C7DE00CDDA49 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -585,14 +581,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BCC523702C01CCDD00DF080D /* Kingfisher */ = {
+		BCFDE8DE2C06C7D300CDDA49 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BCC5236F2C01CCDD00DF080D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = BCFDE8DD2C06C7D300CDDA49 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
-		BCE3B4C82C0503AA00333310 /* SnapKit */ = {
+		BCFDE8E12C06C7DF00CDDA49 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BCE3B4C72C0503AA00333310 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = BCFDE8E02C06C7DE00CDDA49 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

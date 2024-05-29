@@ -8,6 +8,8 @@
 import UIKit
 
 extension UIViewController {
+    
+    // Can change status bar color
     func changeStatusBarBgColor(bgColor: UIColor?) {
         if #available(iOS 13.0, *) {
             let window = UIApplication.shared.windows.first

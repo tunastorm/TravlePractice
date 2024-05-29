@@ -15,6 +15,7 @@ class HotCityViewController: UIViewController ,UITableViewDelegate,UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -29,15 +30,15 @@ class HotCityViewController: UIViewController ,UITableViewDelegate,UITableViewDa
         1
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let data = list[indexPath.row]
-        
-        if let isAd = data.ad, isAd {
-            return 70
-        } else {
-            return 140
-        }
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        let data = list[indexPath.row]
+//        
+//        if let isAd = data.ad, isAd {
+//            return 70
+//        } else {
+//            return 140
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count

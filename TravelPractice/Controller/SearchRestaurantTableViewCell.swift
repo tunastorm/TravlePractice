@@ -8,13 +8,17 @@
 import UIKit
 
 class SearchRestaurantTableViewCell: UITableViewCell {
+    
+    static let identifier = String(String(describing: type(of: self)).split(separator: " ").last!)
 
     @IBOutlet weak var currentKeywordLabel: UILabel!
     
     @IBOutlet weak var scrollViewBase: UIView!
     
+    
     lazy var horizontalScrollView: HorizontalScrollView = {
         let view = HorizontalScrollView()
+        view.isUserInteractionEnabled = true
         
         return view
     }()
@@ -25,14 +29,15 @@ class SearchRestaurantTableViewCell: UITableViewCell {
     }
     
     func configLayout() {
+        self.selectionStyle = .none
         currentKeywordLabel.font = .boldSystemFont(ofSize: 15)
         currentKeywordLabel.textAlignment = .left
     }
     
-    func configCell(_ data: [String]) {
+    func configCell(_ currentWord: String) {
         currentKeywordLabel.text = "최근 검색어"
         configureHorizontalScrollView()
-        insertDataSource(data)
+        insertDataSource(currentWord)
     }
     
     func configureHorizontalScrollView() {
@@ -43,7 +48,8 @@ class SearchRestaurantTableViewCell: UITableViewCell {
         }
     }
     
-    func insertDataSource(_ data: [String]) {
-        horizontalScrollView.dataSource = data
+    func insertDataSource(_ currentWord: String) {
+        // 검색된
+        horizontalScrollView.dataSource = currentWord
     }
 }

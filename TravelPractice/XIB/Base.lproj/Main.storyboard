@@ -173,7 +173,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="aIN-XR-X9S">
+                        <view key="tableHeaderView" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" id="aIN-XR-X9S">
                             <rect key="frame" x="0.0" y="0.0" width="430" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -182,7 +182,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchRestaurantTableViewCell" rowHeight="80" id="gh1-SP-3pl" customClass="SearchRestaurantTableViewCell" customModule="TravlePractice" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="56.333332061767578" width="430" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gh1-SP-3pl" id="OD3-UN-KEo">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gh1-SP-3pl" id="OD3-UN-KEo">
                                     <rect key="frame" x="0.0" y="0.0" width="430" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -196,7 +196,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tN0-2m-MSD">
+                                        <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tN0-2m-MSD">
                                             <rect key="frame" x="20" y="33" width="390" height="35"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
@@ -215,13 +215,13 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="currentKeywordLabel" destination="oWc-Op-sx4" id="gpV-oZ-du9"/>
-                                    <outlet property="scrollViewBase" destination="tN0-2m-MSD" id="j3F-ho-QqU"/>
+                                    <outlet property="scrollViewBase" destination="tN0-2m-MSD" id="yWj-nD-scG"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantTableViewCell" rowHeight="140" id="NfG-Fn-Tld" customClass="RestaurantTableViewCell" customModule="TravlePractice" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="136.33333206176758" width="430" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NfG-Fn-Tld" id="dn0-lg-ftq">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NfG-Fn-Tld" id="dn0-lg-ftq">
                                     <rect key="frame" x="0.0" y="0.0" width="430" height="140"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -232,7 +232,7 @@
                                                 <constraint firstAttribute="width" secondItem="nip-Rx-kfO" secondAttribute="height" multiplier="59:58" id="EeD-PF-B26"/>
                                             </constraints>
                                         </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dhb-Wu-okl">
+                                        <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dhb-Wu-okl">
                                             <rect key="frame" x="146" y="12" width="264" height="116"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PD1-eg-QC3">

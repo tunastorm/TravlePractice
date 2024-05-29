@@ -10,28 +10,31 @@ import UIKit
 class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var searchNavigationBar: UINavigationItem!
-    
-    @IBOutlet weak var leftBarButton: UIBarButtonItem!
-    
+        
     @IBOutlet weak var rightBarButton: UIBarButtonItem!
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var likeListButton: UIButton!
     
+    
 //    var dao: RestaurantDAO!
 //    var sectionDao: SectionDAO!
+    
+    // 1. 수평스크롤 뷰 버튼들에 검색 및 삭제 이벤트 등록
+    // 2. 최근 검색어가 없을 때는 최근 검색어 셀 출력 안 되게 분기처리
+    // 3. UserDefaultsManager 사용하여 상태 저장
+    // 4. 4개 row 출력후 1개 row는 광고로 출력하기
     
     var list = RestaurantList().restaurantArray
     var searchedWords: [String] = []
     var searchIdxList: [Int] = []
     var searchList: [Restaurant] = []
     var likeList: [Restaurant] = []
+    var sectionSize = 1
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        dao = RestaurantDAO()
-//        sectionDao = SectionDAO()
         print("seacrhList: \(searchList)")
         setSearchNavigationBar()
         tableView.setLayoutforRestaurant()
@@ -39,25 +42,24 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
     }
         
     override func numberOfSections(in tableView: UITableView) -> Int {
-//        return sectionDao.getSectionList().count
-        return 2
+        if searchedWords.count > 0 {
+            sectionSize = 2
+        }
+        return sectionSize
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-//        if section == 1 && dao.getIsLikeResult() {
-//            return dao.getLikedCount()
-//        }
-//        if section == 1 && dao.getIsSearchResult() {
-//            return dao.getSearchedCount()
-//        }
-//        
-//        return sectionDao.getSection(at: section).rowSize
         var rowSize = 0
         
-        if section == 0 {
+        // 최근 검색어가 없고, 검색결과가 없을 때 행 개수
+        if sectionSize == 1 && searchList.count == 0 {
             rowSize = 1
-        } else if section == 1 {
+        // 최근 검색어 셀에 표시하는 셀의 행 개수
+        } else if sectionSize == 2 && section == 0 {
+            rowSize = 1
+        // 최근 검색어가 있고, 검색결과 표시하는 셀의 행 개수
+        } else if sectionSize == 2 && section == 1 {
             if searchIdxList.count > 0 {
                 for idx in searchIdxList {
                     searchList.append(list[idx])
@@ -69,14 +71,15 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
         return rowSize
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let section = indexPath.section
-        if section == 0 {
-            return 80
-        } else {
-            return 140
-        }
-    }
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        let section = indexPath.section
+//        
+//        if section == 0 {
+//            return 80
+//        } else {
+//            return 140
+//        }
+//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -87,55 +90,32 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
         print("rowIndex: \(rowIndex)")
         
         var cell = UITableViewCell()
-        
-        if section == 1 && !searchList.isEmpty {
+
+        if (sectionSize == 1 && searchList.count > 0) ||
+           (sectionSize == 2 && section == 1 && searchList.count > 0) {
             let data = searchList[rowIndex]
             
-            let identifier = CellIdentifier.RestaurantTableViewCell.describe
+            let identifier = RestaurantTableViewCell.identifier
+            print(identifier)
             let restaurantCell = tableView.dequeueReusableCell(withIdentifier: identifier,
                                                     for: indexPath) as! RestaurantTableViewCell
             restaurantCell.configCell(data, rowIndex: rowIndex)
             restaurantCell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
             cell = restaurantCell
             
-//            if rowIndex == searchList.count-1 {
-//                searchList.removeAll()
-//            }
-            
-        } else if section == 0 {
-            let identifier = CellIdentifier.SearchRestaurantTableViewCell.describe
+        } else if sectionSize == 2 && section == 0 {
+            let identifier = SearchRestaurantTableViewCell.identifier
+            print(identifier)
             let searchCell = tableView.dequeueReusableCell(withIdentifier:
                                                  identifier,for: indexPath) as! SearchRestaurantTableViewCell
-            searchCell.configCell(searchedWords)
+            guard let currentWord = searchedWords.last else {
+                return searchCell
+            }
+            
+            searchCell.configCell(currentWord)
+        
             cell = searchCell
         }
-        
-        
-//        if dao.getIsLikeResult() {
-//            data = dao.getLikedRestaurant(at: rowIndex)
-//        } else if dao.getIsSearchResult() {
-//            data = dao.getSearchedRestaurant(at: rowIndex)
-//        } else {
-//            data = dao.getRestaurant(at: rowIndex)
-//        }
-        
-
-//        print("now: \(rowIndex)")
-//        if dao.getIsLikeResult() && rowIndex == dao.getLikedCount()-1 {
-//            print("좋아요 레스토랑 마지막: \(dao.getLikedCount())")
-//            dao.updateIsLikeResult()
-//            //print("isLikeResult: \(isLikeResult)")
-//            dao.clearLikedArray()
-//            return cell
-//        }
-//        
-//        if dao.getIsSearchResult() && rowIndex == dao.getSearchedCount()-1 {
-//            print("검색된 레스토랑 마지막: \(dao.getSearchedCount())")
-//            dao.updateIsSearchResult()
-//            //print("isSearchResult: \()")
-//            dao.clearSearchedArray()
-//            return cell
-//        }
         
       return cell
     }
@@ -194,6 +174,10 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
             searchRestaurants(word: word)
         }
         return true
+    }
+    
+    @objc func searchedWordClicked(_ sender: UIButton) {
+        
     }
     
     @objc func likeButtonClicked(_ sender: UIButton) {

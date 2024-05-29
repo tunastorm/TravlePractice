@@ -8,6 +8,8 @@
 import UIKit
 
 class RestaurantTableViewCell: UITableViewCell {
+    
+    static let identifier = String(String(describing: type(of: self)).split(separator: " ").last!)
 
     @IBOutlet weak var restaurantImage: UIImageView!
     
@@ -18,7 +20,7 @@ class RestaurantTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     
     @IBOutlet weak var likeButton: UIButton!
-    
+
     
     override func awakeFromNib() {
         super.awakeFromNib()

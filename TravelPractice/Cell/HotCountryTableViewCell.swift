@@ -41,8 +41,7 @@ class HotCountryTableViewCell: UITableViewCell {
     
     func configCell(_ data: City) {
         let url = URL(string: data.city_image)
-        mainImageView.kf.setImage(with: url,
-                                       placeholder: UIImage(systemName: "exclamationmark.triangle"))
+        mainImageView.kf.setImage(with: url)
         countryLabel.text = "\(data.city_name) | \(data.city_english_name)"
         citiesLabel.text = "  " + data.city_explain
     }

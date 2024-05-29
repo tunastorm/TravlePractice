@@ -26,7 +26,7 @@ class HotCountryTableViewCell: UITableViewCell {
         mainImageView.contentMode = .scaleAspectFill
         
         mainImageCoverView.backgroundColor = .black
-        mainImageCoverView.layer.opacity = 0.5
+        mainImageCoverView.layer.opacity = 0.4
         
         countryLabel.font = .boldSystemFont(ofSize: 20)
         countryLabel.textAlignment = .right
@@ -36,7 +36,7 @@ class HotCountryTableViewCell: UITableViewCell {
         citiesLabel.textAlignment = .left
         citiesLabel.textColor = .white
         citiesLabel.backgroundColor = .black
-        citiesLabel.layer.opacity = 0.7
+        citiesLabel.layer.opacity = 0.5
     }
     
     func configCell(_ data: City) {
@@ -52,13 +52,13 @@ class HotCountryTableViewCell: UITableViewCell {
         
         if let country = countryLabel.text, country.contains(filter) {
             var attributedStr = NSMutableAttributedString(string: country)
-            attributedStr.addAttribute(.foregroundColor, value: UIColor.orange, range: (country as NSString).range(of: filter))
+            attributedStr.addAttribute(.foregroundColor, value: UIColor.systemMint, range: (country as NSString).range(of: filter))
             countryLabel.attributedText = attributedStr
         }
         
         if let cities = citiesLabel.text, cities.contains(filter) {
             var attributedStr = NSMutableAttributedString(string: cities)
-            attributedStr.addAttribute(.foregroundColor, value: UIColor.orange, range: (cities as NSString).range(of: filter))
+            attributedStr.addAttribute(.foregroundColor, value: UIColor.systemMint, range: (cities as NSString).range(of: filter))
             citiesLabel.attributedText = attributedStr
         }
     }

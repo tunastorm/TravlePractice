@@ -142,9 +142,10 @@ extension HotCountryViewController {
     func setSerchBar() {
         let searchController = UISearchController(searchResultsController: nil)
         searchBar = searchController.searchBar
-        searchBar.placeholder = "검색창입니다"
+        searchBar.placeholder = "검색할 도시를 입력하세요"
         searchBar.delegate = self
         searchBar.showsCancelButton = false
+        searchBar.searchTextField.textColor = .black
 
         self.navigationItem.searchController = searchController
     }
@@ -160,7 +161,6 @@ extension HotCountryViewController {
     
     @objc private func didChangeValue(segment: UISegmentedControl) {
         
-        filterredArr.removeAll()
         self.showingView = segment.selectedSegmentIndex
         
         // 국내, 해외 뷰 최초 클릭 시 초기화
@@ -193,13 +193,16 @@ extension HotCountryViewController: UISearchBarDelegate {
         }
         
         let isSelected = searchQuery(setRegion: false)
+        searchBar.text = ""
+        searchBar.searchTextField.textColor = .black
     }
 
     // 검색, allView가 노출되지 않을 때는 지역별 검색 후 쿼리
     func searchQuery(setRegion: Bool) -> Bool {
         var isSelected = false
-        guard let text = self.searchBar.text?.lowercased() else { return  isSelected}
-        
+    
+        guard let text = self.searchBar.text?.lowercased() else { return isSelected }
+    
         var queryArr: [String] = []
         // 국내 뷰 노출 중 검색
         if setRegion && showingView == 1{
@@ -212,22 +215,28 @@ extension HotCountryViewController: UISearchBarDelegate {
             queryArr = flattenArr
         }
         
+        print("queryArr: \(queryArr)")
         // " | "로 구분한 문자열로 변환된 City객체가 담긴 flattenCity와 text를 contains로 비교
-        for (idx, flattenCity) in queryArr.enumerated() {
-            if flattenCity.contains(text) {
-                print("idx_\(idx):\n\(flattenCity)")
-            }
-        }
+//        for (idx, flattenCity) in queryArr.enumerated() {
+//            if flattenCity.contains(text) {
+//                print("idx_\(idx):\n\(flattenCity)")
+//            }
+//        }
         
-        let resultArr = flattenArr.filter { $0.localizedCaseInsensitiveContains(text) }
+        var resultArr: [String] = []
+        if !text.isEmpty {
+            resultArr = queryArr.filter { $0.localizedCaseInsensitiveContains(text) }
+        } else {
+            resultArr = queryArr
+        }
         
         filterredArr = resultArr
         // 국내 뷰 리스트 초기화 및 뷰 이동
-        if !setRegion && showingView == 1{
+        if showingView == 1 && flattenDomestic.isEmpty {
             flattenDomestic = resultArr
             tableView.reloadData()
         // 해외 뷰 리스트 초기화 및 뷰 이동
-        } else if !setRegion && showingView == 2{
+        } else if showingView == 2 && flattenAbroad.isEmpty {
             flattenAbroad = resultArr
             tableView.reloadData()
         }
@@ -236,6 +245,7 @@ extension HotCountryViewController: UISearchBarDelegate {
             self.searchBar.text = text
             isSelected = true
         }
+        
         return isSelected
     }
     
@@ -247,7 +257,7 @@ extension HotCountryViewController: UISearchBarDelegate {
        }
            
         func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-            let isSelected = searchQuery(setRegion: !allView.isHidden)
+            let isSelected = searchQuery(setRegion: allView.isHidden)
             
             if isSelected {
                 self.tableView.reloadData()
@@ -255,7 +265,7 @@ extension HotCountryViewController: UISearchBarDelegate {
         }
     
        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-           let isSelected = searchQuery(setRegion: !allView.isHidden)
+           let isSelected = searchQuery(setRegion: allView.isHidden)
            
            if isSelected {
                self.tableView.reloadData()
@@ -308,14 +318,14 @@ extension HotCountryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var data = City(city_name: "", city_english_name: "", city_explain: "", city_image: "", domastic_travel: false)
-        print(indexPath.row)
+//        print(indexPath.row)
         
         if !allView.isHidden && filterredArr.isEmpty {
             data.flatten = flattenArr[indexPath.row]
         } else {
             data.flatten = filterredArr[indexPath.row]
         }
-        print("AfterFlattenSetter :\(data)")
+//        print("AfterFlattenSetter :\(data)")
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HotCountryTableViewCell
         

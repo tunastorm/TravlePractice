@@ -8,7 +8,6 @@
 import UIKit
 
 class HotCountryViewController: UIViewController {
-
     static let identifier = String(String(describing: type(of: self)).split(separator: " ").last!)
     
     let safetyArea: UIView = {
@@ -66,15 +65,22 @@ class HotCountryViewController: UIViewController {
     }
     
     let cellIdentifier = HotCountryTableViewCell.identifier
-    lazy var searchBar = UISearchBar()
+    
+    lazy var searchController = UISearchController(searchResultsController: nil)
     lazy var tableView = UITableView()
-    let list = CityInfo().city 
-    let resultList: [String] = []
-    let resultIdxList: [Int] = []
+    lazy var searchBar = UISearchBar()
+    
+    let list = CityInfo().city
+    let flattenArr = CityInfo().flattenArr
+    var filterredArr: [String] = []
+//    let resultIdxList: [Int] = []
+    var isFiltering = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(flattenArr)
         
         setNavigationBar()
         setBaseView()
@@ -111,13 +117,14 @@ class HotCountryViewController: UIViewController {
         setViewAutoLayout()
     }
     
-    func setupSearchController() {
-
-    }
-    
     func setSerchBar() {
-        searchBar.delegate = self
         let searchController = UISearchController(searchResultsController: nil)
+        searchBar = searchController.searchBar
+        searchBar.placeholder = "검색창입니다"
+        searchBar.delegate = self
+        searchBar.showsCancelButton = false
+        
+
         self.navigationItem.searchController = searchController
 
         // text가 업데이트될 때마다 불리는 메소드
@@ -145,8 +152,7 @@ class HotCountryViewController: UIViewController {
         
         let xib = UINib(nibName: cellIdentifier, bundle: nil)
         tableView.register(xib, forCellReuseIdentifier: cellIdentifier)
-        
-        tableView.rowHeight = 120
+        tableView.rowHeight = 130
         
         safetyArea.addSubview(tableView)
     }
@@ -161,12 +167,12 @@ class HotCountryViewController: UIViewController {
         
         segmentedControl.snp.makeConstraints {
             $0.height.equalTo(30)
-            $0.top.equalToSuperview().inset(20)
+            $0.top.equalToSuperview().inset(10)
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         
         tableView.snp.makeConstraints {
-            $0.top.equalTo(segmentedControl).inset(60) // segmentedControl height(40) + 20
+            $0.top.equalTo(segmentedControl).inset(50) // segmentedControl height(40) + 20
             $0.leading.trailing.equalToSuperview().inset(0)
             $0.bottom.equalToSuperview().inset(0)
         }
@@ -174,10 +180,54 @@ class HotCountryViewController: UIViewController {
 }
 
 extension HotCountryViewController: UISearchBarDelegate, UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        
-    }
     
+    // 서치바에서 검색을 시작할 때 호출
+       func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+           self.isFiltering = true
+           self.searchBar.showsCancelButton = true
+           self.tableView.reloadData()
+       }
+       
+       func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+           guard let text = self.searchBar.text?.lowercased() else { return }
+           print(text)
+           for (idx, flatten) in flattenArr.enumerated() {
+               if flatten.contains(text) {
+                   print("idx_\(idx):\n\(flatten)")
+               }
+           }
+           self.filterredArr = flattenArr.filter { $0.localizedCaseInsensitiveContains(text) }
+           
+           if filterredArr.count > 0 {
+               self.tableView.reloadData()
+           }
+       }
+       
+       // 서치바에서 취소 버튼을 눌렀을 때 호출
+       func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+           self.searchBar.text = ""
+           self.searchBar.resignFirstResponder()
+           self.isFiltering = false
+           self.tableView.reloadData()
+       }
+       
+       // 서치바 검색이 끝났을 때 호출
+       func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+           print("검색결과: \(filterredArr)")
+           self.tableView.reloadData()
+       }
+       
+       // 서치바 키보드 내리기
+       func dismissKeyboard() {
+           searchBar.resignFirstResponder()
+       }
+    
+      func updateSearchResults(for searchController: UISearchController) {
+          guard let text = searchController.searchBar.text else {
+              return
+          }
+          
+      }
     
 }
 
@@ -185,15 +235,31 @@ extension HotCountryViewController: UISearchBarDelegate, UISearchResultsUpdating
 extension HotCountryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        var rowSize = 0
+        
+        if !allView.isHidden && filterredArr.isEmpty {
+            rowSize = list.count
+        } else {
+            rowSize = filterredArr.count
+        }
+        
+        return rowSize
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let data = list[indexPath.row]
+        var data: City
+        if !allView.isHidden && filterredArr.isEmpty {
+            data = list[indexPath.row]
+        } else {
+            data = City(city_name: "", city_english_name: "", city_explain: "", city_image: "", domastic_travel: false)
+            data.flatten = filterredArr[indexPath.row]
+            print("AfterFlattenSetter :\(data)")
+        }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HotCountryTableViewCell
         
+        cell.configCell(data)
         
         return cell
     }

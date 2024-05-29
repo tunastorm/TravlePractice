@@ -23,6 +23,9 @@
 		BC5750182C0467530072E10F /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5750172C0467530072E10F /* UITextField+Extension.swift */; };
 		BC57501A2C0467E70072E10F /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5750192C0467E70072E10F /* UIButton+Extension.swift */; };
 		BC8B795B2C06F265006E0F6A /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B795A2C06F265006E0F6A /* Notification.Name+Extension.swift */; };
+		BC8B795D2C06FAE0006E0F6A /* Advertisement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC8B795C2C06FAE0006E0F6A /* Advertisement.storyboard */; };
+		BC8B795F2C07010C006E0F6A /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B795E2C07010C006E0F6A /* AdViewController.swift */; };
+		BC8B79612C07030B006E0F6A /* TravelDescViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B79602C07030B006E0F6A /* TravelDescViewController.swift */; };
 		BCC523502C01B1E400DF080D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5234F2C01B1E400DF080D /* AppDelegate.swift */; };
 		BCC523522C01B1E400DF080D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC523512C01B1E400DF080D /* SceneDelegate.swift */; };
 		BCC523542C01B1E400DF080D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC523532C01B1E400DF080D /* ViewController.swift */; };
@@ -67,6 +70,9 @@
 		BC5750172C0467530072E10F /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		BC5750192C0467E70072E10F /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		BC8B795A2C06F265006E0F6A /* Notification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extension.swift"; sourceTree = "<group>"; };
+		BC8B795C2C06FAE0006E0F6A /* Advertisement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Advertisement.storyboard; sourceTree = "<group>"; };
+		BC8B795E2C07010C006E0F6A /* AdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
+		BC8B79602C07030B006E0F6A /* TravelDescViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDescViewController.swift; sourceTree = "<group>"; };
 		BCC5234C2C01B1E400DF080D /* TravlePractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravlePractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC5234F2C01B1E400DF080D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC523512C01B1E400DF080D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +209,8 @@
 				BCE3B4B62C04A7C000333310 /* HotCityTableViewCell.swift */,
 				BCE3B4BC2C0500C000333310 /* BaseScrollView.swift */,
 				BCE3B4CA2C05140C00333310 /* TravelTabBarController.swift */,
+				BC8B795E2C07010C006E0F6A /* AdViewController.swift */,
+				BC8B79602C07030B006E0F6A /* TravelDescViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -214,6 +222,7 @@
 				BCC523552C01B1E400DF080D /* Main.storyboard */,
 				BCE3B4B32C04A77400333310 /* AdTableViewCell.xib */,
 				BCE3B4B72C04A7C000333310 /* HotCityTableViewCell.xib */,
+				BC8B795C2C06FAE0006E0F6A /* Advertisement.storyboard */,
 			);
 			path = XIB;
 			sourceTree = "<group>";
@@ -286,6 +295,7 @@
 			files = (
 				BCE3B4B52C04A77400333310 /* AdTableViewCell.xib in Resources */,
 				BCC523592C01B1E500DF080D /* Assets.xcassets in Resources */,
+				BC8B795D2C06FAE0006E0F6A /* Advertisement.storyboard in Resources */,
 				BCC5235C2C01B1E500DF080D /* Base in Resources */,
 				BCC523572C01B1E400DF080D /* Base in Resources */,
 				BCE3B4B92C04A7C000333310 /* HotCityTableViewCell.xib in Resources */,
@@ -300,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC8B795B2C06F265006E0F6A /* Notification.Name+Extension.swift in Sources */,
+				BC8B795F2C07010C006E0F6A /* AdViewController.swift in Sources */,
 				BC574FE52C01EDFA0072E10F /* sectionDAO.swift in Sources */,
 				BCE3B4A32C04745700333310 /* HotCityViewController.swift in Sources */,
 				BCE3B4BD2C0500C000333310 /* BaseScrollView.swift in Sources */,
@@ -319,6 +330,7 @@
 				BCE3B4A92C0478C600333310 /* TravelModel.swift in Sources */,
 				BCC523652C01B2AD00DF080D /* MagazineInfo.swift in Sources */,
 				BCE3B4AD2C0489C300333310 /* UIImageView+Extension.swift in Sources */,
+				BC8B79612C07030B006E0F6A /* TravelDescViewController.swift in Sources */,
 				BCC5236A2C01B3C600DF080D /* MagazineTableViewCell.swift in Sources */,
 				BCE3B4CB2C05140C00333310 /* TravelTabBarController.swift in Sources */,
 				BCC523502C01B1E400DF080D /* AppDelegate.swift in Sources */,

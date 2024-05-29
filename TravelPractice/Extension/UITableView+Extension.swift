@@ -8,6 +8,7 @@
 import UIKit
 
 extension UITableView {
+    
     func setLayoutforRestaurant(){
         //tableView.rowHeight = UITableView.automaticDimension
         //tableView.estimatedRowHeight = 80

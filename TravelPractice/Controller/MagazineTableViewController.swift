@@ -41,7 +41,7 @@ class MagazineTableViewController: UITableViewController {
         
         let rowIndex = indexPath.row
         
-        let row = magazineList.getmagazine(at: rowIndex)
+        let data = magazineList.getmagazine(at: rowIndex)
         
 //        print("[cell_\(rowIndex)]\n\(row)")
         
@@ -52,59 +52,11 @@ class MagazineTableViewController: UITableViewController {
             tableView.rowHeight = cell.frame.height
         }
 
-        cell = setCellTitle(cell, text: row.title)
-        cell = setCellSubTitle(cell, text: row.subtitle)
-        cell = setCellDateLabel(cell, date: row.date, before: "yyMMdd", after: "yy년 MM월 d일")
-        cell = setCellImage(cell, imageURL: row.photo_image)
+        cell.configCell(data)
 
         return cell
     }
     
-    func setCellTitle(_ cell: MagazineTableViewCell, text: String) -> MagazineTableViewCell {
-        cell.titleLabel.text = text
-        cell.titleLabel.font = .boldSystemFont(ofSize: 20)
-        cell.titleLabel.textAlignment = .left
-        cell.titleLabel.numberOfLines = 0
-        
-        return cell
-    }
-    
-    func setCellSubTitle(_ cell: MagazineTableViewCell, text: String) -> MagazineTableViewCell {
-        cell.subtitleLabel.text = text
-        cell.subtitleLabel.textColor = .systemGray3
-        
-        return cell
-    }
-    
-    func setCellDateLabel(_ cell: MagazineTableViewCell, date: String, before: String, after: String) -> MagazineTableViewCell {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: Locale.current.identifier)
-        dateFormatter.dateStyle = .long
-        
-        dateFormatter.dateFormat = before
-        guard let newDate = dateFormatter.date(from: date) else {
-            return cell
-        }
-        
-        dateFormatter.dateFormat = after
-        
-        cell.dateLabel.font = .systemFont(ofSize: 12)
-        cell.dateLabel.text = dateFormatter.string(from: newDate)
-        
-        return cell
-    }
-    
-    func setCellImage(_ cell: MagazineTableViewCell, imageURL: String) -> MagazineTableViewCell {
-        guard let url = URL(string: imageURL) else {
-            return cell
-        }
-        cell.travelImageView.contentMode = .scaleAspectFill
-        cell.travelImageView.layer.cornerRadius = cell.travelImageView.frame.height * 0.05
-        cell.travelImageView.kf.setImage(with: url,
-                                         placeholder: UIImage(systemName: "camera"))
-        
-        return cell
-    }
+
 
 }

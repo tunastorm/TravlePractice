@@ -9,6 +9,8 @@ import UIKit
 
 class HotCityTableViewCell: UITableViewCell {
     
+    static let identifier = String(String(describing: type(of: self)).split(separator: " ").last!)
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var starAndSavedLabel: UILabel!

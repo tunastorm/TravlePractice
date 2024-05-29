@@ -366,6 +366,49 @@
             </objects>
             <point key="canvasLocation" x="-109.23076923076923" y="1326.5402843601896"/>
         </scene>
+        <!--Travel Desc View Controller-->
+        <scene sceneID="Z82-ZS-7RE">
+            <objects>
+                <viewController storyboardIdentifier="TravelDescViewController" id="Jy5-Lr-WCb" customClass="TravelDescViewController" customModule="TravlePractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tLb-O0-dcc">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="여행지 정보에요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riz-Ih-lWH">
+                                <rect key="frame" x="20" y="278" width="390" height="376"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXq-WU-Qff">
+                                <rect key="frame" x="173" y="574" width="84" height="35"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="WOF-5D-zhN"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="뒤로가기"/>
+                                <connections>
+                                    <action selector="popButtonClicked:" destination="Jy5-Lr-WCb" eventType="touchUpInside" id="BZY-ba-x7u"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="21A-vQ-7vG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yXq-WU-Qff" firstAttribute="leading" secondItem="21A-vQ-7vG" secondAttribute="leading" constant="173" id="0at-OB-jHD"/>
+                            <constraint firstItem="yXq-WU-Qff" firstAttribute="top" secondItem="21A-vQ-7vG" secondAttribute="top" constant="515" id="kIO-XL-Dus"/>
+                            <constraint firstItem="21A-vQ-7vG" firstAttribute="trailing" secondItem="yXq-WU-Qff" secondAttribute="trailing" constant="173" id="mvG-OV-mUu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7XP-bA-gmb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="824.65116279069764" y="568.45493562231763"/>
+        </scene>
         <!--HotCity-->
         <scene sceneID="b7h-v1-0dr">
             <objects>
@@ -408,6 +451,9 @@
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

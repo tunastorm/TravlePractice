@@ -24,4 +24,22 @@ extension UIViewController {
             statusBarView?.backgroundColor = bgColor
         }
     }
+    
+    func setSafetyArea(_ safetyArea: UIView){
+         safetyArea.translatesAutoresizingMaskIntoConstraints = false // 코드로 제약조건을 주기위해서 꼭 들어가야 하는 코드
+         view.addSubview(safetyArea)
+         if #available(iOS 11, *) {
+             let guide = view.safeAreaLayoutGuide
+             safetyArea.topAnchor.constraint(equalTo: guide.topAnchor).isActive = true
+             safetyArea.bottomAnchor.constraint(equalTo: guide.bottomAnchor).isActive = true
+             safetyArea.leadingAnchor.constraint(equalTo: guide.leadingAnchor).isActive = true
+             safetyArea.trailingAnchor.constraint(equalTo: guide.trailingAnchor).isActive = true
+             
+         } else {
+             safetyArea.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor).isActive = true
+             safetyArea.bottomAnchor.constraint(equalTo: bottomLayoutGuide.bottomAnchor).isActive = true
+             safetyArea.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+             safetyArea.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+         }
+    }
 }

@@ -8,6 +8,7 @@
 import UIKit
 
 class HotCountryViewController: UIViewController {
+    
     static let identifier = String(String(describing: type(of: self)).split(separator: " ").last!)
     
     let safetyArea: UIView = {
@@ -46,16 +47,17 @@ class HotCountryViewController: UIViewController {
     var showingView: Int? {
         didSet {
             guard let showingView = showingView else { return }
+            // 모두 뷰 노출
             if showingView == 0 {
                 allView.isHidden = false
                 domesticView.isHidden = true
                 abroadView.isHidden = true
-                
+            // 국내 뷰 노출
             } else if showingView == 1{
                 allView.isHidden = true
                 domesticView.isHidden = false
                 abroadView.isHidden = true
-                
+            // 해외 뷰 노출
             } else if showingView == 2 {
                 allView.isHidden = true
                 domesticView.isHidden = true
@@ -70,8 +72,11 @@ class HotCountryViewController: UIViewController {
     lazy var tableView = UITableView()
     lazy var searchBar = UISearchBar()
     
-    let list = CityInfo().city
-    let flattenArr = CityInfo().flattenArr
+    //let list = CityInfo().city
+    lazy var flattenArr = CityInfo().flattenArr
+    lazy var flattenDomestic: [String] = []
+    lazy var flattenAbroad: [String] = []
+    
     var filterredArr: [String] = []
 //    let resultIdxList: [Int] = []
     var isFiltering = false
@@ -80,31 +85,16 @@ class HotCountryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(flattenArr)
-        
         setNavigationBar()
-        setBaseView()
+        setSafetyArea(safetyArea)
         setView()
         setTableView()
     }
     
-    func setBaseView(){
-         safetyArea.translatesAutoresizingMaskIntoConstraints = false // 코드로 제약조건을 주기위해서 꼭 들어가야 하는 코드
-         view.addSubview(safetyArea)
-         if #available(iOS 11, *) {
-             let guide = view.safeAreaLayoutGuide
-             safetyArea.topAnchor.constraint(equalTo: guide.topAnchor).isActive = true
-             safetyArea.bottomAnchor.constraint(equalTo: guide.bottomAnchor).isActive = true
-             safetyArea.leadingAnchor.constraint(equalTo: guide.leadingAnchor).isActive = true
-             safetyArea.trailingAnchor.constraint(equalTo: guide.trailingAnchor).isActive = true
-             
-         } else {
-             safetyArea.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor).isActive = true
-             safetyArea.bottomAnchor.constraint(equalTo: bottomLayoutGuide.bottomAnchor).isActive = true
-             safetyArea.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-             safetyArea.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-         }
-    }
+   
+}
+
+extension HotCountryViewController {
     
     func setNavigationBar() {
         navigationItem.setLayoutFortopTitle(title: "인기 도시", width: view.frame.width, height: view.frame.width)
@@ -116,36 +106,7 @@ class HotCountryViewController: UIViewController {
         setTableView()
         setViewAutoLayout()
     }
-    
-    func setSerchBar() {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchBar = searchController.searchBar
-        searchBar.placeholder = "검색창입니다"
-        searchBar.delegate = self
-        searchBar.showsCancelButton = false
         
-
-        self.navigationItem.searchController = searchController
-
-        // text가 업데이트될 때마다 불리는 메소드
-        searchController.searchResultsUpdater = self
-    }
-    
-    func setSegmentedControl() {
-        self.segmentedControl.addTarget(self, action: #selector(didChangeValue(segment:)), for: .valueChanged)
-          
-        self.segmentedControl.selectedSegmentIndex = 0
-        self.didChangeValue(segment: self.segmentedControl)
-        
-        safetyArea.addSubview(segmentedControl)
-    }
-    
-    
-    @objc private func didChangeValue(segment: UISegmentedControl) {
-      self.showingView = segment.selectedSegmentIndex
-    }
-    
-    
     func setTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -177,28 +138,126 @@ class HotCountryViewController: UIViewController {
             $0.bottom.equalToSuperview().inset(0)
         }
     }
+    
+    func setSerchBar() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchBar = searchController.searchBar
+        searchBar.placeholder = "검색창입니다"
+        searchBar.delegate = self
+        searchBar.showsCancelButton = false
+
+        self.navigationItem.searchController = searchController
+    }
+    
+    func setSegmentedControl() {
+        self.segmentedControl.addTarget(self, action: #selector(didChangeValue(segment:)), for: .valueChanged)
+          
+        self.segmentedControl.selectedSegmentIndex = 0
+        self.didChangeValue(segment: self.segmentedControl)
+        
+        safetyArea.addSubview(segmentedControl)
+    }
+    
+    @objc private func didChangeValue(segment: UISegmentedControl) {
+        
+        filterredArr.removeAll()
+        self.showingView = segment.selectedSegmentIndex
+        
+        // 국내, 해외 뷰 최초 클릭 시 초기화
+        if showingView == 1 && flattenDomestic.isEmpty ||
+           showingView == 2 && flattenAbroad.isEmpty {
+            setRegionList()
+            return
+        }
+        
+        switch showingView {
+        case 0: filterredArr = flattenArr
+        case 1: filterredArr = flattenDomestic
+        case 2: filterredArr = flattenAbroad
+        default: return
+        }
+        tableView.reloadData()
+    }
+    
 }
 
-extension HotCountryViewController: UISearchBarDelegate, UISearchResultsUpdating {
+extension HotCountryViewController: UISearchBarDelegate {
     
-    // 서치바에서 검색을 시작할 때 호출
+    
+    func setRegionList() {
+        searchBar.searchTextField.textColor = .clear
+        if showingView == 1 {
+            searchBar.text = "true"
+        } else if showingView  == 2 {
+            searchBar.text = "false"
+        }
+        
+        let isSelected = searchQuery(setRegion: false)
+    }
+
+    // 검색, allView가 노출되지 않을 때는 지역별 검색 후 쿼리
+    func searchQuery(setRegion: Bool) -> Bool {
+        var isSelected = false
+        guard let text = self.searchBar.text?.lowercased() else { return  isSelected}
+        
+        var queryArr: [String] = []
+        // 국내 뷰 노출 중 검색
+        if setRegion && showingView == 1{
+            queryArr = flattenDomestic
+        // 해외 뷰 노출 중 겁색
+        } else if setRegion && showingView == 2{
+            queryArr = flattenAbroad
+        // 모두 뷰 노출 중 검색
+        } else {
+            queryArr = flattenArr
+        }
+        
+        // " | "로 구분한 문자열로 변환된 City객체가 담긴 flattenCity와 text를 contains로 비교
+        for (idx, flattenCity) in queryArr.enumerated() {
+            if flattenCity.contains(text) {
+                print("idx_\(idx):\n\(flattenCity)")
+            }
+        }
+        
+        let resultArr = flattenArr.filter { $0.localizedCaseInsensitiveContains(text) }
+        
+        filterredArr = resultArr
+        // 국내 뷰 리스트 초기화 및 뷰 이동
+        if !setRegion && showingView == 1{
+            flattenDomestic = resultArr
+            tableView.reloadData()
+        // 해외 뷰 리스트 초기화 및 뷰 이동
+        } else if !setRegion && showingView == 2{
+            flattenAbroad = resultArr
+            tableView.reloadData()
+        }
+        
+        if filterredArr.count > 0 {
+            self.searchBar.text = text
+            isSelected = true
+        }
+        return isSelected
+    }
+    
+       // 서치바에서 검색을 시작할 때 호출
        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
            self.isFiltering = true
            self.searchBar.showsCancelButton = true
            self.tableView.reloadData()
        }
-       
-       func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-           guard let text = self.searchBar.text?.lowercased() else { return }
-           print(text)
-           for (idx, flatten) in flattenArr.enumerated() {
-               if flatten.contains(text) {
-                   print("idx_\(idx):\n\(flatten)")
-               }
-           }
-           self.filterredArr = flattenArr.filter { $0.localizedCaseInsensitiveContains(text) }
            
-           if filterredArr.count > 0 {
+        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            let isSelected = searchQuery(setRegion: !allView.isHidden)
+            
+            if isSelected {
+                self.tableView.reloadData()
+            }
+        }
+    
+       func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+           let isSelected = searchQuery(setRegion: !allView.isHidden)
+           
+           if isSelected {
                self.tableView.reloadData()
            }
        }
@@ -222,13 +281,13 @@ extension HotCountryViewController: UISearchBarDelegate, UISearchResultsUpdating
            searchBar.resignFirstResponder()
        }
     
-      func updateSearchResults(for searchController: UISearchController) {
-          guard let text = searchController.searchBar.text else {
-              return
-          }
-          
-      }
-    
+//      func updateSearchResults(for searchController: UISearchController) {
+//          let isSelected = searchQuery()
+//          
+//          if isSelected {
+//              self.tableView.reloadData()
+//          }
+//      }
 }
 
 
@@ -238,7 +297,7 @@ extension HotCountryViewController: UITableViewDelegate, UITableViewDataSource {
         var rowSize = 0
         
         if !allView.isHidden && filterredArr.isEmpty {
-            rowSize = list.count
+            rowSize = flattenArr.count
         } else {
             rowSize = filterredArr.count
         }
@@ -248,18 +307,24 @@ extension HotCountryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var data: City
+        var data = City(city_name: "", city_english_name: "", city_explain: "", city_image: "", domastic_travel: false)
+        print(indexPath.row)
+        
         if !allView.isHidden && filterredArr.isEmpty {
-            data = list[indexPath.row]
+            data.flatten = flattenArr[indexPath.row]
         } else {
-            data = City(city_name: "", city_english_name: "", city_explain: "", city_image: "", domastic_travel: false)
             data.flatten = filterredArr[indexPath.row]
-            print("AfterFlattenSetter :\(data)")
         }
+        print("AfterFlattenSetter :\(data)")
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HotCountryTableViewCell
         
-        cell.configCell(data)
+        if !allView.isHidden && filterredArr.isEmpty {
+            cell.configCell(data)
+        } else {
+            guard let word = searchBar.text else {return cell}
+            cell.configfilterredCell(data, filter: word)
+        }
         
         return cell
     }

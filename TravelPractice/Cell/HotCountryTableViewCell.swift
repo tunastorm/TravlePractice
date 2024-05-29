@@ -46,4 +46,9 @@ class HotCountryTableViewCell: UITableViewCell {
         countryLavel.text = "\(data.city_name) | \(data.city_english_name)"
         citiesLabel.text = "  " + data.city_explain
     }
+    
+    func configfilterredCell(_ data: City, filter: String) {
+        configCell(data)
+    }
+    
 }

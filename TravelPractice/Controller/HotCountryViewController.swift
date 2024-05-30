@@ -129,6 +129,7 @@ extension HotCountryViewController: UITableViewDelegate, UITableViewDataSource {
             guard let word = searchBar.text else {return cell}
             cell.configfilterredCell(data, filter: word)
         }
+        cell.selectionStyle = .none
         
         return cell
     }

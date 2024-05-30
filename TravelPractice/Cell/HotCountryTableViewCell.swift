@@ -23,20 +23,24 @@ class HotCountryTableViewCell: UITableViewCell {
     }
 
     func configLayout() {
-        mainImageView.contentMode = .scaleAspectFill
+        mainImageView.setLayoutForCellMainImage()
         
         mainImageCoverView.backgroundColor = .black
         mainImageCoverView.layer.opacity = 0.4
+        mainImageCoverView.layer.cornerRadius = mainImageCoverView.frame.height * 0.05
         
         countryLabel.font = .boldSystemFont(ofSize: 20)
         countryLabel.textAlignment = .right
         countryLabel.textColor = .white
+        countryLabel.layer.cornerRadius = countryLabel.frame.height * 0.05
         
         citiesLabel.font = .systemFont(ofSize: 12)
         citiesLabel.textAlignment = .left
         citiesLabel.textColor = .white
         citiesLabel.backgroundColor = .black
         citiesLabel.layer.opacity = 0.5
+        citiesLabel.layer.masksToBounds = true
+        citiesLabel.layer.cornerRadius = citiesLabel.frame.height * 0.2
     }
     
     func configCell(_ data: City) {

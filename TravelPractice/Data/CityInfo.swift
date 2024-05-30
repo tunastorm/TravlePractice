@@ -22,13 +22,16 @@ struct City {
 
         set {
             let propertyList = newValue.split(separator: " | ")
+            
             for (idx, property) in propertyList.enumerated() {
                 var castedDomestic: Bool = false
                 var castedProperty: String = ""
-                if idx < 4 {
+                
+                if idx < property.count-1 {
                     castedProperty = String(property)
                 }
-                if idx == 4 && property == "true" {
+                
+                if idx == propertyList.count-1 && property == "true" {
                     castedDomestic = true
                 }
                 

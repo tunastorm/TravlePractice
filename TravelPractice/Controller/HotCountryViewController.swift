@@ -140,7 +140,7 @@ extension HotCountryViewController: UITableViewDelegate, UITableViewDataSource {
 extension HotCountryViewController {
     
     func setNavigationBar() {
-        navigationItem.setLayoutFortopTitle(title: "인기 도시", width: view.frame.width, height: view.frame.width)
+        navigationItem.setLayoutFortopTitle(title: "인기 도시", color: .black ,width: view.frame.width, height: view.frame.width)
     }
     
     func setView() {

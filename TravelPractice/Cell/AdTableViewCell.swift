@@ -14,7 +14,8 @@ class AdTableViewCell: UITableViewCell {
     @IBOutlet weak var copyLabel: UILabel!
     @IBOutlet weak var adLabel: UILabel!
     
-    let colors: [UIColor] = [.systemGray, .systemMint, .systemPink, .systemIndigo]
+    var title: String = ""
+    let color: UIColor = [.systemGray, .systemMint, .systemPink, .systemIndigo].randomElement() ?? .systemGray
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +23,7 @@ class AdTableViewCell: UITableViewCell {
     }
     
     func configLayout() {
-        contentView.backgroundColor = colors.randomElement()!
+        contentView.backgroundColor = color
         contentView.layer.cornerRadius = contentView.frame.height * 0.1
         
         adLabel.text = "AD"
@@ -41,5 +42,6 @@ class AdTableViewCell: UITableViewCell {
     
     func configCell(_ data: Travel) {
         copyLabel.text = "\(data.title)"
+        title = data.title
     }
 }

@@ -23,7 +23,7 @@ class MagazineTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = 0
-        navigationItem.setLayoutFortopTitle(title: "SeSAC TRAVEL", width: tableView.frame.width, height: 40)
+        navigationItem.setLayoutFortopTitle(title: "SeSAC TRAVEL", color: .black, width: tableView.frame.width, height: 40)
         
     }
     
@@ -47,11 +47,11 @@ class MagazineTableViewController: UITableViewController {
         
         let identifier = CellIdentifier.MagazineTableViewCell.describe
         var cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MagazineTableViewCell
-        
+            
         if tableView.rowHeight == 0 {
             tableView.rowHeight = cell.frame.height
         }
-
+        cell.selectionStyle = .none
         cell.configCell(data)
 
         return cell

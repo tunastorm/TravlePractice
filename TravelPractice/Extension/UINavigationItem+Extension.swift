@@ -8,10 +8,10 @@
 import UIKit
 
 extension UINavigationItem {
-    func setLayoutFortopTitle(title: String, width: Double, height: Double) {
+    func setLayoutFortopTitle(title: String, color: UIColor, width: Double, height: Double) {
         let topTitle = UILabel(frame:CGRect(x: 0, y: 0, width: width, height: height))
         topTitle.text = title
-        topTitle.textColor = .black
+        topTitle.textColor = color
         topTitle.textAlignment = .center
         topTitle.font = .boldSystemFont(ofSize: 20)
         let titleView = UIView(frame:CGRect(x: 0, y: 0, width: width, height: height)) ?? UIView()

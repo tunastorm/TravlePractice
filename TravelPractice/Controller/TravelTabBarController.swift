@@ -13,6 +13,8 @@ class TravelTabBarController: UITabBarController {
         super.viewDidLoad()
         
         tabBar.tintColor = .black
+        
+        
+        
     }
-
 }

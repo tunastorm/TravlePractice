@@ -114,9 +114,10 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
                 return searchCell
             }
             searchCell.configCell(currentWord)
-            
             cell = searchCell
         }
+        
+        cell.selectionStyle = .none
         
       return cell
     }
@@ -137,6 +138,10 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
         
         likeListButton.setLayoutForLikeList()
         likeListButton.addTarget(self, action: #selector(likeListButtonClicked), for: .touchUpInside)
+        
+        let mapImage = SystemImage().map
+        let leftButton = UIBarButtonItem(image: mapImage, style: .plain, target: self, action: #selector(pushToRestaurantMap))
+        navigationItem.leftBarButtonItem = leftButton
     }
     
     func searchRestaurants(word: String) {
@@ -217,5 +222,13 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
             }
         }
         tableView.reloadData()
+    }
+    
+    @objc func pushToRestaurantMap() {
+        let sb = UIStoryboard(name: "RestaurantMap", bundle: nil)
+        let identifier = RestaurantMapViewController.identifier
+        let vc = sb.instantiateViewController(withIdentifier: identifier) as! RestaurantMapViewController
+        vc.allData = list
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

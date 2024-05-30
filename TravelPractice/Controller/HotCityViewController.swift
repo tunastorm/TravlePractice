@@ -28,7 +28,7 @@ class HotCityViewController: UIViewController {
         tableView.register(hotCityXIB, forCellReuseIdentifier: hotCityIdentifier)
         tableView.register(adXIB, forCellReuseIdentifier: adIdentifier)
     
-        navigationItem.setLayoutFortopTitle(title: "도시 상세 정보", width: 100, height: 40)
+        navigationItem.setLayoutFortopTitle(title: "도시 상세 정보", color: .black, width: 100, height: 40)
     }
 }
 
@@ -55,6 +55,7 @@ extension HotCityViewController: UITableViewDelegate,UITableViewDataSource {
             hotCityCell.configCell(data)
             cell = hotCityCell
         }
+        cell.selectionStyle = .none
         
         return cell
     }
@@ -66,7 +67,10 @@ extension HotCityViewController: UITableViewDelegate,UITableViewDataSource {
             let sb = UIStoryboard(name: "Advertisement", bundle: nil)
             let identifier = AdViewController.identifier
             
+            let cell = tableView.cellForRow(at: indexPath) as! AdTableViewCell
             let vc = sb.instantiateViewController(withIdentifier: identifier) as! AdViewController
+            vc.adTitle = cell.title
+            vc.color = cell.color
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
             present(nav, animated: true)
@@ -75,6 +79,7 @@ extension HotCityViewController: UITableViewDelegate,UITableViewDataSource {
             let sb = UIStoryboard(name: "Main", bundle: nil)
             let identifier = TravelDescViewController.identifier
             let vc = sb.instantiateViewController(withIdentifier: identifier) as! TravelDescViewController
+            vc.data = data
             navigationController?.pushViewController(vc, animated: true)
         }
     }

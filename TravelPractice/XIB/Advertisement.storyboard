@@ -17,25 +17,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="광고 화면" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjm-Bz-4KK">
-                                <rect key="frame" x="16" y="286" width="361" height="350"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="광고 화면" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjm-Bz-4KK">
+                                <rect key="frame" x="0.0" y="59" width="393" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="jjm-Bz-4KK" secondAttribute="height" multiplier="361:350" id="7NK-Dh-gLG"/>
-                                    <constraint firstAttribute="height" constant="350" id="XE7-6i-o7W"/>
+                                    <constraint firstAttribute="height" constant="80" id="9HT-Jw-PFV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p7G-la-0fB">
+                                <rect key="frame" x="0.0" y="139" width="393" height="679"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="jjm-Bz-4KK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Pwb-ci-s1d"/>
-                            <constraint firstItem="jjm-Bz-4KK" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="tk4-G4-OWj"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jjm-Bz-4KK" secondAttribute="trailing" constant="16" id="zVk-YI-i6P"/>
+                            <constraint firstItem="jjm-Bz-4KK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="7WQ-0Y-pCc"/>
+                            <constraint firstAttribute="trailing" secondItem="p7G-la-0fB" secondAttribute="trailing" id="GZc-Zz-fBh"/>
+                            <constraint firstItem="p7G-la-0fB" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="Ttg-rW-yuE"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jjm-Bz-4KK" secondAttribute="trailing" id="cSg-r0-gFl"/>
+                            <constraint firstItem="p7G-la-0fB" firstAttribute="top" secondItem="jjm-Bz-4KK" secondAttribute="bottom" id="iUV-IU-24v"/>
+                            <constraint firstItem="p7G-la-0fB" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="mpd-Qi-zhK"/>
+                            <constraint firstItem="jjm-Bz-4KK" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="myw-jQ-ODE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="adImageView" destination="p7G-la-0fB" id="dOM-Jy-RWh"/>
+                        <outlet property="adTitleLabel" destination="jjm-Bz-4KK" id="J8s-bh-idP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

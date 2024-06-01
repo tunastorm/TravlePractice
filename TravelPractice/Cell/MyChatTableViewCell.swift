@@ -20,24 +20,28 @@ class MyChatTableViewCell: UITableViewCell {
     }
 
     func configLayout() {
-        
+        chatLabel.textAlignment = .left
+        chatLabel.numberOfLines = 0
+        chatLabel.backgroundColor = .yellow
+        chatLabel.layer.cornerRadius = 10
+        chatLabel.layer.masksToBounds = true
     }
     
-    func configCell(_ data: Chat) {
+    func configCell(_ data: Chat, _ nextUser: User?) {
         
         chatLabel.text = data.message
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: Locale.current.identifier)
-        dateFormatter.dateStyle = .long
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        guard let oldDate = dateFormatter.date(from: data.date) else {return}
-        
-        dateFormatter.dateFormat = "a h:mm"
-        let newDate = dateFormatter.string(from: oldDate)
-        
-        chatTimeLabel.text = newDate
+        if data.user != nextUser {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: Locale.current.identifier)
+            dateFormatter.dateStyle = .long
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+            guard let oldDate = dateFormatter.date(from: data.date) else {return}
+            
+            dateFormatter.dateFormat = "a h:mm"
+            let newDate = dateFormatter.string(from: oldDate)
+            
+            chatTimeLabel.text = newDate
+        }
     }
-    
-    
 }

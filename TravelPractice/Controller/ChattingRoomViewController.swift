@@ -26,7 +26,8 @@ extension ChattingRoomViewController {
     func setTableView() {
         chattingRoomTableView.delegate = self
         chattingRoomTableView.dataSource = self
-        // chattingRoomTableView.separatorStyle = .none
+        chattingRoomTableView.separatorStyle = .none
+        chattingRoomTableView.sectionHeaderTopPadding = 10
 
         let myIdentifier = MyChatTableViewCell.identifier
         let otherIdentifier = OtherChatTableViewCell.identifier
@@ -45,28 +46,33 @@ extension ChattingRoomViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let rowIndex = indexPath.row
-        
-        let owner = roomData?.chatroomName
-        
         var cell = UITableViewCell()
+        var fastUser: User?
+        var nextUser: User?
+       
         guard let data = roomData?.chatList[rowIndex] else {return cell}
         
-        if data.user.rawValue == owner {
+        let nowUser = data.user
+        
+        if rowIndex > 0 {
+            fastUser = roomData?.chatList[rowIndex-1].user
+        }
+        
+        if rowIndex < (roomData?.chatList.count ?? 1)-1 {
+            nextUser = roomData?.chatList[rowIndex+1].user
+        }
+        
+        if data.user == .user {
             let identifier = MyChatTableViewCell.identifier
             let myCell = chattingRoomTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyChatTableViewCell
-            myCell.configCell(data)
+            myCell.configCell(data, nextUser)
             cell = myCell
         } else {
             let identifier = OtherChatTableViewCell.identifier
             let otherCell = chattingRoomTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! OtherChatTableViewCell
-            var isContinue = false
-            if rowIndex > 0 && roomData?.chatList[rowIndex-1].user.rawValue == owner {
-                isContinue = true
-            }
-            otherCell.configCell(data, isContinue)
+            otherCell.configCell(data, fastUser, nextUser)
             cell = otherCell
         }
-        
         
         return cell
     }

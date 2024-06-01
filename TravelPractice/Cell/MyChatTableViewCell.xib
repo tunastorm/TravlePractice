@@ -21,19 +21,19 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHt-vk-lhv">
                         <rect key="frame" x="60" y="0.0" width="260" height="38"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아무말이나 막해버려" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slv-Yw-hzI">
-                                <rect key="frame" x="118" y="4" width="137" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slv-Yw-hzI">
+                                <rect key="frame" x="256" y="4" width="0.0" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="xh9-cR-42J"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Yz7-Pv-t7T"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오후 12:59" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMi-lf-j2C">
-                                <rect key="frame" x="66.666666666666671" y="14" width="47.333333333333329" height="20"/>
+                                <rect key="frame" x="207" y="14" width="47" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="rSC-70-fvc"/>
+                                    <constraint firstAttribute="height" constant="20" id="BYa-yI-mVP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
@@ -42,14 +42,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="XMi-lf-j2C" firstAttribute="top" secondItem="XHt-vk-lhv" secondAttribute="top" constant="14" id="1nT-QW-ehq"/>
-                            <constraint firstAttribute="bottom" secondItem="slv-Yw-hzI" secondAttribute="bottom" constant="4" id="6pb-hx-qRy"/>
-                            <constraint firstItem="slv-Yw-hzI" firstAttribute="top" secondItem="XHt-vk-lhv" secondAttribute="top" constant="4" id="C6U-DD-Ojx"/>
-                            <constraint firstItem="slv-Yw-hzI" firstAttribute="leading" secondItem="XMi-lf-j2C" secondAttribute="trailing" constant="4" id="FyB-lT-YBE"/>
-                            <constraint firstAttribute="trailing" secondItem="slv-Yw-hzI" secondAttribute="trailing" constant="5" id="Ioi-mO-H86"/>
-                            <constraint firstAttribute="bottom" secondItem="XMi-lf-j2C" secondAttribute="bottom" constant="4" id="Uzr-uM-rrg"/>
-                            <constraint firstItem="XMi-lf-j2C" firstAttribute="leading" relation="lessThanOrEqual" secondItem="XHt-vk-lhv" secondAttribute="leading" constant="167" id="Zyr-vB-Ovl"/>
+                            <constraint firstAttribute="trailing" secondItem="slv-Yw-hzI" secondAttribute="trailing" constant="4" id="Btw-iJ-gwt"/>
+                            <constraint firstItem="XMi-lf-j2C" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XHt-vk-lhv" secondAttribute="leading" constant="4" id="JC6-Iu-RBG"/>
+                            <constraint firstAttribute="bottom" secondItem="slv-Yw-hzI" secondAttribute="bottom" constant="4" id="SfH-iS-QBI"/>
+                            <constraint firstAttribute="bottom" secondItem="XMi-lf-j2C" secondAttribute="bottom" constant="4" id="W4z-4O-JSn"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="bfS-RP-cIA"/>
+                            <constraint firstItem="slv-Yw-hzI" firstAttribute="leading" secondItem="XMi-lf-j2C" secondAttribute="trailing" constant="2" id="dNp-wA-LTF"/>
+                            <constraint firstItem="slv-Yw-hzI" firstAttribute="top" secondItem="XHt-vk-lhv" secondAttribute="top" constant="4" id="yhr-Ly-Cg7"/>
                         </constraints>
                     </view>
                 </subviews>

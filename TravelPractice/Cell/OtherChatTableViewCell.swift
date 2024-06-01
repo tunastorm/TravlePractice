@@ -22,17 +22,27 @@ class OtherChatTableViewCell: UITableViewCell {
     }
     
     func configLayout() {
-    
+        chatLabel.textAlignment = .left
+        chatLabel.numberOfLines = 0
+        chatLabel.backgroundColor = .gray
+        chatLabel.layer.cornerRadius = 5
+        chatLabel.layer.masksToBounds = true
     }
     
-    func configCell(_ data: Chat, _ isContinue: Bool) {
+    func configCell(_ data: Chat, _ fastUser: User?, _ nextUser: User?) {
         
-        if isContinue {
+        chatLabel.text = data.message
+        
+        if data.user != fastUser {
+            let name = data.user.rawValue
+            nameLabel.text = name
+            profileImageView.image = UIImage(named: name)
+        }
+        
+        if data.user == nextUser {
             profileImageView.backgroundColor = .clear
             profileImageView.layer.borderWidth = 0
         } else {
-            profileImageView.image = UIImage(named: data.user.rawValue)
-            
             let dateFormatter = DateFormatter()
             dateFormatter.locale = Locale(identifier: Locale.current.identifier)
             dateFormatter.dateStyle = .long
@@ -44,7 +54,6 @@ class OtherChatTableViewCell: UITableViewCell {
             
             chatTimeLabel.text = newDate
         }
-        chatLabel.text = data.message
     }
     
 }

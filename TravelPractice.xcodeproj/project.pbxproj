@@ -15,8 +15,10 @@
 		BC14DC4E2C0AF1F300DC942C /* ChattingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14DC4C2C0AF1F300DC942C /* ChattingListTableViewCell.swift */; };
 		BC14DC4F2C0AF1F300DC942C /* ChattingListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC14DC4D2C0AF1F300DC942C /* ChattingListTableViewCell.xib */; };
 		BC14DC512C0AFDA100DC942C /* StoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14DC502C0AFDA100DC942C /* StoryBoard.swift */; };
-		BC14DC542C0B021E00DC942C /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14DC522C0B021E00DC942C /* MyChatTableViewCell.swift */; };
-		BC14DC552C0B021E00DC942C /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC14DC532C0B021E00DC942C /* MyChatTableViewCell.xib */; };
+		BC14DC542C0B021E00DC942C /* OtherChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14DC522C0B021E00DC942C /* OtherChatTableViewCell.swift */; };
+		BC14DC552C0B021E00DC942C /* OtherChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC14DC532C0B021E00DC942C /* OtherChatTableViewCell.xib */; };
+		BC14DC5A2C0B08E700DC942C /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14DC582C0B08E700DC942C /* MyChatTableViewCell.swift */; };
+		BC14DC5B2C0B08E700DC942C /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC14DC592C0B08E700DC942C /* MyChatTableViewCell.xib */; };
 		BC574FDD2C01EBDF0072E10F /* RestaurantDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC574FDC2C01EBDF0072E10F /* RestaurantDAO.swift */; };
 		BC574FDF2C01EBE40072E10F /* RestaurantsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC574FDE2C01EBE40072E10F /* RestaurantsList.swift */; };
 		BC574FE32C01ED090072E10F /* RestaurantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC574FE22C01ED090072E10F /* RestaurantsTableViewController.swift */; };
@@ -82,10 +84,12 @@
 		BC14DC4C2C0AF1F300DC942C /* ChattingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingListTableViewCell.swift; sourceTree = "<group>"; };
 		BC14DC4D2C0AF1F300DC942C /* ChattingListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChattingListTableViewCell.xib; sourceTree = "<group>"; };
 		BC14DC502C0AFDA100DC942C /* StoryBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoard.swift; sourceTree = "<group>"; };
-		BC14DC522C0B021E00DC942C /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
-		BC14DC532C0B021E00DC942C /* MyChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChatTableViewCell.xib; sourceTree = "<group>"; };
+		BC14DC522C0B021E00DC942C /* OtherChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherChatTableViewCell.swift; sourceTree = "<group>"; };
+		BC14DC532C0B021E00DC942C /* OtherChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherChatTableViewCell.xib; sourceTree = "<group>"; };
 		BC14DC562C0B04AD00DC942C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		BC14DC572C0B04AD00DC942C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		BC14DC582C0B08E700DC942C /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
+		BC14DC592C0B08E700DC942C /* MyChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChatTableViewCell.xib; sourceTree = "<group>"; };
 		BC574FDC2C01EBDF0072E10F /* RestaurantDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDAO.swift; sourceTree = "<group>"; };
 		BC574FDE2C01EBE40072E10F /* RestaurantsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsList.swift; sourceTree = "<group>"; };
 		BC574FE22C01ED090072E10F /* RestaurantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsTableViewController.swift; sourceTree = "<group>"; };
@@ -212,8 +216,10 @@
 				BCC1764A2C07130E006AB814 /* HotCountryTableViewCell.xib */,
 				BC14DC4C2C0AF1F300DC942C /* ChattingListTableViewCell.swift */,
 				BC14DC4D2C0AF1F300DC942C /* ChattingListTableViewCell.xib */,
-				BC14DC522C0B021E00DC942C /* MyChatTableViewCell.swift */,
-				BC14DC532C0B021E00DC942C /* MyChatTableViewCell.xib */,
+				BC14DC522C0B021E00DC942C /* OtherChatTableViewCell.swift */,
+				BC14DC532C0B021E00DC942C /* OtherChatTableViewCell.xib */,
+				BC14DC582C0B08E700DC942C /* MyChatTableViewCell.swift */,
+				BC14DC592C0B08E700DC942C /* MyChatTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -369,7 +375,8 @@
 				BCC523592C01B1E500DF080D /* Assets.xcassets in Resources */,
 				BC8B795D2C06FAE0006E0F6A /* Advertisement.storyboard in Resources */,
 				BC14DC472C0AEDE200DC942C /* Chatting.storyboard in Resources */,
-				BC14DC552C0B021E00DC942C /* MyChatTableViewCell.xib in Resources */,
+				BC14DC5B2C0B08E700DC942C /* MyChatTableViewCell.xib in Resources */,
+				BC14DC552C0B021E00DC942C /* OtherChatTableViewCell.xib in Resources */,
 				BC14DC4F2C0AF1F300DC942C /* ChattingListTableViewCell.xib in Resources */,
 				BCC176602C089AFF006AB814 /* RestaurantMap.storyboard in Resources */,
 				BCC5235C2C01B1E500DF080D /* Base in Resources */,
@@ -402,6 +409,7 @@
 				BC574FEB2C01F60F0072E10F /* SearchRestaurantTableViewCell.swift in Sources */,
 				BCE3B4BF2C0500E500333310 /* HorizontalScrollView.swift in Sources */,
 				BC14DC452C0AEA0C00DC942C /* ChattingData.swift in Sources */,
+				BC14DC5A2C0B08E700DC942C /* MyChatTableViewCell.swift in Sources */,
 				BCC1764C2C07130E006AB814 /* HotCountryTableViewCell.swift in Sources */,
 				BC574FED2C01FBAA0072E10F /* placeholder.swift in Sources */,
 				BC574FE32C01ED090072E10F /* RestaurantsTableViewController.swift in Sources */,
@@ -425,7 +433,7 @@
 				BC574FE92C01F2D80072E10F /* CellIdentifier.swift in Sources */,
 				BCC176482C070B56006AB814 /* HotCountryViewController.swift in Sources */,
 				BCC5236E2C01BA6B00DF080D /* MagazineDAO.swift in Sources */,
-				BC14DC542C0B021E00DC942C /* MyChatTableViewCell.swift in Sources */,
+				BC14DC542C0B021E00DC942C /* OtherChatTableViewCell.swift in Sources */,
 				BCC523522C01B1E400DF080D /* SceneDelegate.swift in Sources */,
 				BC5750182C0467530072E10F /* UITextField+Extension.swift in Sources */,
 				BC574FE72C01EF9E0072E10F /* RestaurantTableViewCell.swift in Sources */,

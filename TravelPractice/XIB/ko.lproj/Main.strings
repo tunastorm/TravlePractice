@@ -1,0 +1,63 @@
+
+/* Class = "UITabBarItem"; title = "Travel"; ObjectID = "1b7-Z8-9sl"; */
+"1b7-Z8-9sl.title" = "Travel";
+
+/* Class = "UITabBarItem"; title = "Hot City"; ObjectID = "7oN-Bf-0ck"; */
+"7oN-Bf-0ck.title" = "Hot City";
+
+/* Class = "UILabel"; text = "YY년 mm월 dd일"; ObjectID = "CaH-zd-TdS"; */
+"CaH-zd-TdS.text" = "YY년 mm월 dd일";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Em3-Pe-54M"; */
+"Em3-Pe-54M.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "JAc-2U-Nhw"; */
+"JAc-2U-Nhw.text" = "Subtitle";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "JLg-Cx-s2C"; */
+"JLg-Cx-s2C.text" = "Title";
+
+/* Class = "UILabel"; text = "Category"; ObjectID = "Lb7-rw-TY2"; */
+"Lb7-rw-TY2.text" = "Category";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "N2j-AH-6Zj"; */
+"N2j-AH-6Zj.title" = "Item";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "PD1-eg-QC3"; */
+"PD1-eg-QC3.text" = "Name";
+
+/* Class = "UITabBarItem"; title = "Hot Contry"; ObjectID = "PIp-h3-zIX"; */
+"PIp-h3-zIX.title" = "Hot Contry";
+
+/* Class = "UILabel"; text = "평균00000000원"; ObjectID = "Qco-26-DPY"; */
+"Qco-26-DPY.text" = "평균00000000원";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "S8w-n2-y83"; */
+"S8w-n2-y83.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "Chat"; ObjectID = "SAe-gU-bkb"; */
+"SAe-gU-bkb.title" = "Chat";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "V8k-w6-9mM"; */
+"V8k-w6-9mM.text" = "Title";
+
+/* Class = "UILabel"; text = " • 4.8 저장 8888"; ObjectID = "cRK-Wb-PH4"; */
+"cRK-Wb-PH4.text" = " • 4.8 저장 8888";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "fvf-ry-sxF"; */
+"fvf-ry-sxF.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "hmm-aQ-p2l"; */
+"hmm-aQ-p2l.text" = "Address";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "mRS-oC-wXq"; */
+"mRS-oC-wXq.text" = "Description";
+
+/* Class = "UILabel"; text = "currentKeyword"; ObjectID = "oWc-Op-sx4"; */
+"oWc-Op-sx4.text" = "currentKeyword";
+
+/* Class = "UITabBarItem"; title = "Restaurant"; ObjectID = "sqp-ns-S5b"; */
+"sqp-ns-S5b.title" = "Restaurant";
+
+/* Class = "UILabel"; text = "010-1111-2222"; ObjectID = "uhe-pP-rL9"; */
+"uhe-pP-rL9.text" = "010-1111-2222";

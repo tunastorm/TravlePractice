@@ -56,14 +56,15 @@ extension ChattingListViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let identifier = ChattingRoomViewController.identifier
+        let cell = tableView.cellForRow(at: indexPath) as! ChattingListTableViewCell
+        
         let sb = UIStoryboard(name: StoryBoard.Chatting.name, bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: identifier) as! ChattingRoomViewController
+        // search 메뉴 생기면 filtteredList에서 가져와도 됨
+        
         vc.roomData = chatList[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
         
         
     }
-    
-    
-    
 }

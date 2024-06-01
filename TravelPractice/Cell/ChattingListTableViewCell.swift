@@ -18,6 +18,7 @@ class ChattingListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
     
+    var roomIndex: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,6 +32,8 @@ class ChattingListTableViewCell: UITableViewCell {
     func configCell(_ data: ChatRoom) {
         // 테스트 후 여려명 프로필 노출 구현
         
+        roomIndex = data.chatroomId
+        
         if let name = data.chatroomImage.first {
             let image = UIImage(named: name)
             profileImageView.image = image
@@ -43,10 +46,10 @@ class ChattingListTableViewCell: UITableViewCell {
             let dateFormatter = DateFormatter()
             dateFormatter.locale = Locale(identifier: Locale.current.identifier)
             dateFormatter.dateStyle = .long
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
             guard let oldDate = dateFormatter.date(from: rawDate) else {return}
             
-            dateFormatter.dateFormat = "a HH:mm"
+            dateFormatter.dateFormat = "a h:mm"
             let newDate = dateFormatter.string(from: oldDate)
             
             timeLabel.text = newDate

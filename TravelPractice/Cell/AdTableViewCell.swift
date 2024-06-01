@@ -8,8 +8,6 @@
 import UIKit
 
 class AdTableViewCell: UITableViewCell {
-    
-    static let identifier = String(String(describing: type(of: self)).split(separator: " ").last!)
 
     @IBOutlet weak var copyLabel: UILabel!
     @IBOutlet weak var adLabel: UILabel!

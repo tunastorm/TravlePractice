@@ -9,8 +9,6 @@ import UIKit
 import MapKit
 
 class RestaurantMapViewController: UIViewController {
-
-    static let identifier = String(String(describing: type(of: self)).split(separator: " ").last!)
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -59,6 +57,7 @@ class RestaurantMapViewController: UIViewController {
     var showingView: Int? {
         didSet {
             guard let showingView = showingView else { return }
+            
             // 전체
             if showingView == 0 {
                 allView.isHidden = false
@@ -105,10 +104,29 @@ class RestaurantMapViewController: UIViewController {
     var japArr: [Restaurant] = []
     
     var searchIdxList: [Int] = []
-    var filterredArr: [Restaurant] = []
+    var filterredArr: [Restaurant] = [] {
+        didSet {
+            mapView.removeAnnotations(mapView.annotations)
+                
+            for (idx, restaurant) in filterredArr.enumerated() {
+                let location = CLLocationCoordinate2D(latitude: restaurant.latitude, 
+                                                      longitude: restaurant.longitude)
+                
+                if idx == 1 {
+                    mapView.region = MKCoordinateRegion(center: location, 
+                                                        latitudinalMeters: 500,
+                                                        longitudinalMeters: 500)
+                }
+                
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = location
+                annotation.title = restaurant.name
+                mapView.addAnnotation(annotation)
+            }
+        }
+    }
     
     var searchTextField = UITextField()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -182,7 +200,6 @@ extension RestaurantMapViewController {
         case 4: filterredArr = japArr
         default: return
         }
-        setAnnotationIterator()
     }
 }
 
@@ -198,21 +215,19 @@ extension RestaurantMapViewController: UITextFieldDelegate {
         case 4: searchTextField.text = "일식"
         default: return
         }
-        let isSelected = searchQuery(setCategory: false)
+        searchQuery(setCategory: false)
         searchTextField.text = ""
     }
 
     // 검색, 노출되지 않을 때는 지역별 검색 후 쿼리
     func searchQuery(setCategory: Bool) {
-        filterredArr.removeAll()
-        // var isSelected = false
-    
-        guard let allData  else {return}
         
         // 검색어 널 체크 및 전처리 후 할당
-        guard let text = self.searchTextField.text?.lowercased().replacing(" ", with: "") else {return}
-    
+        guard let allData,
+              let text = self.searchTextField.text?.lowercased().replacing(" ", with: "") else {return}
         
+        filterredArr.removeAll()
+    
         var queryArr: [Restaurant] = []
         // 한식 검색
         if setCategory && showingView == 1 {
@@ -231,16 +246,7 @@ extension RestaurantMapViewController: UITextFieldDelegate {
             queryArr = allData
         }
         
-        // print("queryArr: \(queryArr)")
-       
-        
-//        for (idx, flattenCity) in queryArr.enumerated() {
-//            if flattenCity.contains(text) {
-//                print("idx_\(idx):\n\(flattenCity)")
-//            }
-//        }
-        
-        //
+        // 입력
         var resultArr: [Restaurant] = []
         if !text.isEmpty {
             searchRestaurants(queryArr, word: text)
@@ -253,7 +259,7 @@ extension RestaurantMapViewController: UITextFieldDelegate {
             resultArr = queryArr
         }
         
-        //
+        // 화면에 노출할 검색결과 저장
         filterredArr = resultArr
         // 한식리스트 초기화
         if showingView == 1 && korArr.isEmpty {
@@ -269,11 +275,7 @@ extension RestaurantMapViewController: UITextFieldDelegate {
             japArr = resultArr
         }
         
-        print("showingView: \(showingView)\ncount:\(filterredArr.count)\nfilterredArr: \(filterredArr)")
-        
-        if filterredArr.count > 0 {
-            setAnnotationIterator()
-        }
+//        print("showingView: \(showingView)\ncount:\(filterredArr.count)\nfilterredArr: \(filterredArr)")
     }
     
     // 검색된 레스토랑들의 index를 프로퍼티에 저장
@@ -316,24 +318,5 @@ extension RestaurantMapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
 //        print(#function)
-    }
-    
-    
-    func setAnnotationIterator() {
-        
-        mapView.removeAnnotations(mapView.annotations)
-        
-        for (idx, restaurant) in filterredArr.enumerated() {
-            let location = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
-            
-            if idx == 1 {
-                mapView.region = MKCoordinateRegion(center: location, latitudinalMeters: 500, longitudinalMeters: 500)
-            }
-            
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = location
-            annotation.title = restaurant.name
-            mapView.addAnnotation(annotation)
-        }
     }
 }

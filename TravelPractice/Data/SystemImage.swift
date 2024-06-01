@@ -14,4 +14,6 @@ struct SystemImage {
     var creditCard = UIImage(systemName: "creditcard")
     var questionMark = UIImage(systemName: "questionmark.circle")
     var map = UIImage(systemName: "map")
+    var heart = UIImage(systemName: "heart")
+    var heartFill = UIImage(systemName: "heart.fill")
 }

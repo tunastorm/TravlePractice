@@ -9,13 +9,11 @@ import UIKit
 
 class HotCountryViewController: UIViewController {
     
-    static let identifier = String(String(describing: type(of: self)).split(separator: " ").last!)
-    
     let safetyArea: UIView = {
          let v = UIView()
          v.backgroundColor = .clear
          return v
-     }()
+    }()
     
     lazy var segmentedControl: UISegmentedControl = {
       let control = UISegmentedControl(items: ["모두", "국내", "해외"])

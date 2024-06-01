@@ -8,8 +8,6 @@
 import UIKit
 
 class SearchRestaurantTableViewCell: UITableViewCell {
-    
-    static let identifier = String(String(describing: type(of: self)).split(separator: " ").last!)
 
     @IBOutlet weak var currentKeywordLabel: UILabel!
     

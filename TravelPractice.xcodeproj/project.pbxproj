@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC14DC432C09756300DC942C /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14DC422C09756300DC942C /* ReuseIdentifierProtocol.swift */; };
+		BC14DC452C0AEA0C00DC942C /* ChattingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14DC442C0AEA0C00DC942C /* ChattingData.swift */; };
+		BC14DC472C0AEDE200DC942C /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC14DC462C0AEDE200DC942C /* Chatting.storyboard */; };
+		BC14DC492C0AEEC800DC942C /* ChattingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14DC482C0AEEC800DC942C /* ChattingListViewController.swift */; };
+		BC14DC4B2C0AEEEB00DC942C /* ChattingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14DC4A2C0AEEEB00DC942C /* ChattingRoomViewController.swift */; };
+		BC14DC4E2C0AF1F300DC942C /* ChattingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14DC4C2C0AF1F300DC942C /* ChattingListTableViewCell.swift */; };
+		BC14DC4F2C0AF1F300DC942C /* ChattingListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC14DC4D2C0AF1F300DC942C /* ChattingListTableViewCell.xib */; };
+		BC14DC512C0AFDA100DC942C /* StoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14DC502C0AFDA100DC942C /* StoryBoard.swift */; };
 		BC574FDD2C01EBDF0072E10F /* RestaurantDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC574FDC2C01EBDF0072E10F /* RestaurantDAO.swift */; };
 		BC574FDF2C01EBE40072E10F /* RestaurantsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC574FDE2C01EBE40072E10F /* RestaurantsList.swift */; };
 		BC574FE32C01ED090072E10F /* RestaurantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC574FE22C01ED090072E10F /* RestaurantsTableViewController.swift */; };
@@ -64,6 +72,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC14DC422C09756300DC942C /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
+		BC14DC442C0AEA0C00DC942C /* ChattingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChattingData.swift; sourceTree = "<group>"; };
+		BC14DC462C0AEDE200DC942C /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
+		BC14DC482C0AEEC800DC942C /* ChattingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingListViewController.swift; sourceTree = "<group>"; };
+		BC14DC4A2C0AEEEB00DC942C /* ChattingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRoomViewController.swift; sourceTree = "<group>"; };
+		BC14DC4C2C0AF1F300DC942C /* ChattingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingListTableViewCell.swift; sourceTree = "<group>"; };
+		BC14DC4D2C0AF1F300DC942C /* ChattingListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChattingListTableViewCell.xib; sourceTree = "<group>"; };
+		BC14DC502C0AFDA100DC942C /* StoryBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoard.swift; sourceTree = "<group>"; };
 		BC574FDC2C01EBDF0072E10F /* RestaurantDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDAO.swift; sourceTree = "<group>"; };
 		BC574FDE2C01EBE40072E10F /* RestaurantsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsList.swift; sourceTree = "<group>"; };
 		BC574FE22C01ED090072E10F /* RestaurantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsTableViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +166,7 @@
 				BCE3B4BA2C04DE9900333310 /* UINavigationItem+Extension.swift */,
 				BC8B795A2C06F265006E0F6A /* Notification.Name+Extension.swift */,
 				BCC1765B2C087782006AB814 /* CALayer+Extension.swift */,
+				BC14DC422C09756300DC942C /* ReuseIdentifierProtocol.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -170,6 +187,7 @@
 			children = (
 				BC574FE82C01F2D80072E10F /* CellIdentifier.swift */,
 				BC574FEC2C01FBAA0072E10F /* placeholder.swift */,
+				BC14DC502C0AFDA100DC942C /* StoryBoard.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -186,6 +204,8 @@
 				BCE3B4B32C04A77400333310 /* AdTableViewCell.xib */,
 				BCC176492C07130E006AB814 /* HotCountryTableViewCell.swift */,
 				BCC1764A2C07130E006AB814 /* HotCountryTableViewCell.xib */,
+				BC14DC4C2C0AF1F300DC942C /* ChattingListTableViewCell.swift */,
+				BC14DC4D2C0AF1F300DC942C /* ChattingListTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -228,6 +248,7 @@
 		BCC523632C01B27600DF080D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				BC14DC442C0AEA0C00DC942C /* ChattingData.swift */,
 				BCC1764E2C071D84006AB814 /* CityInfo.swift */,
 				BCE3B4A82C0478C600333310 /* TravelModel.swift */,
 				BC574FDE2C01EBE40072E10F /* RestaurantsList.swift */,
@@ -249,6 +270,8 @@
 				BC8B79602C07030B006E0F6A /* TravelDescViewController.swift */,
 				BCC176472C070B56006AB814 /* HotCountryViewController.swift */,
 				BCC176612C089BE6006AB814 /* RestaurantMapViewController.swift */,
+				BC14DC482C0AEEC800DC942C /* ChattingListViewController.swift */,
+				BC14DC4A2C0AEEEB00DC942C /* ChattingRoomViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -261,6 +284,7 @@
 				BC8B795C2C06FAE0006E0F6A /* Advertisement.storyboard */,
 				BCC176452C070AC5006AB814 /* HotCountry.storyboard */,
 				BCC1765F2C089AFF006AB814 /* RestaurantMap.storyboard */,
+				BC14DC462C0AEDE200DC942C /* Chatting.storyboard */,
 			);
 			path = XIB;
 			sourceTree = "<group>";
@@ -335,6 +359,8 @@
 				BCC176462C070AC5006AB814 /* HotCountry.storyboard in Resources */,
 				BCC523592C01B1E500DF080D /* Assets.xcassets in Resources */,
 				BC8B795D2C06FAE0006E0F6A /* Advertisement.storyboard in Resources */,
+				BC14DC472C0AEDE200DC942C /* Chatting.storyboard in Resources */,
+				BC14DC4F2C0AF1F300DC942C /* ChattingListTableViewCell.xib in Resources */,
 				BCC176602C089AFF006AB814 /* RestaurantMap.storyboard in Resources */,
 				BCC5235C2C01B1E500DF080D /* Base in Resources */,
 				BCC523572C01B1E400DF080D /* Base in Resources */,
@@ -361,8 +387,11 @@
 				BC57500E2C0462980072E10F /* UITabBarController+Extension.swift in Sources */,
 				BCE3B4B42C04A77400333310 /* AdTableViewCell.swift in Sources */,
 				BCC1764F2C071D84006AB814 /* CityInfo.swift in Sources */,
+				BC14DC4E2C0AF1F300DC942C /* ChattingListTableViewCell.swift in Sources */,
+				BC14DC512C0AFDA100DC942C /* StoryBoard.swift in Sources */,
 				BC574FEB2C01F60F0072E10F /* SearchRestaurantTableViewCell.swift in Sources */,
 				BCE3B4BF2C0500E500333310 /* HorizontalScrollView.swift in Sources */,
+				BC14DC452C0AEA0C00DC942C /* ChattingData.swift in Sources */,
 				BCC1764C2C07130E006AB814 /* HotCountryTableViewCell.swift in Sources */,
 				BC574FED2C01FBAA0072E10F /* placeholder.swift in Sources */,
 				BC574FE32C01ED090072E10F /* RestaurantsTableViewController.swift in Sources */,
@@ -370,6 +399,7 @@
 				BCE3B4B82C04A7C000333310 /* HotCityTableViewCell.swift in Sources */,
 				BC574FDD2C01EBDF0072E10F /* RestaurantDAO.swift in Sources */,
 				BCC523542C01B1E400DF080D /* ViewController.swift in Sources */,
+				BC14DC4B2C0AEEEB00DC942C /* ChattingRoomViewController.swift in Sources */,
 				BCE3B4A92C0478C600333310 /* TravelModel.swift in Sources */,
 				BCC523652C01B2AD00DF080D /* MagazineInfo.swift in Sources */,
 				BCE3B4AD2C0489C300333310 /* UIImageView+Extension.swift in Sources */,
@@ -379,7 +409,9 @@
 				BCC176622C089BE6006AB814 /* RestaurantMapViewController.swift in Sources */,
 				BCC523502C01B1E400DF080D /* AppDelegate.swift in Sources */,
 				BC574FDF2C01EBE40072E10F /* RestaurantsList.swift in Sources */,
+				BC14DC432C09756300DC942C /* ReuseIdentifierProtocol.swift in Sources */,
 				BCC1765A2C0870FF006AB814 /* SystemImage.swift in Sources */,
+				BC14DC492C0AEEC800DC942C /* ChattingListViewController.swift in Sources */,
 				BC574FE92C01F2D80072E10F /* CellIdentifier.swift in Sources */,
 				BCC176482C070B56006AB814 /* HotCountryViewController.swift in Sources */,
 				BCC5236E2C01BA6B00DF080D /* MagazineDAO.swift in Sources */,

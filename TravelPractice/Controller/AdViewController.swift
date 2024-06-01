@@ -9,8 +9,6 @@ import UIKit
 
 class AdViewController: UIViewController {
     
-    static let identifier = String(String(describing: type(of: self)).split(separator: " ").last!)
-    
     @IBOutlet var adTitleLabel: UILabel!
     @IBOutlet var adImageView: UIImageView!
     

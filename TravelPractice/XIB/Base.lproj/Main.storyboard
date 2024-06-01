@@ -23,11 +23,12 @@
                         <segue destination="j0K-7n-Lvy" kind="relationship" relationship="viewControllers" id="o7R-BM-eIz"/>
                         <segue destination="Kzg-Ol-imS" kind="relationship" relationship="viewControllers" id="C4z-Sp-XgL"/>
                         <segue destination="8TH-FL-dHe" kind="relationship" relationship="viewControllers" id="d0L-Cs-Y5n"/>
+                        <segue destination="aRF-mV-QfA" kind="relationship" relationship="viewControllers" id="RQ8-ff-YrM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UD5-i5-pTO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2533" y="396"/>
+            <point key="canvasLocation" x="-2502" y="778"/>
         </scene>
         <!--Hot City View Controller-->
         <scene sceneID="Dy9-4b-I5H">
@@ -367,6 +368,33 @@
             </objects>
             <point key="canvasLocation" x="-110" y="1575"/>
         </scene>
+        <!--Chat-->
+        <scene sceneID="Scy-Lx-GTB">
+            <objects>
+                <navigationController id="aRF-mV-QfA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Chat" image="ellipsis.message" catalog="system" id="SAe-gU-bkb"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GbP-ks-sBY">
+                        <rect key="frame" x="0.0" y="59" width="430" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Tq4-ax-uhp" kind="relationship" relationship="rootViewController" id="6zn-SN-qkH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AuH-hz-eya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-999" y="2336"/>
+        </scene>
+        <!--Chatting-->
+        <scene sceneID="za4-AU-68H">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chatting" id="Tq4-ax-uhp" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="PnD-df-amD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qVq-h9-eBH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-110" y="2336"/>
+        </scene>
         <!--Hot Contry-->
         <scene sceneID="E8i-1I-gRa">
             <objects>
@@ -403,13 +431,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KKX-zm-aVI">
-                                <rect key="frame" x="0.0" y="0.0" width="430" height="320"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="WRN-1x-BwU"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="299.33333333333331"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qkE-tz-rbl">
-                                <rect key="frame" x="20" y="320" width="390" height="289"/>
+                                <rect key="frame" x="20" y="299.33333333333337" width="390" height="299.33333333333337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLg-Cx-s2C">
                                         <rect key="frame" x="8" y="20" width="374" height="50"/>
@@ -420,8 +445,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="I9N-HW-qJa">
-                                        <rect key="frame" x="8" y="234" width="30" height="30"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I9N-HW-qJa">
+                                        <rect key="frame" x="8" y="244.33333333333331" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="2Dw-Nz-yPs"/>
                                             <constraint firstAttribute="width" secondItem="I9N-HW-qJa" secondAttribute="height" multiplier="1:1" id="JaD-nH-ts2"/>
@@ -437,7 +462,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" • 4.8 저장 8888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRK-Wb-PH4">
-                                        <rect key="frame" x="38" y="234" width="177" height="30"/>
+                                        <rect key="frame" x="38" y="244.33333333333331" width="177" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="cRK-Wb-PH4" secondAttribute="height" multiplier="59:10" id="Htn-fP-LD7"/>
                                             <constraint firstAttribute="height" constant="30" id="tEa-4x-Vz1"/>
@@ -462,7 +487,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YtN-eb-4fv">
-                                <rect key="frame" x="20" y="609" width="390" height="289"/>
+                                <rect key="frame" x="20" y="598.66666666666663" width="390" height="299.33333333333337"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SZW-dF-Xqj">
                                         <rect key="frame" x="8" y="30" width="35" height="35"/>
@@ -557,8 +582,9 @@
                             <constraint firstItem="YtN-eb-4fv" firstAttribute="top" secondItem="qkE-tz-rbl" secondAttribute="bottom" id="Jie-Bs-RSQ"/>
                             <constraint firstItem="KKX-zm-aVI" firstAttribute="leading" secondItem="21A-vQ-7vG" secondAttribute="leading" id="NH6-kx-MMl"/>
                             <constraint firstItem="21A-vQ-7vG" firstAttribute="trailing" secondItem="qkE-tz-rbl" secondAttribute="trailing" constant="20" id="bQF-4m-xqE"/>
+                            <constraint firstItem="qkE-tz-rbl" firstAttribute="height" secondItem="KKX-zm-aVI" secondAttribute="height" id="bWQ-T8-nIi"/>
                             <constraint firstItem="KKX-zm-aVI" firstAttribute="top" secondItem="tLb-O0-dcc" secondAttribute="top" id="frq-0E-Q6x"/>
-                            <constraint firstItem="YtN-eb-4fv" firstAttribute="height" secondItem="qkE-tz-rbl" secondAttribute="height" id="g3y-Op-NUE"/>
+                            <constraint firstItem="YtN-eb-4fv" firstAttribute="height" secondItem="KKX-zm-aVI" secondAttribute="height" id="hMD-Lw-jYD"/>
                             <constraint firstItem="21A-vQ-7vG" firstAttribute="trailing" secondItem="KKX-zm-aVI" secondAttribute="trailing" id="uh7-WY-e3a"/>
                             <constraint firstItem="21A-vQ-7vG" firstAttribute="bottom" secondItem="YtN-eb-4fv" secondAttribute="bottom" id="ySY-04-LDe"/>
                         </constraints>
@@ -620,10 +646,10 @@
     </scenes>
     <resources>
         <image name="bag" catalog="system" width="128" height="128"/>
+        <image name="ellipsis.message" catalog="system" width="128" height="116"/>
         <image name="flame" catalog="system" width="106" height="128"/>
         <image name="fork.knife.circle" catalog="system" width="128" height="123"/>
         <image name="heart.square" catalog="system" width="128" height="114"/>
-        <image name="star" width="128" height="128"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

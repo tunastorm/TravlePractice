@@ -9,8 +9,6 @@ import UIKit
 
 class HotCountryTableViewCell: UITableViewCell {
 
-    static let identifier = String(String(describing: type(of: self)).split(separator: " ").last!)
-
     @IBOutlet var mainImageCoverView: UIView!
     @IBOutlet var mainImageView: UIImageView!
     @IBOutlet var countryLabel: UILabel!

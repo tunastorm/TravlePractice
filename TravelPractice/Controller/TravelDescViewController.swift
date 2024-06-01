@@ -9,8 +9,6 @@ import UIKit
 
 class TravelDescViewController: UIViewController {
     
-    static let identifier = String(String(describing: type(of: self)).split(separator: " ").last!)
-    
     @IBOutlet var travelDescView: UIView!
     @IBOutlet var mainImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
@@ -95,12 +93,16 @@ class TravelDescViewController: UIViewController {
     
     
     func setNavigationBar() {
-       navigationItem.setLayoutFortopTitle(title:"", color: .clear, width: view.frame.width, height: 40)
+        navigationItem.setLayoutFortopTitle(title:"", color: .clear, width: view.frame.width, height: 40)
         navigationItem.titleView?.tintColor = .white
         navigationItem.rightBarButtonItem?.tintColor = .white
         
         let backWordButton = UIBarButtonItem(title: "←", style: .done, target: self, action: #selector(popButtonClicked))
         backWordButton.tintColor = .white
+        
+        let heartButton = UIButton()
+        heartButton.setImage(systemImage.heart, for: .normal)
+        
         navigationItem.leftBarButtonItems = [backWordButton]
     }
    
@@ -108,6 +110,10 @@ class TravelDescViewController: UIViewController {
     @objc func popButtonClicked(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
-
+    
+    @objc func heartButtonClicked(_ sender: UIButton) {
+        
+    }
+    
 
 }

@@ -15,8 +15,8 @@ class ChattingListViewController: UIViewController {
     var searchController: UISearchController?
     var searchBar: UISearchBar?
     
-    let chatList = mockChatList
-    var filterredArr: [ChatRoom] = [] //{
+    var chatRoomList: [(ChatRoom, Chat?)] = []
+    var filterredArr: [(ChatRoom, Chat?)] = [] //{
 //        didSet {
 //            if filterredArr.isEmpty {
 //                filterredArr = chatList
@@ -26,6 +26,7 @@ class ChattingListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setChatRoomList(mockList: mockChatList)
         setTableView()
         setSearchBar()
     }
@@ -33,6 +34,12 @@ class ChattingListViewController: UIViewController {
 }
 
 extension ChattingListViewController {
+    func setChatRoomList(mockList: [ChatRoom]) {
+        for chatRoom in mockList {
+            chatRoomList.append((chatRoom, chatRoom.chatList.last))
+        }
+    }
+    
     func setTableView() {
         chattingListTableView.delegate = self
         chattingListTableView.dataSource = self
@@ -45,14 +52,23 @@ extension ChattingListViewController {
     
     func setSearchBar() {
         searchController = UISearchController(searchResultsController: nil)
-        searchBar = searchController?.searchBar
-        searchBar?.placeholder = "검색어를 입력하세요"
-        searchBar?.delegate = self
-        searchBar?.showsCancelButton = false
-        searchBar?.searchTextField.textColor = .black
-        searchBar?.tintColor = .black
-
+        
+        if let searchBar = searchController?.searchBar {
+            searchBar.placeholder = "검색어를 입력하세요"
+            searchBar.delegate = self
+            searchBar.showsCancelButton = false
+            searchBar.searchTextField.textColor = .black
+            searchBar.tintColor = .black
+            
+            if let text = searchBar.text,
+                   text.count == 0 && filterredArr.isEmpty {
+                filterredArr = chatRoomList
+            }
+            self.searchBar = searchBar
+        }
+        
         self.navigationItem.searchController = searchController
+        
     }
 }
 
@@ -84,10 +100,8 @@ extension ChattingListViewController: UITableViewDelegate, UITableViewDataSource
         let vc = sb.instantiateViewController(withIdentifier: identifier) as! ChattingRoomViewController
         // search 메뉴 생기면 filtteredList에서 가져와도 됨
         
-        vc.roomData = filterredArr[indexPath.row]
+        vc.roomData = filterredArr[indexPath.row].0
         navigationController?.pushViewController(vc, animated: true)
-        
-        
     }
 }
 
@@ -98,31 +112,47 @@ extension ChattingListViewController: UISearchBarDelegate {
         var isSelected = false
     
         guard let text = self.searchBar?.text?.lowercased() else { return isSelected }
-    
-        let queryArr = chatList
         
-        var resultArr: [ChatRoom] = []
+        let queryArr = chatRoomList
+        
+        var resultArr: [(ChatRoom, Chat?)] = []
         if !text.isEmpty {
+            print(#function + "!text.isEmpty")
             // chatroomName으로 검색
             resultArr = queryArr.filter {
-                $0.chatroomName.localizedCaseInsensitiveContains(text)
+                $0.0.chatroomName.localizedCaseInsensitiveContains(text)
             }
+//            // 검색된 Chatroom의 id 저장
+//            for result in resultArr {
+//                resultIdxList.append(result.chatroomId)
+//            }
             print("- \(text), chatroomName 검색 후 resultArr:\n\(resultArr)")
             // chatList로 검색
-            for chatRoom in queryArr {
-                let arr = chatRoom.chatList.filter {
+            for chatRoomTuple in queryArr {
+                print("- \(text), chatRoom \(chatRoomTuple.0.chatroomId) 검색")
+//                // 채팅방 명으로 검색된 Chatroom일 경우 검색하지 않음
+//                if resultIdxList.contains(chatRoom.chatroomId) {
+//                    continue
+//                }
+                
+                let chatArr = chatRoomTuple.0.chatList.filter {
                     $0.user.rawValue.localizedCaseInsensitiveContains(text)
                     || $0.message.localizedCaseInsensitiveContains(text)
                     || $0.date.localizedCaseInsensitiveContains(text)
                 }
-                print("- \(text), chatList 검색 후 arr:\n\(arr)")
+                
+                print("- \(text), chatList 검색 후 arr:\n\(chatArr)")
                 // 검색결과 resultArr에 append
-                if !arr.isEmpty {
-                    resultArr.append(chatRoom)
+                if !chatArr.isEmpty {
+                    for chat in chatArr {
+                        resultArr.append((chatRoomTuple.0, chat))
+                    }
                 }
             }
             print("- \(text), chatList 검색 후 resultArr:\n\(resultArr)")
-        } else {
+        }
+        
+        if resultArr.isEmpty {
             resultArr = queryArr
         }
         
@@ -145,6 +175,7 @@ extension ChattingListViewController: UISearchBarDelegate {
        }
     
        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+           print(#function)
            let isSelected = searchQuery()
            
            if isSelected {

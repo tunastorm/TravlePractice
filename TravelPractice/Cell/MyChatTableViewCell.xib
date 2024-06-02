@@ -61,9 +61,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="chatLabel" destination="slv-Yw-hzI" id="vJM-mc-wuF"/>
-                <outlet property="chatTimeLabel" destination="XMi-lf-j2C" id="G2M-ZE-5oq"/>
-                <outlet property="chatView" destination="XHt-vk-lhv" id="JOi-7t-5eL"/>
+                <outlet property="myChatLabel" destination="slv-Yw-hzI" id="wRF-oC-3oc"/>
+                <outlet property="myChatTimeLabel" destination="XMi-lf-j2C" id="RFS-wU-GVj"/>
             </connections>
             <point key="canvasLocation" x="10.687022900763358" y="-13.380281690140846"/>
         </tableViewCell>

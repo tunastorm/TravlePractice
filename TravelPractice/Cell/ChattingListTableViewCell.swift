@@ -31,20 +31,20 @@ class ChattingListTableViewCell: UITableViewCell {
         profileImageView.contentMode = .scaleAspectFill
     }
     
-    func configCell(_ data: ChatRoom) {
+    func configCell(_ data: (ChatRoom, Chat?)) {
         // 테스트 후 여려명 프로필 노출 구현
         
-        roomIndex = data.chatroomId
-        
-        if let name = data.chatroomImage.first {
+        if let name = data.0.chatroomImage.first {
             let image = UIImage(named: name)
             profileImageView.image = image
         }
         
-        titleLabel.text = data.chatroomName
-        subTitleLabel.text = data.chatList.last?.message
+        titleLabel.text = data.0.chatroomName
         
-        if let rawDate = data.chatList.last?.date {
+        guard let subtitle = data.1?.message else {return}
+        subTitleLabel.text = subtitle
+        
+        if let rawDate = data.0.chatList.last?.date {
             let dateFormatter = DateFormatter()
             dateFormatter.locale = Locale(identifier: Locale.current.identifier)
             dateFormatter.dateStyle = .long

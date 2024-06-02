@@ -31,10 +31,15 @@ extension ChattingRoomViewController {
         chattingRoomTableView.backgroundColor = .systemGray6
 
         let myIdentifier = MyChatTableViewCell.identifier
+        let otherFirstIdentifier = OtherChatFirstTableViewCell.identifier
         let otherIdentifier = OtherChatTableViewCell.identifier
+
         let myXib = UINib(nibName: myIdentifier, bundle: nil)
+        let otherFirstXib = UINib(nibName: otherFirstIdentifier, bundle: nil)
         let otherXib = UINib(nibName: otherIdentifier, bundle: nil)
+        
         chattingRoomTableView.register(myXib, forCellReuseIdentifier: myIdentifier)
+        chattingRoomTableView.register(otherFirstXib, forCellReuseIdentifier: otherFirstIdentifier)
         chattingRoomTableView.register(otherXib, forCellReuseIdentifier: otherIdentifier)
     }
 }
@@ -68,10 +73,17 @@ extension ChattingRoomViewController: UITableViewDelegate, UITableViewDataSource
             let myCell = chattingRoomTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyChatTableViewCell
             myCell.configCell(data, nextUser)
             cell = myCell
-        } else {
+            
+        } else if data.user != fastUser {
+            let identifier = OtherChatFirstTableViewCell.identifier
+            let otherFirstCell = chattingRoomTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! OtherChatFirstTableViewCell
+            otherFirstCell.configCell(data, fastUser, nextUser)
+            cell = otherFirstCell
+            
+        } else if data.user == fastUser {
             let identifier = OtherChatTableViewCell.identifier
             let otherCell = chattingRoomTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! OtherChatTableViewCell
-            otherCell.configCell(data, fastUser, nextUser)
+            otherCell.configCell(data, nextUser)
             cell = otherCell
         }
         

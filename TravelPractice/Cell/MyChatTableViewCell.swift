@@ -9,9 +9,8 @@ import UIKit
 
 class MyChatTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var chatView: UIView!
-    @IBOutlet weak var chatLabel: UILabel!
-    @IBOutlet weak var chatTimeLabel: UILabel!
+    @IBOutlet weak var myChatLabel: UILabel!
+    @IBOutlet weak var myChatTimeLabel: UILabel!
     
     
     override func awakeFromNib() {
@@ -27,16 +26,16 @@ class MyChatTableViewCell: UITableViewCell {
     
     func configLayout() {
         configLayoutForChatRoom()
-        chatLabel.textAlignment = .left
-        chatLabel.numberOfLines = 0
-        chatLabel.backgroundColor = .yellow
-        chatLabel.layer.cornerRadius = 10
-        chatLabel.layer.masksToBounds = true
+        myChatLabel.textAlignment = .left
+        myChatLabel.numberOfLines = 0
+        myChatLabel.backgroundColor = .yellow
+        myChatLabel.layer.cornerRadius = 10
+        myChatLabel.layer.masksToBounds = true
     }
     
     func configCell(_ data: Chat, _ nextUser: User?) {
         
-        chatLabel.text = data.message
+        myChatLabel.text = data.message
         
         if data.user != nextUser {
             let dateFormatter = DateFormatter()
@@ -48,7 +47,9 @@ class MyChatTableViewCell: UITableViewCell {
             dateFormatter.dateFormat = "a h:mm"
             let newDate = dateFormatter.string(from: oldDate)
             
-            chatTimeLabel.text = newDate
+            myChatTimeLabel.text = newDate
+        } else {
+            myChatTimeLabel.text = ""
         }
     }
 }

@@ -1,24 +1,22 @@
 //
-//  ChattingListTableViewCell.swift
+//  ChattingListThirdTableViewCell.swift
 //  TravlePractice
 //
-//  Created by 유철원 on 6/1/24.
+//  Created by 유철원 on 6/2/24.
 //
 
 import UIKit
 
-class ChattingListTableViewCell: UITableViewCell {
-
+class ChattingListThirdTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var firstProfileImageView: UIImageView!
+    @IBOutlet weak var secondProfileImageView: UIImageView!
+    @IBOutlet weak var thirdProfileImageView: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var subTitleLabel: UILabel!
-    
     @IBOutlet weak var timeLabel: UILabel!
     
-    var roomIndex: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,18 +25,25 @@ class ChattingListTableViewCell: UITableViewCell {
 
     func configLayout() {
         self.selectionStyle = .default
-        profileImageView.layer.cornerRadius = 10
-        profileImageView.contentMode = .scaleAspectFill
+        firstProfileImageView.layer.cornerRadius = 5
+        firstProfileImageView.contentMode = .scaleAspectFill
+        secondProfileImageView.layer.cornerRadius = 5
+        secondProfileImageView.contentMode = .scaleAspectFill
+        thirdProfileImageView.layer.cornerRadius = 5
+        thirdProfileImageView.contentMode = .scaleAspectFill
     }
     
     func configCell(_ data: (ChatRoom, Chat?)) {
         // 테스트 후 여려명 프로필 노출 구현
-        
-        if let name = data.0.chatroomImage.first {
-            let image = UIImage(named: name)
-            profileImageView.image = image
+        for (idx,image) in data.0.chatroomImage.enumerated(){
+            switch idx {
+            case 0: firstProfileImageView.image = UIImage(named: image)
+            case 1: secondProfileImageView.image = UIImage(named: image)
+            case 2: thirdProfileImageView.image = UIImage(named: image)
+            default: return
+            }
         }
-        
+    
         titleLabel.text = "\(data.0.chatroomName) \(data.0.chatroomImage.count + 1)명"
         
         guard let subtitle = data.1?.message else {return}
@@ -57,5 +62,4 @@ class ChattingListTableViewCell: UITableViewCell {
             timeLabel.text = newDate
         }
     }
-    
 }

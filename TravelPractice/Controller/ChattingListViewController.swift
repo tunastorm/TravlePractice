@@ -46,9 +46,20 @@ extension ChattingListViewController {
         chattingListTableView.dataSource = self
         chattingListTableView.separatorStyle = .none
         
-        let identifier = ChattingListTableViewCell.identifier
-        let xib = UINib(nibName: identifier, bundle: nil)
-        chattingListTableView.register(xib, forCellReuseIdentifier: identifier)
+        let firstIdentifier = ChattingListTableViewCell.identifier
+        let secondIdentifier = ChattingListSecondTableViewCell.identifier
+        let thirdIdentifier = ChattingListThirdTableViewCell.identifier
+        let forthIdentifier = ChattingListForthTableViewCell.identifier
+        
+        let firstXib = UINib(nibName: firstIdentifier, bundle: nil)
+        let secondXib = UINib(nibName: secondIdentifier, bundle: nil)
+        let thirdXib = UINib(nibName: thirdIdentifier, bundle: nil)
+        let forthXib = UINib(nibName: forthIdentifier, bundle: nil)
+        
+        chattingListTableView.register(firstXib, forCellReuseIdentifier: firstIdentifier)
+        chattingListTableView.register(secondXib, forCellReuseIdentifier: secondIdentifier)
+        chattingListTableView.register(thirdXib, forCellReuseIdentifier: thirdIdentifier)
+        chattingListTableView.register(forthXib, forCellReuseIdentifier: forthIdentifier)
     }
     
     func setNavigationBar() {
@@ -124,25 +135,48 @@ extension ChattingListViewController: UITableViewDelegate, UITableViewDataSource
         
         let rowIndex = indexPath.row
         let data = filterredArr[rowIndex]
+        let userSize = data.0.chatroomImage.count
         
-        let identifier = ChattingListTableViewCell.identifier
-        let cell = chattingListTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ChattingListTableViewCell
-        
-        cell.configCell(data)
+        var cell = UITableViewCell()
+        if userSize == 1 {
+            let identifier = ChattingListTableViewCell.identifier
+            let firstCell = chattingListTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ChattingListTableViewCell
+            
+            firstCell.configCell(data)
+            cell = firstCell
+            
+        } else if userSize == 2 {
+            let identifier = ChattingListSecondTableViewCell.identifier
+            let secondCell = chattingListTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ChattingListSecondTableViewCell
+            secondCell.configCell(data)
+            cell = secondCell
+            
+        } else if userSize == 3 {
+            let identifier = ChattingListThirdTableViewCell.identifier
+            let thirdCell = chattingListTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ChattingListThirdTableViewCell
+            thirdCell.configCell(data)
+            cell = thirdCell
+            
+        } else if userSize == 4 {
+            let identifier = ChattingListForthTableViewCell.identifier
+            let forthCell = chattingListTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ChattingListForthTableViewCell
+            forthCell.configCell(data)
+            cell = forthCell
+    
+        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let identifier = ChattingRoomViewController.identifier
-        let cell = tableView.cellForRow(at: indexPath) as! ChattingListTableViewCell
+        let data = filterredArr[indexPath.row]
+        let userSize = data.0.chatroomImage.count
         
+        var identifier = ChattingRoomViewController.identifier
         let sb = UIStoryboard(name: StoryBoard.Chatting.name, bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: identifier) as! ChattingRoomViewController
-        // search 메뉴 생기면 filtteredList에서 가져와도 됨
-        
-        vc.roomData = filterredArr[indexPath.row].0
+        vc.roomData = data.0
         navigationController?.pushViewController(vc, animated: true)
     }
 }

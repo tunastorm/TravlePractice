@@ -19,12 +19,21 @@ class OtherChatTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         configLayout()
+//        layoutSubviews()
     }
     
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0))
+//    }
+    
     func configLayout() {
+        configLayoutForChatRoom()
+        profileImageView.layer.cornerRadius = 10
+        profileImageView.contentMode = .scaleAspectFill
         chatLabel.textAlignment = .left
         chatLabel.numberOfLines = 0
-        chatLabel.backgroundColor = .gray
+        chatLabel.backgroundColor = .lightGray
         chatLabel.layer.cornerRadius = 5
         chatLabel.layer.masksToBounds = true
     }
@@ -42,7 +51,13 @@ class OtherChatTableViewCell: UITableViewCell {
         if data.user == nextUser {
             profileImageView.backgroundColor = .clear
             profileImageView.layer.borderWidth = 0
-        } else {
+            nameLabel.frame.size = CGSize(width: nameLabel.frame.width, height: 0)
+            nameLabel.text = ""
+        }
+        
+        if data.user != nextUser {
+            nameLabel.frame.size = CGSize(width: 0, height: 0)
+            nameLabel.text = ""
             let dateFormatter = DateFormatter()
             dateFormatter.locale = Locale(identifier: Locale.current.identifier)
             dateFormatter.dateStyle = .long

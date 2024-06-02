@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,7 +28,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dpC-Sr-dVx" firstAttribute="leading" secondItem="LNV-zZ-9qb" secondAttribute="leading" constant="5" id="600-GQ-yEH"/>
                             <constraint firstAttribute="width" constant="60" id="BmU-1h-P6o"/>
@@ -44,7 +43,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bn-9x-zFA">
                                 <rect key="frame" x="0.0" y="2" width="255" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="FET-1H-6Q2"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20" id="FET-1H-6Q2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -54,7 +53,7 @@
                                 <rect key="frame" x="0.0" y="22" width="255" height="39"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Cd-9j-H3K">
-                                        <rect key="frame" x="4" y="4" width="197.66666666666666" height="31"/>
+                                        <rect key="frame" x="4" y="4" width="0.0" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="JdE-kT-A4k"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="197.66999999999999" id="anU-0U-mLT"/>
@@ -64,7 +63,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오후 12:59" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIT-8U-MqK">
-                                        <rect key="frame" x="203.66666666666669" y="15" width="47.333333333333343" height="20"/>
+                                        <rect key="frame" x="8" y="15" width="47.333333333333343" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="gML-uz-IQc"/>
                                         </constraints>
@@ -73,19 +72,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="BoW-fJ-1zl"/>
                                     <constraint firstAttribute="bottom" secondItem="WIT-8U-MqK" secondAttribute="bottom" constant="4" id="IgC-o3-ttw"/>
                                     <constraint firstItem="7Cd-9j-H3K" firstAttribute="top" secondItem="cn5-vd-EOm" secondAttribute="top" constant="4" id="Kvt-aL-ZVP"/>
                                     <constraint firstItem="7Cd-9j-H3K" firstAttribute="leading" secondItem="cn5-vd-EOm" secondAttribute="leading" constant="4" id="bC2-4v-rsg"/>
-                                    <constraint firstItem="WIT-8U-MqK" firstAttribute="leading" secondItem="7Cd-9j-H3K" secondAttribute="trailing" constant="2" id="vhw-zV-ShL"/>
-                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="WIT-8U-MqK" secondAttribute="trailing" constant="4" id="yLy-0Z-LHf"/>
+                                    <constraint firstItem="WIT-8U-MqK" firstAttribute="leading" secondItem="7Cd-9j-H3K" secondAttribute="trailing" constant="4" id="vhw-zV-ShL"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WIT-8U-MqK" secondAttribute="trailing" constant="4" id="yLy-0Z-LHf"/>
                                     <constraint firstAttribute="bottom" secondItem="7Cd-9j-H3K" secondAttribute="bottom" constant="4" id="zTg-ib-QCv"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cn5-vd-EOm" firstAttribute="top" secondItem="1bn-9x-zFA" secondAttribute="bottom" id="1X4-8z-MhY"/>
                             <constraint firstAttribute="bottom" secondItem="cn5-vd-EOm" secondAttribute="bottom" id="B5T-qR-iXF"/>
@@ -119,9 +118,4 @@
             <point key="canvasLocation" x="109.9236641221374" y="-6.6901408450704229"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

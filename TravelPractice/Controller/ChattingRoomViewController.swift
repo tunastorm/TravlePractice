@@ -18,8 +18,6 @@ class ChattingRoomViewController: UIViewController {
         super.viewDidLoad()
         setTableView()
     }
-    
-    
 }
 
 extension ChattingRoomViewController {
@@ -28,6 +26,9 @@ extension ChattingRoomViewController {
         chattingRoomTableView.dataSource = self
         chattingRoomTableView.separatorStyle = .none
         chattingRoomTableView.sectionHeaderTopPadding = 10
+        chattingRoomTableView.sectionHeaderHeight = 10
+        chattingRoomTableView.rowHeight = UITableView.automaticDimension
+        chattingRoomTableView.backgroundColor = .systemGray6
 
         let myIdentifier = MyChatTableViewCell.identifier
         let otherIdentifier = OtherChatTableViewCell.identifier

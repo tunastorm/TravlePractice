@@ -15,6 +15,10 @@ extension UITableViewCell {
         self.backgroundColor = .white
         self.tintColor = .black
         self.textLabel?.font = .systemFont(ofSize: 12)
-        
+    }
+    
+    func configLayoutForChatRoom() {
+        self.selectionStyle = .none
+        self.backgroundColor = .systemGray6
     }
 }

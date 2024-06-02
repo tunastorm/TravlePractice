@@ -17,9 +17,16 @@ class MyChatTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         configLayout()
+//        layoutSubviews()
     }
 
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0))
+//    }
+    
     func configLayout() {
+        configLayoutForChatRoom()
         chatLabel.textAlignment = .left
         chatLabel.numberOfLines = 0
         chatLabel.backgroundColor = .yellow

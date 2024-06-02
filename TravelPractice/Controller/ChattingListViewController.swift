@@ -27,6 +27,7 @@ extension ChattingListViewController {
     func setTableView() {
         chattingListTableView.delegate = self
         chattingListTableView.dataSource = self
+        chattingListTableView.separatorStyle = .none
         
         let identifier = ChattingListTableViewCell.identifier
         let xib = UINib(nibName: identifier, bundle: nil)

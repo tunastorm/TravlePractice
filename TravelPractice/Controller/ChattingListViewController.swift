@@ -12,23 +12,24 @@ class ChattingListViewController: UIViewController {
     
     @IBOutlet weak var chattingListTableView: UITableView!
     
+    @IBOutlet weak var friendButton: UIButton!
+    @IBOutlet weak var chattingRoomButton: UIButton!
+    @IBOutlet weak var messageButton: UIButton!
+    
     var searchController: UISearchController?
     var searchBar: UISearchBar?
     
     var chatRoomList: [(ChatRoom, Chat?)] = []
     var filterredArr: [(ChatRoom, Chat?)] = [] //{
-//        didSet {
-//            if filterredArr.isEmpty {
-//                filterredArr = chatList
-//            }
-//        }
-//    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setChatRoomList(mockList: mockChatList)
         setTableView()
+        setNavigationBar()
         setSearchBar()
+        setSearchButtons()
     }
     
 }
@@ -50,15 +51,26 @@ extension ChattingListViewController {
         chattingListTableView.register(xib, forCellReuseIdentifier: identifier)
     }
     
+    func setNavigationBar() {
+        navigationItem.title = "TRAVEL TALK"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     func setSearchBar() {
+        self.view.tintColor = .black
         searchController = UISearchController(searchResultsController: nil)
-        
+    
         if let searchBar = searchController?.searchBar {
             searchBar.placeholder = "검색어를 입력하세요"
             searchBar.delegate = self
-            searchBar.showsCancelButton = false
+            searchBar.showsCancelButton = true
+        
             searchBar.searchTextField.textColor = .black
             searchBar.tintColor = .black
+            searchBar.barTintColor = .black
+            
+            let cancelButtonAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            UIBarButtonItem.appearance().tintColor = .black
             
             if let text = searchBar.text,
                    text.count == 0 && filterredArr.isEmpty {
@@ -68,6 +80,36 @@ extension ChattingListViewController {
         }
         
         self.navigationItem.searchController = searchController
+        self.navigationItem.preferredSearchBarPlacement = .inline
+    }
+    
+    func setSearchButtons() {
+        var newButtons: [UIButton] = []
+        let titles = ["친구", "채팅방", "메시지"]
+        
+        for title in titles {
+            let button = UIButton()
+            button.titleLabel?.text = title
+            button.tintColor = .darkGray
+            button.addTarget(self, action: #selector(searchByButton), for: .touchUpInside)
+            newButtons.append(button)
+        }
+        
+        let stackView = UIStackView()
+        for newButton in newButtons {
+            stackView.addSubview(newButton)
+        }
+        
+        let view = UIView()
+        view.addSubview(stackView)
+        navigationController?.navigationBar.addSubview(view)
+    }
+    
+    @objc func searchByButton(_ sender: UIButton) {
+        print("버튼 눌림")
+    }
+    
+    @objc func showSearchBar() {
         
     }
 }

@@ -24,6 +24,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="E5r-FH-iT2" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="0Gk-3a-UXk"/>
                             <constraint firstItem="E5r-FH-iT2" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="RFL-1G-EI4"/>

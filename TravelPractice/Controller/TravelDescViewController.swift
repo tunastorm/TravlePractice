@@ -24,7 +24,6 @@ class TravelDescViewController: UIViewController {
     @IBOutlet var questionImageView: UIImageView!
     
     var data: Travel?
-    var systemImage = SystemImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,15 +79,15 @@ class TravelDescViewController: UIViewController {
         
         titleLabel.text = data.title
         descriptionLabel.text = data.description
-        starImageView.image = systemImage.star
+        starImageView.image = SystemImage.star
         gradeAndSaveLabel.text = "\(grade) ﹒ \(save)회"
-        personImageView.image = systemImage.persons
-        boltImageView.image = systemImage.bolt
-        creditCardImageView.image = systemImage.creditCard
+        personImageView.image = SystemImage.persons
+        boltImageView.image = SystemImage.bolt
+        creditCardImageView.image = SystemImage.creditCard
         sailsCountLabel.text = "\(Int.random(in: 0...100000))명의 여행자가 이 상품을 구매했어요"
         bookingLabel.text = "즉시확정 구매즉시 예약확정 (일부 상품 이용일 추가 예약필요)"
         installmentLabel.text = "최대 \(Int.random(in: 3...36))개월 무이자 할부 가능"
-        questionImageView.image = systemImage.questionMark
+        questionImageView.image = SystemImage.questionMark
     }
     
     
@@ -101,7 +100,7 @@ class TravelDescViewController: UIViewController {
         backWordButton.tintColor = .white
         
         let heartButton = UIButton()
-        heartButton.setImage(systemImage.heart, for: .normal)
+        heartButton.setImage(SystemImage.heart, for: .normal)
         
         navigationItem.leftBarButtonItems = [backWordButton]
     }

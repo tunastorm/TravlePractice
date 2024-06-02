@@ -40,7 +40,7 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
         tableView.setLayoutforRestaurant()
         changeStatusBarBgColor(bgColor: UIColor.white)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(searchButtonTapped(notification:)), name: .SearchFieldText, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(searchButtonTapped), name: .SearchFieldText, object: nil)
     }
         
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -139,7 +139,7 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
         likeListButton.setLayoutForLikeList()
         likeListButton.addTarget(self, action: #selector(likeListButtonClicked), for: .touchUpInside)
         
-        let mapImage = SystemImage().map
+        let mapImage = SystemImage.map
         let leftButton = UIBarButtonItem(image: mapImage, style: .plain, target: self, action: #selector(pushToRestaurantMap))
         navigationItem.leftBarButtonItem = leftButton
     }

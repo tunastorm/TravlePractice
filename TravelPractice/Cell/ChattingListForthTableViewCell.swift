@@ -26,14 +26,11 @@ class ChattingListForthTableViewCell: UITableViewCell {
 
     func configLayout() {
         self.selectionStyle = .default
-        firstProfileImageView.layer.cornerRadius = 5
-        firstProfileImageView.contentMode = .scaleAspectFill
-        secondProfileImageView.layer.cornerRadius = 5
-        secondProfileImageView.contentMode = .scaleAspectFill
-        thirdProfileImageView.layer.cornerRadius = 5
-        thirdProfileImageView.contentMode = .scaleAspectFill
-        forthProfileImageView.layer.cornerRadius = 5
-        forthProfileImageView.contentMode = .scaleAspectFill
+        firstProfileImageView.setLayoutForChatProfile()
+        secondProfileImageView.setLayoutForChatProfile()
+        thirdProfileImageView.setLayoutForChatProfile()
+        forthProfileImageView.setLayoutForChatProfile()
+        timeLabel.font = .systemFont(ofSize: 10)
     }
     
     func configCell(_ data: (ChatRoom, Chat?)) {

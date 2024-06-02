@@ -29,7 +29,7 @@ extension ChattingRoomViewController {
         chattingRoomTableView.sectionHeaderHeight = 10
         chattingRoomTableView.rowHeight = UITableView.automaticDimension
         chattingRoomTableView.backgroundColor = .systemGray6
-
+        
         let myIdentifier = MyChatTableViewCell.identifier
         let otherFirstIdentifier = OtherChatFirstTableViewCell.identifier
         let otherIdentifier = OtherChatTableViewCell.identifier
@@ -41,6 +41,17 @@ extension ChattingRoomViewController {
         chattingRoomTableView.register(myXib, forCellReuseIdentifier: myIdentifier)
         chattingRoomTableView.register(otherFirstXib, forCellReuseIdentifier: otherFirstIdentifier)
         chattingRoomTableView.register(otherXib, forCellReuseIdentifier: otherIdentifier)
+        
+        guard let rowSize = roomData?.chatList.count else {return}
+        let indexPath = IndexPath(row: rowSize-1, section: 0)
+        chattingRoomTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+    }
+    
+    func setTabBar() {
+        let tabBar = UITabBarController()
+        let item = UITabBarItem()
+
+        tabBar.tabBar.items
     }
 }
 
@@ -55,7 +66,7 @@ extension ChattingRoomViewController: UITableViewDelegate, UITableViewDataSource
         var cell = UITableViewCell()
         var fastUser: User?
         var nextUser: User?
-       
+        
         guard let data = roomData?.chatList[rowIndex] else {return cell}
         
         let nowUser = data.user
@@ -89,5 +100,4 @@ extension ChattingRoomViewController: UITableViewDelegate, UITableViewDataSource
         
         return cell
     }
-    
 }

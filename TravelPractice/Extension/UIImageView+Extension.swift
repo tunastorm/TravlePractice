@@ -17,4 +17,11 @@ extension UIImageView {
         self.contentMode = .scaleAspectFit
         self.tintColor = .systemYellow
     }
+    
+    func setLayoutForChatProfile() {
+        self.layer.cornerRadius = 10
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.systemGray5.cgColor
+        self.contentMode = .scaleAspectFill
+    }
 }

@@ -32,7 +32,7 @@ class OtherChatFirstTableViewCell: UITableViewCell {
         profileImageView.contentMode = .scaleAspectFill
         otherFirstChatLabel.textAlignment = .left
         otherFirstChatLabel.numberOfLines = 0
-        otherFirstChatLabel.backgroundColor = .lightGray
+        otherFirstChatLabel.backgroundColor = .systemGray4
         otherFirstChatLabel.layer.cornerRadius = 5
         otherFirstChatLabel.layer.masksToBounds = true
     }

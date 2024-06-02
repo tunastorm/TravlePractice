@@ -22,7 +22,7 @@ class OtherChatTableViewCell: UITableViewCell {
         configLayoutForChatRoom()
         otherChatLabel.textAlignment = .left
         otherChatLabel.numberOfLines = 0
-        otherChatLabel.backgroundColor = .lightGray
+        otherChatLabel.backgroundColor = .systemGray4
         otherChatLabel.layer.cornerRadius = 5
         otherChatLabel.layer.masksToBounds = true
         otherChatTimeLabel.font = .systemFont(ofSize: 10)

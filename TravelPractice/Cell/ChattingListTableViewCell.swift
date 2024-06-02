@@ -27,8 +27,7 @@ class ChattingListTableViewCell: UITableViewCell {
 
     func configLayout() {
         self.selectionStyle = .default
-        profileImageView.layer.cornerRadius = 10
-        profileImageView.contentMode = .scaleAspectFill
+        profileImageView.setLayoutForChatProfile()
     }
     
     func configCell(_ data: (ChatRoom, Chat?)) {

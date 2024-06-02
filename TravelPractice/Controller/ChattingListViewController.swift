@@ -65,6 +65,12 @@ extension ChattingListViewController {
     func setNavigationBar() {
         navigationItem.title = "TRAVEL TALK"
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.leftBarButtonItem?.tintColor = .black
+        navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.backBarButtonItem?.tintColor = .black
+        navigationItem.backButtonTitle = ""
+        let cancelButtonAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        UIBarButtonItem.appearance().tintColor = .black
     }
     
     func setSearchBar() {
@@ -79,9 +85,6 @@ extension ChattingListViewController {
             searchBar.searchTextField.textColor = .black
             searchBar.tintColor = .black
             searchBar.barTintColor = .black
-            
-            let cancelButtonAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-            UIBarButtonItem.appearance().tintColor = .black
             
             if let text = searchBar.text,
                    text.count == 0 && filterredArr.isEmpty {

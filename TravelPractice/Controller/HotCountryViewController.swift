@@ -77,7 +77,6 @@ class HotCountryViewController: UIViewController {
     
     var filterredArr: [String] = []
 //    let resultIdxList: [Int] = []
-    var isFiltering = false
     
     
     override func viewDidLoad() {

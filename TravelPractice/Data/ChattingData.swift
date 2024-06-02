@@ -37,7 +37,6 @@ struct Chat {
     let message: String
 }
 
-
 let mockChatList: [ChatRoom] = [
     ChatRoom(chatroomId: 1,
              chatroomImage: [User.hue.profileImage, User.jack.profileImage, User.bran.profileImage, User.den.profileImage],
@@ -55,8 +54,7 @@ let mockChatList: [ChatRoom] = [
                 Chat(user: .den,
                      date: "2024-06-12 23:42",
                      message: "열심히 하고 있습니다!!"),
-             ]
-            ),
+             ]),
     ChatRoom(chatroomId: 2,
              chatroomImage: [User.hue.profileImage],
              chatroomName: User.hue.rawValue,

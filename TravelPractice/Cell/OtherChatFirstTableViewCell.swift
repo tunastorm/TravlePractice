@@ -28,8 +28,7 @@ class OtherChatFirstTableViewCell: UITableViewCell {
     
     func configLayout() {
         configLayoutForChatRoom()
-        profileImageView.layer.cornerRadius = 10
-        profileImageView.contentMode = .scaleAspectFill
+        profileImageView.setLayoutForChatProfile()
         otherFirstChatLabel.textAlignment = .left
         otherFirstChatLabel.numberOfLines = 0
         otherFirstChatLabel.backgroundColor = .systemGray4

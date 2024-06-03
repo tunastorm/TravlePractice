@@ -12,11 +12,30 @@ class ChattingRoomViewController: UIViewController {
     
     @IBOutlet weak var chattingRoomTableView: UITableView!
     
+    @IBOutlet weak var messageView: UIView!
+    
+    @IBOutlet weak var messageTextView: UITextView!
+    
     var roomData: ChatRoom?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
+        setMessageView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard let rowSize = self.roomData?.chatList.count else {return}
+        let indexPath = IndexPath(row: rowSize-1, section: 0)
+        self.chattingRoomTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+        if messageView.isFirstResponder {
+            messageView.resignFirstResponder()
+        }
     }
 }
 
@@ -24,6 +43,7 @@ extension ChattingRoomViewController {
     func setTableView() {
         chattingRoomTableView.delegate = self
         chattingRoomTableView.dataSource = self
+        
         chattingRoomTableView.separatorStyle = .none
         chattingRoomTableView.sectionHeaderTopPadding = 10
         chattingRoomTableView.sectionHeaderHeight = 10
@@ -41,18 +61,18 @@ extension ChattingRoomViewController {
         chattingRoomTableView.register(myXib, forCellReuseIdentifier: myIdentifier)
         chattingRoomTableView.register(otherFirstXib, forCellReuseIdentifier: otherFirstIdentifier)
         chattingRoomTableView.register(otherXib, forCellReuseIdentifier: otherIdentifier)
-        
-        guard let rowSize = roomData?.chatList.count else {return}
-        let indexPath = IndexPath(row: rowSize-1, section: 0)
-        chattingRoomTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
     
-    func setTabBar() {
-        let tabBar = UITabBarController()
-        let item = UITabBarItem()
-
-        tabBar.tabBar.items
+    func setMessageView() {
+        messageTextView.delegate = self
+        messageTextView.isScrollEnabled = false
+        messageTextView.text = Placeholder.chattingTextView.text
+        messageTextView.textColor = .systemGray3
+        messageView.backgroundColor = .white
+        messageTextView.layer.backgroundColor = UIColor.systemGray6.cgColor
+        messageTextView.layer.cornerRadius = messageTextView.frame.height * 0.5
     }
+
 }
 
 extension ChattingRoomViewController: UITableViewDelegate, UITableViewDataSource {
@@ -100,4 +120,46 @@ extension ChattingRoomViewController: UITableViewDelegate, UITableViewDataSource
         
         return cell
     }
+}
+
+extension ChattingRoomViewController: UITextViewDelegate {
+    
+    // 편집 시작, 커서 시작
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.systemGray3 {
+            textView.text = nil
+        }
+        textView.textColor = .black
+        textView.becomeFirstResponder()
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text.count > 0 {
+            let size = CGSize(width: view.frame.width, height: .infinity)
+            let estimatedSize = textView.sizeThatFits(size)
+            
+            textView.constraints.forEach { (constraint) in
+              /// height가 30 이상 70이하일 때만 height 증가 (세 줄 증가)
+                if 30 <= estimatedSize.height && estimatedSize.height <= 70 {
+                    if constraint.firstAttribute == .height {
+                        constraint.constant = estimatedSize.height
+                    }
+                }
+            }
+        }
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
+
+    // 편집 끝, 커서 안 보임
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView == messageTextView && textView.text.isEmpty {
+            textView.text = Placeholder.chattingTextView.text
+            textView.textColor = .systemGray3
+        }
+    }
+    
 }

@@ -64,8 +64,8 @@ extension ChattingListViewController {
     
     func setNavigationBar() {
         navigationItem.title = "TRAVEL TALK"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.leftBarButtonItem?.tintColor = .black
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+//        navigationItem.leftBarButtonItem?.tintColor = .black
         navigationItem.rightBarButtonItem?.tintColor = .black
         navigationItem.backBarButtonItem?.tintColor = .black
         navigationItem.backButtonTitle = ""
@@ -76,12 +76,12 @@ extension ChattingListViewController {
     func setSearchBar() {
         self.view.tintColor = .black
         searchController = UISearchController(searchResultsController: nil)
-    
+        searchController?.searchBar.searchBarStyle = .minimal
+        
         if let searchBar = searchController?.searchBar {
             searchBar.placeholder = "검색어를 입력하세요"
             searchBar.delegate = self
             searchBar.showsCancelButton = true
-        
             searchBar.searchTextField.textColor = .black
             searchBar.tintColor = .black
             searchBar.barTintColor = .black
@@ -123,9 +123,6 @@ extension ChattingListViewController {
         print("버튼 눌림")
     }
     
-    @objc func showSearchBar() {
-        
-    }
 }
 
 

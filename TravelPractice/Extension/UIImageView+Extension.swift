@@ -19,7 +19,7 @@ extension UIImageView {
     }
     
     func setLayoutForChatProfile() {
-        self.layer.cornerRadius = 10
+        self.layer.cornerRadius = self.frame.height * 0.4
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.systemGray5.cgColor
         self.contentMode = .scaleAspectFill

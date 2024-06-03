@@ -12,7 +12,7 @@ extension UITextField {
         if !self.isFirstResponder {
             self.becomeFirstResponder()
         }
-        self.placeholder = Placeholder.restuarantSearch.get()
+        self.placeholder = Placeholder.restaurantSearch.text
         self.layer.cornerRadius = self.frame.height * 0.1
         self.backgroundColor = .systemGray6
         self.borderStyle = .none

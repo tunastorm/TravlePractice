@@ -49,29 +49,73 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GEr-No-5mG">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="719"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="719" id="k5Z-6R-LCk"/>
+                                </constraints>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roL-84-k8U">
+                                <rect key="frame" x="0.0" y="778" width="393" height="40"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" layoutManager="textKit1" translatesAutoresizingMaskIntoConstraints="NO" id="oQg-8s-UyL">
+                                        <rect key="frame" x="10" y="5" width="373" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="9di-Yj-dpm"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="pG4-qA-Bmi"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="oQg-8s-UyL" firstAttribute="top" secondItem="roL-84-k8U" secondAttribute="top" constant="5" id="N6I-WI-WYh"/>
+                                    <constraint firstItem="oQg-8s-UyL" firstAttribute="leading" secondItem="roL-84-k8U" secondAttribute="leading" constant="10" id="bdo-sN-sOZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="oQg-8s-UyL" secondAttribute="trailing" constant="10" id="dlf-zC-BMP"/>
+                                    <constraint firstAttribute="bottom" secondItem="oQg-8s-UyL" secondAttribute="bottom" constant="5" id="itf-nd-l88"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jp0-Rr-zfF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="GEr-No-5mG" firstAttribute="leading" secondItem="jp0-Rr-zfF" secondAttribute="leading" id="5PW-Yl-0pM"/>
-                            <constraint firstItem="jp0-Rr-zfF" firstAttribute="trailing" secondItem="GEr-No-5mG" secondAttribute="trailing" id="9MP-eh-9jM"/>
-                            <constraint firstItem="jp0-Rr-zfF" firstAttribute="bottom" secondItem="GEr-No-5mG" secondAttribute="bottom" id="aew-DD-xJg"/>
-                            <constraint firstItem="GEr-No-5mG" firstAttribute="top" secondItem="jp0-Rr-zfF" secondAttribute="top" id="sce-vy-2c6"/>
+                            <constraint firstItem="roL-84-k8U" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jp0-Rr-zfF" secondAttribute="bottom" id="8uN-wo-hZ1"/>
+                            <constraint firstItem="GEr-No-5mG" firstAttribute="width" secondItem="nit-Nb-FJy" secondAttribute="width" id="Gxg-CI-z89"/>
+                            <constraint firstItem="roL-84-k8U" firstAttribute="leading" secondItem="jp0-Rr-zfF" secondAttribute="leading" id="MT7-By-uoN"/>
+                            <constraint firstItem="roL-84-k8U" firstAttribute="top" secondItem="GEr-No-5mG" secondAttribute="bottom" id="RGA-Fy-FNM"/>
+                            <constraint firstItem="GEr-No-5mG" firstAttribute="trailing" secondItem="jp0-Rr-zfF" secondAttribute="trailing" id="j31-dn-0O2"/>
+                            <constraint firstItem="GEr-No-5mG" firstAttribute="top" secondItem="jp0-Rr-zfF" secondAttribute="top" id="m2E-3Z-9xR"/>
+                            <constraint firstItem="GEr-No-5mG" firstAttribute="leading" secondItem="jp0-Rr-zfF" secondAttribute="leading" id="ool-fe-Vwd"/>
+                            <constraint firstItem="roL-84-k8U" firstAttribute="trailing" secondItem="jp0-Rr-zfF" secondAttribute="trailing" id="uHu-0H-4sF"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="6L0-se-bbD" appends="YES" id="E2b-Th-dIP"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="chattingRoomTableView" destination="GEr-No-5mG" id="n2E-rD-ad6"/>
+                        <outlet property="messageTextView" destination="oQg-8s-UyL" id="UXJ-Ju-VGW"/>
+                        <outlet property="messageView" destination="roL-84-k8U" id="LpG-cH-Dpv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjX-Oq-9ZT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6L0-se-bbD">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="nyn-O1-MNy" id="lhc-Aw-cDb"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1121" y="-28"/>
+            <point key="canvasLocation" x="1119.8473282442749" y="-28.169014084507044"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

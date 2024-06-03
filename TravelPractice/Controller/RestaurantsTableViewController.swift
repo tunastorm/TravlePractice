@@ -188,10 +188,7 @@ class RestaurantsTableViewController: UITableViewController, UITextFieldDelegate
         }
         return true
     }
-    
-    @objc func searchedWordClicked(_ sender: UIButton) {
-        
-    }
+
     
     @objc func likeButtonClicked(_ sender: UIButton) {
 //        dao.updateLike(at: sender.tag)

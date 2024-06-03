@@ -22,6 +22,6 @@ extension UIImageView {
         self.layer.cornerRadius = self.frame.height * 0.4
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.systemGray5.cgColor
-        self.contentMode = .scaleAspectFill
+        self.contentMode = .scaleAspectFit
     }
 }

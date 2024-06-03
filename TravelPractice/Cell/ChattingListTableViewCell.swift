@@ -28,6 +28,9 @@ class ChattingListTableViewCell: UITableViewCell {
     func configLayout() {
         self.selectionStyle = .default
         profileImageView.setLayoutForChatProfile()
+        titleLabel.setLayoutForChatTitle()
+        subTitleLabel.setLayoutForChatSubTitle()
+        timeLabel.setLayoutForChatTimeLabel()
     }
     
     func configCell(_ data: (ChatRoom, Chat?)) {

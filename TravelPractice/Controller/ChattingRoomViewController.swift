@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NotificationCenter
 
 class ChattingRoomViewController: UIViewController {
 
@@ -16,19 +17,33 @@ class ChattingRoomViewController: UIViewController {
     
     @IBOutlet weak var messageTextView: UITextView!
     
+    @IBOutlet weak var messageViewConstraint: NSLayoutConstraint!
+    
     var roomData: ChatRoom?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setNavigationBar()
         setTableView()
+        registerCells()
         setMessageView()
+        setKeyboardNotification()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         guard let rowSize = self.roomData?.chatList.count else {return}
         let indexPath = IndexPath(row: rowSize-1, section: 0)
         self.chattingRoomTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // observer를 전부 제거
+        NotificationCenter.default.removeObserver(self)
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -37,9 +52,52 @@ class ChattingRoomViewController: UIViewController {
             messageView.resignFirstResponder()
         }
     }
+    
+    func setKeyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ notification:NSNotification) {
+        print("hihihihihihi")
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            print("keyboardHeight = \(keyboardHeight)")
+            
+            let tabBarHeight = self.tabBarController?.tabBar.frame.height ?? 0
+            
+            messageViewConstraint.constant = -(keyboardHeight - tabBarHeight)
+            UIView.animate(withDuration: 0.5, delay: 0.1,
+                           options: UIView.AnimationOptions.transitionCurlUp,
+                           animations: { self.messageView.layoutIfNeeded()
+                                         self.chattingRoomTableView.layoutIfNeeded()
+            }, completion: nil)
+            
+            guard let rowSize = self.roomData?.chatList.count else {return}
+            let indexPath = IndexPath(row: rowSize-1, section: 0)
+            chattingRoomTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification:NSNotification) {
+        messageViewConstraint.constant = 0
+        UIView.animate(withDuration: 0.5, delay: 0.1,
+                       options: UIView.AnimationOptions.transitionCurlUp,
+                       animations: { self.messageView.layoutIfNeeded()
+                                     self.chattingRoomTableView.layoutIfNeeded()
+        }, completion: nil)
+    }
 }
 
 extension ChattingRoomViewController {
+    
+    func setNavigationBar() {
+        if let titleText = roomData?.chatroomName {
+            navigationItem.title = titleText
+        }
+    }
+    
     func setTableView() {
         chattingRoomTableView.delegate = self
         chattingRoomTableView.dataSource = self
@@ -48,8 +106,10 @@ extension ChattingRoomViewController {
         chattingRoomTableView.sectionHeaderTopPadding = 10
         chattingRoomTableView.sectionHeaderHeight = 10
         chattingRoomTableView.rowHeight = UITableView.automaticDimension
-        chattingRoomTableView.backgroundColor = .systemGray6
-        
+        chattingRoomTableView.backgroundColor = .white
+    }
+    
+    func registerCells() {
         let myIdentifier = MyChatTableViewCell.identifier
         let otherFirstIdentifier = OtherChatFirstTableViewCell.identifier
         let otherIdentifier = OtherChatTableViewCell.identifier
@@ -70,9 +130,8 @@ extension ChattingRoomViewController {
         messageTextView.textColor = .systemGray3
         messageView.backgroundColor = .white
         messageTextView.layer.backgroundColor = UIColor.systemGray6.cgColor
-        messageTextView.layer.cornerRadius = messageTextView.frame.height * 0.5
+        messageTextView.layer.cornerRadius = messageTextView.frame.height * 0.2
     }
-
 }
 
 extension ChattingRoomViewController: UITableViewDelegate, UITableViewDataSource {
@@ -84,8 +143,11 @@ extension ChattingRoomViewController: UITableViewDelegate, UITableViewDataSource
         
         let rowIndex = indexPath.row
         var cell = UITableViewCell()
+        
+        var fastDate: String?
         var fastUser: User?
         var nextUser: User?
+        
         
         guard let data = roomData?.chatList[rowIndex] else {return cell}
         
@@ -93,6 +155,7 @@ extension ChattingRoomViewController: UITableViewDelegate, UITableViewDataSource
         
         if rowIndex > 0 {
             fastUser = roomData?.chatList[rowIndex-1].user
+            fastDate = roomData?.chatList[rowIndex-1].date
         }
         
         if rowIndex < (roomData?.chatList.count ?? 1)-1 {
@@ -102,19 +165,19 @@ extension ChattingRoomViewController: UITableViewDelegate, UITableViewDataSource
         if data.user == .user {
             let identifier = MyChatTableViewCell.identifier
             let myCell = chattingRoomTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyChatTableViewCell
-            myCell.configCell(data, nextUser)
+            myCell.configCell(data, fastDate, nextUser)
             cell = myCell
             
         } else if data.user != fastUser {
             let identifier = OtherChatFirstTableViewCell.identifier
             let otherFirstCell = chattingRoomTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! OtherChatFirstTableViewCell
-            otherFirstCell.configCell(data, fastUser, nextUser)
+            otherFirstCell.configCell(data, fastDate, fastUser, nextUser)
             cell = otherFirstCell
             
         } else if data.user == fastUser {
             let identifier = OtherChatTableViewCell.identifier
             let otherCell = chattingRoomTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! OtherChatTableViewCell
-            otherCell.configCell(data, nextUser)
+            otherCell.configCell(data, fastDate, nextUser)
             cell = otherCell
         }
         

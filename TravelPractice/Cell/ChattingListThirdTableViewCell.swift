@@ -28,6 +28,10 @@ class ChattingListThirdTableViewCell: UITableViewCell {
         firstProfileImageView.setLayoutForChatProfile()
         secondProfileImageView.setLayoutForChatProfile()
         thirdProfileImageView.setLayoutForChatProfile()
+        titleLabel.setLayoutForChatTitle()
+        subTitleLabel.setLayoutForChatSubTitle()
+        timeLabel.setLayoutForChatTimeLabel()
+        
     }
     
     func configCell(_ data: (ChatRoom, Chat?)) {

@@ -44,6 +44,9 @@ extension ChattingListViewController {
     func setTableView() {
         chattingListTableView.delegate = self
         chattingListTableView.dataSource = self
+        let scrollView = chattingListTableView as! UIScrollView
+        scrollView.delegate = self
+        
         chattingListTableView.separatorStyle = .none
         
         let firstIdentifier = ChattingListTableViewCell.identifier
@@ -85,6 +88,8 @@ extension ChattingListViewController {
             searchBar.searchTextField.textColor = .black
             searchBar.tintColor = .black
             searchBar.barTintColor = .black
+            searchBar.layer.addBorder([.bottom],
+                                      color: UIColor.systemGray, width: 1.0)
             
             if let text = searchBar.text,
                    text.count == 0 && filterredArr.isEmpty {
@@ -94,7 +99,9 @@ extension ChattingListViewController {
         }
         
         self.navigationItem.searchController = searchController
-        self.navigationItem.preferredSearchBarPlacement = .inline
+        
+        
+//        self.navigationItem.preferredSearchBarPlacement = .inline
     }
     
     func setSearchButtons() {
@@ -116,13 +123,11 @@ extension ChattingListViewController {
         
         let view = UIView()
         view.addSubview(stackView)
-        navigationController?.navigationBar.addSubview(view)
     }
     
     @objc func searchByButton(_ sender: UIButton) {
         print("버튼 눌림")
     }
-    
 }
 
 
@@ -141,7 +146,6 @@ extension ChattingListViewController: UITableViewDelegate, UITableViewDataSource
         if userSize == 1 {
             let identifier = ChattingListTableViewCell.identifier
             let firstCell = chattingListTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ChattingListTableViewCell
-            
             firstCell.configCell(data)
             cell = firstCell
             
@@ -180,6 +184,21 @@ extension ChattingListViewController: UITableViewDelegate, UITableViewDataSource
         navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+extension ChattingListViewController: UIScrollViewDelegate {
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        navigationItem.searchController?.searchBar.isHidden = true
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if let naviHeight = navigationItem.searchController?.searchBar.frame.height,
+            scrollView.contentOffset.y <= naviHeight {
+            navigationItem.searchController?.searchBar.isHidden = false
+        }
+    }
+}
+
 
 extension ChattingListViewController: UISearchBarDelegate {
 

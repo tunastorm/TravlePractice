@@ -42,6 +42,7 @@
 		BC6D8E302C0CBBA100051C0E /* ChattingListThirdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC6D8E2E2C0CBBA100051C0E /* ChattingListThirdTableViewCell.xib */; };
 		BC6D8E332C0CBDDD00051C0E /* ChattingListForthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6D8E312C0CBDDD00051C0E /* ChattingListForthTableViewCell.swift */; };
 		BC6D8E342C0CBDDD00051C0E /* ChattingListForthTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC6D8E322C0CBDDD00051C0E /* ChattingListForthTableViewCell.xib */; };
+		BC6D8E822C0DF90800051C0E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6D8E812C0DF90800051C0E /* UIView+Extension.swift */; };
 		BC8B795B2C06F265006E0F6A /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B795A2C06F265006E0F6A /* Notification.Name+Extension.swift */; };
 		BC8B795D2C06FAE0006E0F6A /* Advertisement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC8B795C2C06FAE0006E0F6A /* Advertisement.storyboard */; };
 		BC8B795F2C07010C006E0F6A /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B795E2C07010C006E0F6A /* AdViewController.swift */; };
@@ -121,6 +122,7 @@
 		BC6D8E2E2C0CBBA100051C0E /* ChattingListThirdTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChattingListThirdTableViewCell.xib; sourceTree = "<group>"; };
 		BC6D8E312C0CBDDD00051C0E /* ChattingListForthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingListForthTableViewCell.swift; sourceTree = "<group>"; };
 		BC6D8E322C0CBDDD00051C0E /* ChattingListForthTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChattingListForthTableViewCell.xib; sourceTree = "<group>"; };
+		BC6D8E812C0DF90800051C0E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		BC8B795A2C06F265006E0F6A /* Notification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extension.swift"; sourceTree = "<group>"; };
 		BC8B795C2C06FAE0006E0F6A /* Advertisement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Advertisement.storyboard; sourceTree = "<group>"; };
 		BC8B795E2C07010C006E0F6A /* AdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				BC8B795A2C06F265006E0F6A /* Notification.Name+Extension.swift */,
 				BCC1765B2C087782006AB814 /* CALayer+Extension.swift */,
 				BC14DC422C09756300DC942C /* ReuseIdentifierProtocol.swift */,
+				BC6D8E812C0DF90800051C0E /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				BCC1765C2C087782006AB814 /* CALayer+Extension.swift in Sources */,
 				BC5750102C04638C0072E10F /* UIViewController+Extension.swift in Sources */,
 				BCE3B4AB2C0488A200333310 /* UILabel+Extension.swift in Sources */,
+				BC6D8E822C0DF90800051C0E /* UIView+Extension.swift in Sources */,
 				BCC1765E2C089227006AB814 /* AdImageUrl.swift in Sources */,
 				BCC5236C2C01B99900DF080D /* UserDefaultManager.swift in Sources */,
 				BC6D8E332C0CBDDD00051C0E /* ChattingListForthTableViewCell.swift in Sources */,

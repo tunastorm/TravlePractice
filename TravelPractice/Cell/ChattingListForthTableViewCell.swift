@@ -30,7 +30,9 @@ class ChattingListForthTableViewCell: UITableViewCell {
         secondProfileImageView.setLayoutForChatProfile()
         thirdProfileImageView.setLayoutForChatProfile()
         forthProfileImageView.setLayoutForChatProfile()
-        timeLabel.font = .systemFont(ofSize: 10)
+        titleLabel.setLayoutForChatTitle()
+        subTitleLabel.setLayoutForChatSubTitle()
+        timeLabel.setLayoutForChatTimeLabel()
     }
     
     func configCell(_ data: (ChatRoom, Chat?)) {

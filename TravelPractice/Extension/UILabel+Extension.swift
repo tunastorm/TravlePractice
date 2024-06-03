@@ -26,4 +26,24 @@ extension UILabel {
         self.font = .systemFont(ofSize: 10)
         self.textAlignment = .left
     }
+    
+    func setLayoutForChatTitle() {
+        self.font = .boldSystemFont(ofSize: 12)
+    }
+    
+    func setLayoutForChatSubTitle() {
+        self.font = .systemFont(ofSize: 12)
+        self.textColor = .systemGray2
+    }
+    
+    func setLayoutForChatTimeLabel() {
+        self.font = .systemFont(ofSize: 10)
+        self.textColor = .systemGray2
+    }
+    
+    func setLayoutForChatLabel() {
+        self.font = .systemFont(ofSize: 12)
+        self.textAlignment = .left
+        self.numberOfLines = 0
+    }
 }

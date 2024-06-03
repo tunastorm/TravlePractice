@@ -19,6 +19,6 @@ extension UITableViewCell {
     
     func configLayoutForChatRoom() {
         self.selectionStyle = .none
-        self.backgroundColor = .systemGray6
+        self.backgroundColor = .white
     }
 }

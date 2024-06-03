@@ -49,21 +49,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GEr-No-5mG">
-                                <rect key="frame" x="0.0" y="59" width="393" height="719"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="709"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="719" id="k5Z-6R-LCk"/>
-                                </constraints>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roL-84-k8U">
-                                <rect key="frame" x="0.0" y="778" width="393" height="40"/>
+                                <rect key="frame" x="0.0" y="768" width="393" height="50"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" layoutManager="textKit1" translatesAutoresizingMaskIntoConstraints="NO" id="oQg-8s-UyL">
-                                        <rect key="frame" x="10" y="5" width="373" height="30"/>
+                                        <rect key="frame" x="30" y="10" width="333" height="30"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="9di-Yj-dpm"/>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="pG4-qA-Bmi"/>
                                         </constraints>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -72,10 +68,10 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="oQg-8s-UyL" firstAttribute="top" secondItem="roL-84-k8U" secondAttribute="top" constant="5" id="N6I-WI-WYh"/>
-                                    <constraint firstItem="oQg-8s-UyL" firstAttribute="leading" secondItem="roL-84-k8U" secondAttribute="leading" constant="10" id="bdo-sN-sOZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="oQg-8s-UyL" secondAttribute="trailing" constant="10" id="dlf-zC-BMP"/>
-                                    <constraint firstAttribute="bottom" secondItem="oQg-8s-UyL" secondAttribute="bottom" constant="5" id="itf-nd-l88"/>
+                                    <constraint firstItem="oQg-8s-UyL" firstAttribute="top" secondItem="roL-84-k8U" secondAttribute="top" constant="10" id="G6T-Yz-uCJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="oQg-8s-UyL" secondAttribute="bottom" constant="10" id="MOT-OQ-ITS"/>
+                                    <constraint firstItem="oQg-8s-UyL" firstAttribute="leading" secondItem="roL-84-k8U" secondAttribute="leading" constant="30" id="bdo-sN-sOZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="oQg-8s-UyL" secondAttribute="trailing" constant="30" id="dlf-zC-BMP"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -83,10 +79,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="roL-84-k8U" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jp0-Rr-zfF" secondAttribute="bottom" id="8uN-wo-hZ1"/>
-                            <constraint firstItem="GEr-No-5mG" firstAttribute="width" secondItem="nit-Nb-FJy" secondAttribute="width" id="Gxg-CI-z89"/>
+                            <constraint firstItem="roL-84-k8U" firstAttribute="top" secondItem="GEr-No-5mG" secondAttribute="bottom" id="D8S-7A-hMY"/>
                             <constraint firstItem="roL-84-k8U" firstAttribute="leading" secondItem="jp0-Rr-zfF" secondAttribute="leading" id="MT7-By-uoN"/>
-                            <constraint firstItem="roL-84-k8U" firstAttribute="top" secondItem="GEr-No-5mG" secondAttribute="bottom" id="RGA-Fy-FNM"/>
+                            <constraint firstItem="roL-84-k8U" firstAttribute="bottom" secondItem="jp0-Rr-zfF" secondAttribute="bottom" id="blI-kI-4I3"/>
                             <constraint firstItem="GEr-No-5mG" firstAttribute="trailing" secondItem="jp0-Rr-zfF" secondAttribute="trailing" id="j31-dn-0O2"/>
                             <constraint firstItem="GEr-No-5mG" firstAttribute="top" secondItem="jp0-Rr-zfF" secondAttribute="top" id="m2E-3Z-9xR"/>
                             <constraint firstItem="GEr-No-5mG" firstAttribute="leading" secondItem="jp0-Rr-zfF" secondAttribute="leading" id="ool-fe-Vwd"/>
@@ -100,6 +95,7 @@
                         <outlet property="chattingRoomTableView" destination="GEr-No-5mG" id="n2E-rD-ad6"/>
                         <outlet property="messageTextView" destination="oQg-8s-UyL" id="UXJ-Ju-VGW"/>
                         <outlet property="messageView" destination="roL-84-k8U" id="LpG-cH-Dpv"/>
+                        <outlet property="messageViewConstraint" destination="blI-kI-4I3" id="bYi-1Y-Kiu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjX-Oq-9ZT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

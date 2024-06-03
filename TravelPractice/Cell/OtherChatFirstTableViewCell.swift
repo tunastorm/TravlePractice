@@ -15,6 +15,17 @@ class OtherChatFirstTableViewCell: UITableViewCell {
     @IBOutlet weak var otherFirstChatLabel: UILabel!
     @IBOutlet weak var otherFirstTimeLabel: UILabel!
     
+    @IBOutlet weak var chatBubbleView: UIView!
+    
+    @IBOutlet weak var dateView: UIView!
+    
+    
+    @IBOutlet weak var chatView: UIView!
+    
+    @IBOutlet weak var profileView: UIView!
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         configLayout()
@@ -29,14 +40,46 @@ class OtherChatFirstTableViewCell: UITableViewCell {
     func configLayout() {
         configLayoutForChatRoom()
         profileImageView.setLayoutForChatProfile()
-        otherFirstChatLabel.textAlignment = .left
-        otherFirstChatLabel.numberOfLines = 0
-        otherFirstChatLabel.backgroundColor = .systemGray4
-        otherFirstChatLabel.layer.cornerRadius = 5
-        otherFirstChatLabel.layer.masksToBounds = true
+        otherFirstNameLabel.setLayoutForChatTitle()
+        otherFirstChatLabel.setLayoutForChatLabel()
+        chatBubbleView.setLayoutForChatBubble()
+        chatBubbleView.backgroundColor = .clear
+        otherFirstTimeLabel.setLayoutForChatTimeLabel()
     }
     
-    func configCell(_ data: Chat, _ fastUser: User?, _ nextUser: User?) {
+    func setDateLabelLayout() {
+        dateView.snp.updateConstraints{
+            $0.top.equalToSuperview().inset(5)
+            $0.height.equalTo(20)
+        }
+        dateLabel.snp.updateConstraints {
+            $0.top.equalToSuperview().inset(5)
+        }
+        dateLabel.layer.borderWidth = 1
+        dateLabel.textAlignment = .center
+        dateLabel.layer.cornerRadius = 10
+        dateLabel.layer.borderColor = UIColor.systemGray3.cgColor
+        dateLabel.font = .systemFont(ofSize: 10)
+    }
+    
+    
+    func configCell(_ data: Chat, _ fastDate: String?, _ fastUser: User?, _ nextUser: User?) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: Locale.current.identifier)
+        dateFormatter.dateStyle = .long
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
+        guard let fastDate else { return }
+        
+        guard let lastDate = dateFormatter.date(from: fastDate) else {return}
+        guard let nowDate = dateFormatter.date(from: data.date) else {return}
+        
+        if nowDate > lastDate {
+            setDateLabelLayout()
+            dateFormatter.dateFormat = "yyyy년 M월 d일"
+            dateLabel.text = dateFormatter.string(from: nowDate)
+        }
         
         otherFirstChatLabel.text = data.message
         
@@ -46,18 +89,7 @@ class OtherChatFirstTableViewCell: UITableViewCell {
             profileImageView.image = UIImage(named: name)
         }
         
-        if data.user == nextUser {
-            profileImageView.backgroundColor = .clear
-            profileImageView.layer.borderWidth = 0
-            otherFirstNameLabel.frame.size = CGSize(width: otherFirstNameLabel.frame.width, height: 0)
-            otherFirstNameLabel.text = ""
-        }
-        
         if data.user != nextUser {
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: Locale.current.identifier)
-            dateFormatter.dateStyle = .long
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
             guard let oldDate = dateFormatter.date(from: data.date) else {return}
             
             dateFormatter.dateFormat = "a h:mm"

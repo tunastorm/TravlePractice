@@ -47,7 +47,7 @@ class OtherChatFirstTableViewCell: UITableViewCell {
         otherFirstTimeLabel.setLayoutForChatTimeLabel()
     }
     
-    func setDateLabelLayout() {
+    func configDateView(_ nowDate: Date, _ dateFormatter: DateFormatter) {
         dateView.snp.updateConstraints{
             $0.top.equalToSuperview().inset(5)
             $0.height.equalTo(20)
@@ -55,11 +55,14 @@ class OtherChatFirstTableViewCell: UITableViewCell {
         dateLabel.snp.updateConstraints {
             $0.top.equalToSuperview().inset(5)
         }
-        dateLabel.layer.borderWidth = 1
         dateLabel.textAlignment = .center
-        dateLabel.layer.cornerRadius = 10
-        dateLabel.layer.borderColor = UIColor.systemGray3.cgColor
         dateLabel.font = .systemFont(ofSize: 10)
+        dateLabel.textColor = .white
+        dateLabel.layer.masksToBounds = true
+        dateLabel.layer.cornerRadius = 10
+        dateLabel.backgroundColor = .systemGray
+        dateFormatter.dateFormat = "yyyy년 M월 d일"
+        dateLabel.text = dateFormatter.string(from: nowDate)
     }
     
     
@@ -70,15 +73,16 @@ class OtherChatFirstTableViewCell: UITableViewCell {
         dateFormatter.dateStyle = .long
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         
-        guard let fastDate else { return }
-        
-        guard let lastDate = dateFormatter.date(from: fastDate) else {return}
         guard let nowDate = dateFormatter.date(from: data.date) else {return}
         
-        if nowDate > lastDate {
-            setDateLabelLayout()
-            dateFormatter.dateFormat = "yyyy년 M월 d일"
-            dateLabel.text = dateFormatter.string(from: nowDate)
+        if let fastDate {
+            guard let lastDate = dateFormatter.date(from: fastDate) else {return}
+            
+            if lastDate.distance(to: nowDate) >= 86400 {
+                configDateView(nowDate, dateFormatter)
+            }
+        } else {
+            configDateView(nowDate, dateFormatter)
         }
         
         otherFirstChatLabel.text = data.message

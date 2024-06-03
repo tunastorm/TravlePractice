@@ -29,33 +29,26 @@ class OtherChatTableViewCell: UITableViewCell {
         otherChatTimeLabel.setLayoutForChatTimeLabel()
     }
     
-    func setDateLabelLayout() {
+    func configDateView(_ nowDate: Date, _ dateFormatter: DateFormatter) {
         dateLabel.snp.updateConstraints{
             $0.bottom.equalTo(chatBubbleView).inset(5)
             $0.height.equalTo(20)
         }
         dateLabel.layer.cornerRadius = dateLabel.frame.height * 0.5
-        dateLabel.layer.borderWidth = 1
-        dateLabel.layer.borderColor = UIColor.systemGray3.cgColor
+        dateLabel.backgroundColor = .systemGray
+        dateLabel.layer.masksToBounds = true
+        dateLabel.textColor = .white
+        dateFormatter.dateFormat = "yyyy년 M월 d일"
+        dateLabel.text = dateFormatter.string(from: nowDate)
     }
     
     
-    func configCell(_ data: Chat, _ fastDate: String?, _ nextUser: User?) {
+    func configCell(_ data: Chat, _ nextUser: User?) {
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: Locale.current.identifier)
         dateFormatter.dateStyle = .long
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        
-        guard let fastDate else { return }
-        
-        guard let lastDate = dateFormatter.date(from: fastDate) else {return}
-        guard let nowDate = dateFormatter.date(from: data.date) else {return}
-        
-        if nowDate > lastDate {
-            setDateLabelLayout()
-            dateLabel.text = data.date
-        }
         
         otherChatLabel.text = data.message
     

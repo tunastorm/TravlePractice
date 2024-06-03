@@ -14,7 +14,12 @@ class MyChatTableViewCell: UITableViewCell {
     
     @IBOutlet weak var chatBubbleView: UIView!
     
+    @IBOutlet weak var chatView: UIView!
+    
+    @IBOutlet weak var dateView: UIView!
+    
     @IBOutlet weak var dateLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,14 +40,24 @@ class MyChatTableViewCell: UITableViewCell {
         myChatTimeLabel.setLayoutForChatTimeLabel()
     }
     
-    func setDateLabelLayout() {
-        dateLabel.snp.updateConstraints{
-            $0.bottom.equalTo(chatBubbleView).inset(5)
+    func configDateView(_ nowDate: Date, _ dateFormatter: DateFormatter) {
+        
+        dateView.snp.updateConstraints{
             $0.height.equalTo(20)
+            $0.bottom.equalTo(chatView).inset(5)
         }
-        dateLabel.layer.cornerRadius = dateLabel.frame.height * 0.5
-        dateLabel.layer.borderWidth = 1
-        dateLabel.layer.borderColor = UIColor.systemGray3.cgColor
+        dateLabel.snp.updateConstraints{
+            $0.bottom.equalToSuperview().inset(5)
+        }
+        
+        dateLabel.layer.cornerRadius = 10
+        dateLabel.backgroundColor = .systemGray
+        dateLabel.layer.masksToBounds = true
+        dateLabel.textColor = .white
+        dateLabel.font = .systemFont(ofSize: 10)
+        dateLabel.textAlignment = .center
+        dateFormatter.dateFormat = "yyyy년 M월 d일"
+        dateLabel.text = dateFormatter.string(from: nowDate)
     }
     
     
@@ -54,14 +69,17 @@ class MyChatTableViewCell: UITableViewCell {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         
         
-        guard let fastDate else { return }
-        
-        guard let lastDate = dateFormatter.date(from: fastDate) else {return}
         guard let nowDate = dateFormatter.date(from: data.date) else {return}
         
-        if nowDate > lastDate {
-            setDateLabelLayout()
-            dateLabel.text = data.date
+        if let fastDate {
+            guard let lastDate = dateFormatter.date(from: fastDate) else {return}
+            
+            if lastDate.distance(to: nowDate) >= 86400 {
+                configDateView(nowDate, dateFormatter)
+            }
+        } else {
+            print(#function + " \(data)")
+            configDateView(nowDate, dateFormatter)
         }
         
         myChatLabel.text = data.message

@@ -177,7 +177,7 @@ extension ChattingRoomViewController: UITableViewDelegate, UITableViewDataSource
         } else if data.user == fastUser {
             let identifier = OtherChatTableViewCell.identifier
             let otherCell = chattingRoomTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! OtherChatTableViewCell
-            otherCell.configCell(data, fastDate, nextUser)
+            otherCell.configCell(data, nextUser)
             cell = otherCell
         }
         

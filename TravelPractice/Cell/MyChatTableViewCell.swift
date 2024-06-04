@@ -44,11 +44,11 @@ class MyChatTableViewCell: UITableViewCell {
         
         dateView.snp.updateConstraints{
             $0.height.equalTo(20)
-            $0.bottom.equalTo(chatView).inset(5)
+//            $0.bottom.equalTo(chatView).inset(5)
         }
-        dateLabel.snp.updateConstraints{
-            $0.bottom.equalToSuperview().inset(5)
-        }
+//        dateLabel.snp.updateConstraints{
+//            $0.bottom.equalToSuperview().inset(5)
+//        }
         
         dateLabel.layer.cornerRadius = 10
         dateLabel.backgroundColor = .systemGray

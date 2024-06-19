@@ -72,8 +72,9 @@ extension ChattingListViewController {
         navigationItem.rightBarButtonItem?.tintColor = .black
         navigationItem.backBarButtonItem?.tintColor = .black
         navigationItem.backButtonTitle = ""
-        let cancelButtonAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        UIBarButtonItem.appearance().tintColor = .black
+//        let cancelButtonAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+//        UIBarButtonItem.appearance().tintColor = .black
+        
     }
     
     func setSearchBar() {
@@ -88,8 +89,8 @@ extension ChattingListViewController {
             searchBar.searchTextField.textColor = .black
             searchBar.tintColor = .black
             searchBar.barTintColor = .black
-            searchBar.layer.addBorder([.bottom],
-                                      color: UIColor.systemGray, width: 1.0)
+//            searchBar.layer.addBorder([.bottom],
+//                                      color: UIColor.systemGray, width: 1.0)
             
             if let text = searchBar.text,
                    text.count == 0 && filterredArr.isEmpty {
@@ -99,9 +100,7 @@ extension ChattingListViewController {
         }
         
         self.navigationItem.searchController = searchController
-        
-        
-//        self.navigationItem.preferredSearchBarPlacement = .inline
+        self.navigationItem.preferredSearchBarPlacement = .stacked
     }
     
     func setSearchButtons() {
@@ -192,9 +191,13 @@ extension ChattingListViewController: UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if let naviHeight = navigationItem.searchController?.searchBar.frame.height,
-            scrollView.contentOffset.y <= naviHeight {
+    
+        if let searchBar,
+           let naviHeight = navigationItem.searchController?.searchBar.frame.height,
+           scrollView.contentOffset.y <= naviHeight {
             navigationItem.searchController?.searchBar.isHidden = false
+            
+
         }
     }
 }

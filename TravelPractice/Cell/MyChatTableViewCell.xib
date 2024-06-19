@@ -66,7 +66,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FEH-cx-CdD">
-                        <rect key="frame" x="10" y="5" width="300" height="0.0"/>
+                        <rect key="frame" x="10" y="0.0" width="300" height="0.0"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBe-G8-jXX">
                                 <rect key="frame" x="100" y="0.0" width="100" height="0.0"/>
@@ -88,12 +88,12 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="FEH-cx-CdD" secondAttribute="trailing" constant="10" id="3FI-Cu-BJ6"/>
-                    <constraint firstItem="FEH-cx-CdD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="AaM-Z4-S8y"/>
+                    <constraint firstItem="FEH-cx-CdD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="AaM-Z4-S8y"/>
                     <constraint firstItem="FEH-cx-CdD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="M0y-SF-wc8"/>
                     <constraint firstItem="bAm-Ci-aya" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Q0c-Vf-gj5"/>
                     <constraint firstAttribute="bottom" secondItem="bAm-Ci-aya" secondAttribute="bottom" constant="5" id="bk6-EJ-Hin"/>
                     <constraint firstAttribute="trailing" secondItem="bAm-Ci-aya" secondAttribute="trailing" constant="10" id="mDW-6l-GBt"/>
-                    <constraint firstItem="bAm-Ci-aya" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FEH-cx-CdD" secondAttribute="bottom" id="znq-k9-gqu"/>
+                    <constraint firstItem="bAm-Ci-aya" firstAttribute="top" secondItem="FEH-cx-CdD" secondAttribute="bottom" constant="5" id="mV8-fb-bwA"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

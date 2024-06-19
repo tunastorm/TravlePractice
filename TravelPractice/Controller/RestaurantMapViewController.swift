@@ -12,6 +12,11 @@ class RestaurantMapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    let locationManager = CLLocationManager()
+    
+    var authorizationStatus: CLAuthorizationStatus?
+    
+    
     lazy var segmentedControl: UISegmentedControl = {
       let control = UISegmentedControl(items: ["전체", "한식", "양식", "중식", "일식"])
       control.translatesAutoresizingMaskIntoConstraints = false
@@ -135,12 +140,18 @@ class RestaurantMapViewController: UIViewController {
         setSearhTextField()
         setSegmentedControl()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkDeviceLocationAuthorization()
+    }
 }
+
 
 extension RestaurantMapViewController {
     func setDelegate() {
         mapView.delegate = self
+        locationManager.delegate = self
         searchTextField.delegate = self
     }
     
@@ -200,6 +211,115 @@ extension RestaurantMapViewController {
         case 4: filterredArr = japArr
         default: return
         }
+    }
+    
+    func configUserLocationButton() {
+        var image: UIImage?
+        switch authorizationStatus {
+        case .notDetermined, .denied:
+            image = UIImage(systemName: "location")!
+        case .authorizedWhenInUse, .authorizedAlways:
+            image = UIImage(systemName: "location.fill")!
+        default: print(authorizationStatus)
+        }
+        
+        let barButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(setUserLocation))
+        barButtonItem.tintColor = .black
+        navigationItem.rightBarButtonItem = barButtonItem
+    }
+    
+    @objc func setUserLocation(_ sender: UIButton) {
+        checkDeviceLocationAuthorization()
+    }
+    
+    func checkDeviceLocationAuthorization() {
+        DispatchQueue.global().async {
+            if CLLocationManager.locationServicesEnabled() {
+                var status: CLAuthorizationStatus
+                
+                if #available(iOS 14.0, *) {
+                    status = self.locationManager.authorizationStatus
+                } else {
+                    status = CLLocationManager.authorizationStatus()
+                }
+                
+                self.authorizationStatus = status
+                DispatchQueue.main.async {
+                    self.checkCurrentLocationAuthorization(status)
+                    self.configUserLocationButton()
+                }
+            } else {
+                print("위치 서비스 꺼져있음")
+            }
+        }
+
+    }
+    
+    func checkCurrentLocationAuthorization(_ status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            print(#function, status, status.rawValue)
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.requestWhenInUseAuthorization()
+        case .denied:
+            let coordinate = CLLocationCoordinate2D(latitude: 37.517742, longitude: 126.886463)
+            setRegionAndAnnotation(center: coordinate)
+            showLocationSettingAlert()
+        case .authorizedWhenInUse:
+            print(#function, status, status.rawValue)
+            locationManager.startUpdatingLocation()
+        default: print(#function, status)
+        }
+    }
+        
+    func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
+        let region = MKCoordinateRegion(center: center,
+                                        latitudinalMeters: 500,
+                                        longitudinalMeters: 500)
+        mapView.setRegion(region, animated: true)
+    }
+    
+    func showLocationSettingAlert() {
+        let alert = UIAlertController(title: "위치 정보 이용",
+                                      message: "위치 서비스를 사용할 수 없습니다. 기기의 '설정>개인정보 보호'에서 위치서비스를 켜주세요",
+                                      preferredStyle: .alert)
+        let goSetting = UIAlertAction(title: "설정으로 이동", style: .default) { _ in
+            if let setting = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(setting)
+            }
+        }
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(goSetting)
+        alert.addAction(cancel)
+        present(alert, animated: true)
+    }
+}
+
+extension RestaurantMapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        print(#function)
+        if let coordinate = locations.last?.coordinate {
+            print(coordinate)
+            print(coordinate.latitude)
+            print(coordinate.longitude)
+            setRegionAndAnnotation(center: coordinate)
+            return
+        }
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+        print(#function, error)
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkDeviceLocationAuthorization()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        checkDeviceLocationAuthorization()
     }
 }
 
